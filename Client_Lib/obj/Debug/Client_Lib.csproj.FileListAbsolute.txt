@@ -1,0 +1,9 @@
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\bin\Debug\Client_Lib.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\bin\Debug\Client_Lib.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\bin\Debug\Connexion_manager.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\bin\Debug\Parametre.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\bin\Debug\Connexion_manager.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\bin\Debug\Parametre.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\obj\Debug\Client_Lib.csprojResolveAssemblyReference.cache
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\obj\Debug\Client_Lib.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Client_Lib\obj\Debug\Client_Lib.pdb
