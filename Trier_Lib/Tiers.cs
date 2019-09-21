@@ -13,17 +13,22 @@ namespace Trier_Lib
         public string Postnom { get; set; }
         public string Prenom { get; set; }
         public string Contact { get; set; }
+        public string Mail { get; set; }
+        public string Addresse { get; set; }
 
         private ITiers GetTiers(IDataReader dr)
         {
             ITiers tiers = new Tiers();
-            tiers.Id = Convert.ToInt32(dr[""].ToString());
-            tiers.Nom = dr[""].ToString();
-            tiers.Postnom = dr[""].ToString();
-            tiers.Prenom = dr[""].ToString();
-            tiers.Contact = dr[""].ToString();
+            tiers.Id = Convert.ToInt32(dr["N°"].ToString());
+            tiers.Nom = dr["First name"].ToString();
+            tiers.Postnom = dr["Last name"].ToString();
+            tiers.Prenom = dr["Surname"].ToString();
+            tiers.Contact = dr["Telephone"].ToString();
+            tiers.Mail = dr["E-mail"].ToString();
+            tiers.Addresse = dr["Adresse"].ToString();
             return tiers;
         }
+
         public List<ITiers> AllTiers()
         {
             List<ITiers> List = new List<ITiers>();
@@ -31,7 +36,7 @@ namespace Trier_Lib
                 ImplementeConnexion.Instance.Conn.Open();
             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
             {
-                cmd.CommandText = "";
+                cmd.CommandText = "SELECT_TIER";
                 cmd.CommandType = CommandType.StoredProcedure;
                 IDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -73,11 +78,13 @@ namespace Trier_Lib
             {
                 cmd.CommandText = "INSERT_TIER";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 5, DbType.Int32, Id));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Nom));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Postnom));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Prenom));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Contact));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@code", 5, DbType.Int32, Id));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@nom", 50, DbType.String, Nom));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@postnom", 50, DbType.String, Postnom));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@prenom", 50, DbType.String, Prenom));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@contact", 50, DbType.String, Contact));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@email", 50, DbType.String, Mail));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@adresse", 100, DbType.String, Addresse));
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Saved successfully !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -91,10 +98,11 @@ namespace Trier_Lib
                     ImplementeConnexion.Instance.Conn.Open();
                 using(IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
                 {
-                    cmd.CommandText = "";
+                    cmd.CommandText = "DELETE_TIER";
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "code", 5, DbType.Int32, id));
+                    cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@id", 5, DbType.Int32, id));
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Deleted successfully !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmd.Dispose();
                 }
             }
@@ -106,6 +114,25 @@ namespace Trier_Lib
             {
                 ImplementeConnexion.Instance.Conn.Close();
             }
+        }
+
+        public List<ITiers> Search(string recherche)
+        {
+            List<ITiers> lst = new List<ITiers>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * FROM Affichage_Tier WHERE [First name] LIKE '%" + recherche + "%' or [Last name] LIKE '%" + recherche + "%' ";
+                IDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    lst.Add(GetTiers(rd));
+                }
+                rd.Dispose();
+                rd.Close();
+            }
+            return lst;
         }
 
         public ITiers OneTier(int i)

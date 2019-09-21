@@ -2,3 +2,4 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Connexion_manag
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Connexion_manager\bin\Debug\Connexion_manager.pdb
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Connexion_manager\obj\Debug\Connexion_manager.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Connexion_manager\obj\Debug\Connexion_manager.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Connexion_manager\obj\Debug\Connexion_manager.csprojResolveAssemblyReference.cache

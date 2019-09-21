@@ -36,7 +36,7 @@ namespace Connexion_manager
             switch (sgbd)
             {
                 case Sgbd.SQLServer:
-                    _conn = new SqlConnection(string.Format("Data source ={ 0 }; Initial catalog = { 1 }; User ID = { 2 }; Password ={ 3}",
+                    _conn = new SqlConnection(string.Format("Data source ={0}; Initial catalog = {1}; User ID = {2}; Password ={3}",
                         connexion.Server, connexion.Database, connexion.User, connexion.Password));
                     break;
                     //case ConnexionType.MySQL:

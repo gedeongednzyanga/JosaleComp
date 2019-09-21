@@ -13,6 +13,8 @@ namespace Trier_Lib
         string Postnom { get; set; }
         string Prenom { get; set; }
         string Contact { get; set; }
+        string Mail { get; set; }
+        string Addresse { get; set; }
         int Nouveau();
         void Save(ITiers tiers);
         void Delete(int id);

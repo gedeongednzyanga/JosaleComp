@@ -18,7 +18,7 @@ namespace JosaleApp
     {
         //Création des objects
 
-        Tiers tier = new Tiers();
+        Tiers_user tier = new Tiers_user();
         Client client = new Client();
 
         public FormPrincipal()
@@ -30,7 +30,7 @@ namespace JosaleApp
   
         void ShowTier(object tier)
         {
-            Tiers tiers = tier as Tiers;
+            Tiers_user tiers = tier as Tiers_user;
             tiers.Dock = DockStyle.Fill;
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(tiers);

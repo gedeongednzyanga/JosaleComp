@@ -83,11 +83,11 @@
     <Compile Include="User_Controls\Client.Designer.cs">
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Controls\Tiers.cs">
+    <Compile Include="User_Controls\Tiers_user.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User_Controls\Tiers.Designer.cs">
-      <DependentUpon>Tiers.cs</DependentUpon>
+    <Compile Include="User_Controls\Tiers_user.Designer.cs">
+      <DependentUpon>Tiers_user.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormConfigurationServer.resx">
       <DependentUpon>FormConfigurationServer.cs</DependentUpon>
@@ -113,8 +113,8 @@
     <EmbeddedResource Include="User_Controls\Client.resx">
       <DependentUpon>Client.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Controls\Tiers.resx">
-      <DependentUpon>Tiers.cs</DependentUpon>
+    <EmbeddedResource Include="User_Controls\Tiers_user.resx">
+      <DependentUpon>Tiers_user.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -141,6 +141,10 @@
     <ProjectReference Include="..\Parametre\Parametre.csproj">
       <Project>{5b1d7237-3901-452c-9eeb-68a38020976f}</Project>
       <Name>Parametre</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trier_Lib\Trier_Lib.csproj">
+      <Project>{2fc1e272-3bf3-42b4-b170-471877a388b3}</Project>
+      <Name>Trier_Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -47,5 +47,52 @@ namespace JosaleApp
                     break;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    sgbd = Sgbd.SQLServer;
+                    break;
+                case 1:
+                    sgbd = Sgbd.MySQL;
+                    break;
+                case 2:
+                    sgbd = Sgbd.PostGrsSQL;
+                    break;
+                case 3:
+                    sgbd = Sgbd.Oracle;
+                    break;
+                case 4:
+                    sgbd = Sgbd.Access;
+                    break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBox1.Text != "" && comboBox2.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "") {
+                    File.WriteAllText(Chemin_Connexion.Table.server, comboBox2.Text.Trim());
+                    File.WriteAllText(Chemin_Connexion.Table.database, textBox2.Text.Trim());
+                    File.WriteAllText(Chemin_Connexion.Table.user, textBox3.Text.Trim());
+                    File.WriteAllText(Chemin_Connexion.Table.password, textBox4.Text.Trim());
+                    this.Close();
+                    Cls_Connexion.Instance().Connect();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid server configuration", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex) { MessageBox.Show("Error : " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+           
+        }
     }
 }

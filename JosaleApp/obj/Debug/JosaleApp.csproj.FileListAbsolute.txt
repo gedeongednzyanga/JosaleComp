@@ -6,7 +6,6 @@ c:\users\gedeon\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\D
 c:\users\gedeon\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.csproj.GenerateResource.Cache
 c:\users\gedeon\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.exe
 c:\users\gedeon\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.pdb
-c:\users\gedeon\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Tiers.resources
 c:\users\gedeon\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Client.resources
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.csprojResolveAssemblyReference.cache
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Bunifu_UI_v1.52.dll
@@ -19,3 +18,6 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\D
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.FormConfigurationServer.resources
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Josale_Utilities.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Josale_Utilities.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Trier_Lib.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Trier_Lib.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Tiers_user.resources
