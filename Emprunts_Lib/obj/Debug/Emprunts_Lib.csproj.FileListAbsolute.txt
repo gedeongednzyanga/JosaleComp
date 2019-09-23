@@ -1,0 +1,8 @@
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bin\Debug\Emprunts_Lib.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bin\Debug\Emprunts_Lib.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bin\Debug\Connexion_manager.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bin\Debug\Parametre.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bin\Debug\Connexion_manager.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bin\Debug\Parametre.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\obj\Debug\Emprunts_Lib.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\obj\Debug\Emprunts_Lib.pdb
