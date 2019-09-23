@@ -21,3 +21,11 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\D
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Trier_Lib.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Trier_Lib.pdb
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Tiers_user.resources
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.New_emprunt.resources
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Emprunts_Lib.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Emprunts_Lib.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Emprunt_user.resources
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\GSMCommShared.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\GSMCommunication.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\PDUConverter.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\RS232.dll

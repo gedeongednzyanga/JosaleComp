@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JosaleApp.Classes;
 
 namespace JosaleApp.User_Controls
 {
@@ -51,6 +52,7 @@ namespace JosaleApp.User_Controls
         private void Tiers_Load(object sender, EventArgs e)
         {
            Load_All_Tier(new Tiers());
+           new Cls_Message().GetAllPorts(comboBox1);
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

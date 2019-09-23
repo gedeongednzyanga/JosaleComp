@@ -15,12 +15,16 @@ namespace Emprunts_Lib
         int Reftier { get; set; }
         DateTime DateEmprunt { get; set; }
         DateTime DateRembu { get; set; }
+        string Name { get; set; }
+        string LastName { get; set; }
+        string SurName { get; set; }
         string Tier { get; set; }
 
         int Nouveau();
         void Save(IEmprunt emprunt);
         void Delete(int id);
         List<IEmprunt> AllEmprunt();
+        List<IEmprunt> Get_TierNomId();
         IEmprunt OneEmprunt(int id);
     }
 }

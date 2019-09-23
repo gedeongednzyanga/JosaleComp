@@ -20,6 +20,7 @@ namespace JosaleApp
 
         Tiers_user tier = new Tiers_user();
         Client client = new Client();
+        Emprunt_user empruts= new Emprunt_user();
 
         public FormPrincipal()
         {
@@ -42,6 +43,14 @@ namespace JosaleApp
             clients.Dock = DockStyle.Fill;
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(clients);
+            panel_principal.Show();
+        }
+        void ShowEmprunt(object emprunt)
+        {
+            Emprunt_user emprunts = emprunt as Emprunt_user;
+            emprunts.Dock = DockStyle.Fill;
+            panel_principal.Controls.Clear();
+            panel_principal.Controls.Add(emprunts);
             panel_principal.Show();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -67,6 +76,16 @@ namespace JosaleApp
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             Test_Configuration.Test_Flies();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            new New_emprunt().ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ShowEmprunt(empruts);
         }
     }
 }

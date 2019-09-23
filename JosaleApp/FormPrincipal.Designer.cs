@@ -49,10 +49,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_principal = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -64,7 +69,9 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -105,6 +112,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(3, 4);
@@ -278,12 +286,36 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel2.Controls.Add(this.groupBox9);
+            this.panel2.Controls.Add(this.groupBox8);
             this.panel2.Controls.Add(this.groupBox7);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(3, 331);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 322);
             this.panel2.TabIndex = 0;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label9);
+            this.groupBox8.Location = new System.Drawing.Point(16, 85);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(177, 47);
+            this.groupBox8.TabIndex = 3;
+            this.groupBox8.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(8, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(165, 33);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "New emprunt";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // groupBox7
             // 
@@ -326,6 +358,38 @@
             this.panel_principal.Size = new System.Drawing.Size(782, 412);
             this.panel_principal.TabIndex = 3;
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.label10);
+            this.groupBox9.Location = new System.Drawing.Point(12, 138);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(177, 47);
+            this.groupBox9.TabIndex = 3;
+            this.groupBox9.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(8, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(165, 33);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "New emprunt";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(526, 13);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 32);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "button1";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,7 +419,9 @@
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,6 +454,11 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button3;
     }
 }
 
