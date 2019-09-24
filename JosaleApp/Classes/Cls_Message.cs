@@ -12,8 +12,8 @@ namespace JosaleApp.Classes
 {
     public class Cls_Message
     {
-        private static int port, baudRate, timeout;
-        private GsmCommMain comm;
+        public static int port, baudRate, timeout;
+        public GsmCommMain comm;
        
         public string GetAllPorts(ComboBox port)
         {
@@ -56,7 +56,7 @@ namespace JosaleApp.Classes
             timeout = timeoute;
         }
 
-        public bool EnterNewSettings(string port1, string port2, string port3)
+        public bool EnterNewSettings()
         {
             int newPort;
             int newBaudRate;
@@ -64,7 +64,7 @@ namespace JosaleApp.Classes
 
             try
             {
-                newPort = int.Parse(port1);
+                newPort = 13;
             }
             catch (Exception)
             {
@@ -75,19 +75,19 @@ namespace JosaleApp.Classes
 
             try
             {
-                newBaudRate = int.Parse(port2);
+                newBaudRate =9600;
             }
             catch (Exception)
             {
 
                 MessageBox.Show("Invalid baud rate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-               // comboBox2.Focus();
+                // comboBox2.Focus();
                 return false;
             }
 
             try
             {
-                newTimeout = int.Parse(port3);
+                newTimeout = 150;
             }
             catch (Exception)
             {
@@ -102,7 +102,7 @@ namespace JosaleApp.Classes
             return true;
         }
 
-        public void Send(string number, string message)
+        public void Send(string message ,string number )
         {
             Cursor.Current = Cursors.WaitCursor;
 
@@ -127,9 +127,9 @@ namespace JosaleApp.Classes
             Cursor.Current = Cursors.Default;
         }
 
-        private void Test_port()
+        public void Test_port()
         {
-            if (!EnterNewSettings("", "", ""))
+            if (!EnterNewSettings())
                 return;
 
             Cursor.Current = Cursors.WaitCursor;

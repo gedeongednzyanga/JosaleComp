@@ -13,6 +13,8 @@ namespace Client_Lib
         string Postnom { get; set; }
         string Prenom { get; set; }
         string Contact { get; set; }
+        string Mail { get; set; }
+        string Addresse { get; set; }
         int Nouveau();
         void Save(IClient client);
         void Delete(int id);

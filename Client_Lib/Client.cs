@@ -10,22 +10,26 @@ using System.Windows.Forms;
 
 namespace Client_Lib
 {
-    class Client : IClient
+   public  class Client : IClient
     {
         public int Id { get; set; }
         public string Nom { get; set; }
         public string Postnom { get; set; }
         public string Prenom { get; set; }
         public string Contact { get; set; }
+        public string Mail { get; set; }
+        public string Addresse { get; set; }
 
         private IClient GetClient(IDataReader dr)
         {
             IClient clients = new Client();
-            clients.Id = Convert.ToInt32(dr["code_cli"].ToString());
-            clients.Nom = dr[""].ToString();
-            clients.Postnom = dr[""].ToString();
-            clients.Prenom = dr[""].ToString();
-            clients.Contact = dr[""].ToString();
+            clients.Id = Convert.ToInt32(dr["N°"].ToString());
+            clients.Nom = dr["First name"].ToString();
+            clients.Postnom = dr["Last name"].ToString();
+            clients.Prenom = dr["Surname"].ToString();
+            clients.Contact = dr["Telephone"].ToString();
+            clients.Mail = dr["E-mail"].ToString();
+            clients.Addresse = dr["Physical address"].ToString();
             return clients;
         }
         public List<IClient> AllClient()
@@ -48,6 +52,24 @@ namespace Client_Lib
             return list;
         }
 
+        public List<IClient> Search(string recherche)
+        {
+            List<IClient> lst = new List<IClient>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * FROM Affichage_Client WHERE [First name] LIKE '%" + recherche + "%' or [Last name] LIKE '%" + recherche + "%' ";
+                IDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    lst.Add(GetClient(rd));
+                }
+                rd.Dispose();
+                rd.Close();
+            }
+            return lst;
+        }
         public void Delete(int id)
         {
             if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)

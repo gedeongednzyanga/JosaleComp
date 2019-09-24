@@ -53,6 +53,7 @@ namespace JosaleApp.User_Controls
         {
            Load_All_Tier(new Tiers());
            new Cls_Message().GetAllPorts(comboBox1);
+            
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -63,6 +64,17 @@ namespace JosaleApp.User_Controls
         private void text_search_TextChanged(object sender, EventArgs e)
         {
             Search();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new Cls_Message().EnterNewSettings();
+            new Cls_Message().Test_port();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Cls_Message().Send(richTextBox1.Text,textBox1.Text.Trim());
         }
     }
 }

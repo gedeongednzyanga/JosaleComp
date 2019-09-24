@@ -19,7 +19,7 @@ namespace JosaleApp
         //Création des objects
 
         Tiers_user tier = new Tiers_user();
-        Client client = new Client();
+        Client_user client = new Client_user();
         Emprunt_user empruts= new Emprunt_user();
 
         public FormPrincipal()
@@ -39,7 +39,7 @@ namespace JosaleApp
         }
         void ShowClient(object client)
         {
-            Client clients = client as Client;
+            Client_user clients = client as Client_user;
             clients.Dock = DockStyle.Fill;
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(clients);
@@ -55,12 +55,12 @@ namespace JosaleApp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            ShowTier(tier);
+           
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
-            new New_Tiers().ShowDialog();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -80,12 +80,42 @@ namespace JosaleApp
 
         private void label9_Click(object sender, EventArgs e)
         {
-            new New_emprunt().ShowDialog();
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            new New_Tiers().ShowDialog();
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            ShowTier(tier);
+        }
+
+        private void label8_Click_1(object sender, EventArgs e)
+        {
+            new New_emprunt().ShowDialog();
+        }
+
+        private void label9_Click_1(object sender, EventArgs e)
+        {
             ShowEmprunt(empruts);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            ShowClient(new Client_user());
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            new New_Client().ShowDialog();
         }
     }
 }
