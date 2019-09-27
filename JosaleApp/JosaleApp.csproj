@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Cls_Message.cs" />
+    <Compile Include="Classes\Dynamic_Classe.cs" />
     <Compile Include="Classes\Test_Configuration.cs" />
     <Compile Include="FormConfigurationServer.cs">
       <SubType>Form</SubType>
@@ -185,6 +186,10 @@
     <ProjectReference Include="..\Parametre\Parametre.csproj">
       <Project>{5b1d7237-3901-452c-9eeb-68a38020976f}</Project>
       <Name>Parametre</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prets_Lib\Prets_Lib.csproj">
+      <Project>{04f44b49-04e1-422e-a6fc-d3099acda7c2}</Project>
+      <Name>Prets_Lib</Name>
     </ProjectReference>
     <ProjectReference Include="..\Trier_Lib\Trier_Lib.csproj">
       <Project>{2fc1e272-3bf3-42b4-b170-471877a388b3}</Project>

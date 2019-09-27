@@ -9,12 +9,14 @@ using System.Data;
 
 namespace Prets_Lib
 {
-    class Gage
+    public class Gage
     {
+
         public int Id { get; set; }
         public string Designation { get; set; }
         public float Valeur { get; set; }
         public int Refpret { get; set; }
+        public int Nombre { get; set; }
 
         public int Nouveau()
         {
@@ -28,7 +30,7 @@ namespace Prets_Lib
                     if (dr["last_id"] == DBNull.Value)
                         Id = 1;
                     else
-                        Id = Convert.ToInt32(dr["last_id"].ToString());
+                        Id = Convert.ToInt32(dr["last_id"].ToString()) + 1;
                 }
                 dr.Dispose();
             }
@@ -40,12 +42,13 @@ namespace Prets_Lib
             if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
                 ImplementeConnexion.Instance.Conn.Open();
             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand()) {
-                cmd.CommandText = "";
+                cmd.CommandText = "INSERT_GAGE";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 5, DbType.Int32, Id));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Designation));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 10, DbType.Double, Valeur));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 10, DbType.Int32, Refpret));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@code", 10, DbType.Int32, Id));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@designation", 50, DbType.String, Designation));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@valeur", 10, DbType.Double, Valeur));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@refpret", 10, DbType.Int32, Refpret));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@nombre", 10, DbType.Int32, Nombre));
                 cmd.ExecuteNonQuery();
             }
         }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Prets_Lib
 {
-    class Prets : IPrets
+    public class Prets : IPrets
     {
         public DateTime DateRembour {get; set; }
         public int Id{ get; set; }
@@ -131,13 +131,13 @@ namespace Prets_Lib
             {
                 cmd.CommandText = "INSERT_PRETS";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 5, DbType.Int32, Id));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 10, DbType.Double, Montant));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 5, DbType.Int32, RefCli));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 5, DbType.Int32, RefInteret));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 5, DbType.Date, DateRembour));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@code", 10, DbType.Int32, Id));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@montant", 10, DbType.Double, Montant));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@refcli", 10, DbType.Int32, RefCli));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@refinter", 10, DbType.Int32, RefInteret));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@daterembour", 20, DbType.Date, DateRembour));
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Saved successfully !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Saved successfully !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

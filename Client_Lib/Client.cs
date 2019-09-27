@@ -134,11 +134,15 @@ namespace Client_Lib
                 ImplementeConnexion.Instance.Conn.Open();
             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
             {
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 5, DbType.Int32, Id));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Nom));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Postnom));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Prenom));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "", 50, DbType.String, Contact));
+                cmd.CommandText = "INSERT_CLIENT";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@code", 10, DbType.Int32, Id));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@nom", 50, DbType.String, Nom));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@postnom", 50, DbType.String, Postnom));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@prenom", 50, DbType.String, Prenom));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@contact", 50, DbType.String, Contact));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@mail", 50, DbType.String, Mail));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@adresse", 100, DbType.String, Addresse));
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Saved successfully !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmd.Dispose();

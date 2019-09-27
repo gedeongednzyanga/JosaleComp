@@ -67,3 +67,5 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\D
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Client_user.resources
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Client_Lib.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Client_Lib.pdb
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Prets_Lib.dll
+C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Prets_Lib.pdb
