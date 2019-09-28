@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Parametre;
 
 namespace JosaleApp.Classes
 {
@@ -59,6 +60,42 @@ namespace JosaleApp.Classes
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+       public void Load_gage(int id, ListView liste)
+        {
+
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT_ONE_GAGE";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@code", 10, DbType.Int32, id));
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ListViewItem list = new ListViewItem(dr["Code"].ToString());
+                        list.SubItems.Add(dr["Designation"].ToString());
+                        list.SubItems.Add(dr["Valeur"].ToString());
+                        list.SubItems.Add(dr["Nombre"].ToString());
+                        list.SubItems.Add(dr["Nombre"].ToString());
+                        liste.Items.Add(list);
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur " + ex.Message, "Error");
+            }
+            finally
+            {
+                ImplementeConnexion.Instance.Conn.Close();
             }
         }
     }

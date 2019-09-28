@@ -52,5 +52,36 @@ namespace Prets_Lib
                 cmd.ExecuteNonQuery();
             }
         }
+        private DataTable GetAll(IDataReader dr)
+        {
+            DataTable gage = new DataTable();
+            gage.Columns.Add("Code");
+            gage.Columns.Add("Designation");
+            gage.Columns.Add("Valeur");
+            gage.Columns.Add("Refpre");
+            gage.Columns.Add("Nombre");
+            return gage;
+
+        }
+        public List<DataTable> AllGage(int id)
+        {
+            List<DataTable> list = new List<DataTable>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT_ONE_GAGE";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@code", 10, DbType.Int32, id));
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetAll(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
     }
 }

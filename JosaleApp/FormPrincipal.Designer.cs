@@ -276,6 +276,7 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "All credits";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // label1
             // 

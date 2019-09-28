@@ -27,15 +27,15 @@ namespace Prets_Lib
         private IPrets GetAll(IDataReader dr)
         {
             IPrets prets = new Prets();
-            prets.Id = Convert.ToInt32(dr[""].ToString());
-            prets.Nom = dr[""].ToString();
-            prets.Postnom = dr[""].ToString();
-            prets.Prenom = dr[""].ToString();
-            prets.Montant = float.Parse(dr[""].ToString());
-            prets.Interet = float.Parse(dr[""].ToString());
-            prets.Montantpaye = float.Parse(dr[""].ToString());
-            prets.DatePret = Convert.ToDateTime(dr[""].ToString());
-            prets.DateRembour = Convert.ToDateTime(dr[""].ToString()).Date;
+            prets.Id = Convert.ToInt32(dr["Numéro"].ToString());
+            prets.Nom = dr["Nom"].ToString();
+            prets.Postnom = dr["Postnom"].ToString();
+            prets.Prenom = dr["Prénom"].ToString();
+            prets.Montant = float.Parse(dr["Montant prêté"].ToString());
+            prets.Interet = float.Parse(dr["Intéret"].ToString());
+            prets.Montantpaye = float.Parse(dr["Montant à payé"].ToString());
+            prets.DatePret = Convert.ToDateTime(dr["Date Prêt"].ToString());
+            prets.DateRembour = Convert.ToDateTime(dr["Date Remb."].ToString()).Date;
             return prets;
 
         }
@@ -46,7 +46,7 @@ namespace Prets_Lib
                 ImplementeConnexion.Instance.Conn.Open();
             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
             {
-                cmd.CommandText = "";
+                cmd.CommandText = "SELECT_PRET";
                 cmd.CommandType = CommandType.StoredProcedure;
                 IDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

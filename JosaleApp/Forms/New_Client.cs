@@ -18,13 +18,30 @@ namespace JosaleApp.Forms
         IClient client;
         IPrets prets;
         Gage gage;
-        int code_cli=0, code_pret=0, code_interet=0, code_gage;
+        int code_cli=0, code_pret=0, code_interet=0, code_gage=0;
 
         public New_Client()
         {
             InitializeComponent();
         }
 
+        void InitializeControls()
+        {
+            code_cli = 0;
+            code_pret = 0;
+            code_interet = 0;
+            code_gage = 0;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            lab_customer.Text = "Customer";
+            dataGridView2.Rows.Clear();
+
+        }
         void Nouveau_Client_Pret()
         {
             client = new Client();
@@ -49,24 +66,20 @@ namespace JosaleApp.Forms
             try
             {
                 client = new Client();
-                if(code_cli == 0 || textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") ||
-                    textBox4.Text.Equals("") || textBox5.Text.Equals("") || textBox6.Text.Equals(""))
-                { MessageBox.Show("Complete all input fields for customer !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                else
-                {
-                    client.Id = Convert.ToInt32(code_cli);
-                    client.Nom = textBox1.Text.Trim();
-                    client.Postnom = textBox2.Text.Trim();
-                    client.Prenom = textBox3.Text.Trim();
-                    client.Contact = textBox4.Text.Trim();
-                    client.Mail = textBox5.Text.Trim();
-                    client.Addresse = textBox6.Text.Trim();
 
-                    if (btn)
-                        client.Save(client);
-                    else
-                        client.Delete(code_cli);
-                }
+                client.Id = Convert.ToInt32(code_cli);
+                client.Nom = textBox1.Text.Trim();
+                client.Postnom = textBox2.Text.Trim();
+                client.Prenom = textBox3.Text.Trim();
+                client.Contact = textBox4.Text.Trim();
+                client.Mail = textBox5.Text.Trim();
+                client.Addresse = textBox6.Text.Trim();
+
+                if (btn)
+                    client.Save(client);
+                else
+                    client.Delete(code_cli);
+                
             }catch(Exception ex)
             {
                 MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,21 +91,17 @@ namespace JosaleApp.Forms
             try
             {
                 prets = new Prets();
-                if (code_pret == 0 || code_cli == 0 || textBox7.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") ||
-                    textBox4.Text.Equals("") || textBox5.Text.Equals("") || textBox6.Text.Equals(""))
-                { MessageBox.Show("Complete all input fields for credit detail !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                
+                prets.Id = Convert.ToInt32(code_pret);
+                prets.Montant = float.Parse(textBox7.Text.Trim());
+                prets.RefCli = Convert.ToInt32(code_cli);
+                prets.RefInteret = Convert.ToInt32(code_interet);
+                prets.DateRembour = dateTimePicker1.Value.Date;
+                if (btn)
+                    prets.Save(prets);
                 else
-                {
-                    prets.Id = Convert.ToInt32(code_pret);
-                    prets.Montant = float.Parse(textBox7.Text.Trim());
-                    prets.RefCli = Convert.ToInt32(code_cli);
-                    prets.RefInteret = Convert.ToInt32(code_interet);
-                    prets.DateRembour = dateTimePicker1.Value.Date;
-                    if (btn)
-                        prets.Save(prets);
-                    else
-                        prets.Delete(code_pret);
-                }
+                    prets.Delete(code_pret);
+                
             }
             catch (Exception ex)
             {
@@ -123,9 +132,20 @@ namespace JosaleApp.Forms
 
         void Save_Credit()
         {
-            Save_Client(true);
-            Save_Pret(true);
-            Save_Gage(true);
+            if (code_cli == 0 || code_gage == 0 || code_pret == 0)
+            { MessageBox.Show("Clik at first the new Button !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+            else if (tabControl1.SelectedIndex ==0 && textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") ||
+                     textBox4.Text.Equals("") || textBox5.Text.Equals("") || textBox6.Text.Equals(""))
+            { MessageBox.Show("Complete all input fields for customer !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else if (code_interet == 0 || textBox7.Text.Equals(""))
+            { MessageBox.Show("Complete mount case for credit !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else if (dataGridView2.Rows.Count == 0){ MessageBox.Show("No guarantee for this credit !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else
+            {
+                Save_Client(true);
+                Save_Pret(true);
+                Save_Gage(true);
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -155,6 +175,19 @@ namespace JosaleApp.Forms
                 return;
             dataGridView2.Rows.Add(code_gage.ToString(), textBox13.Text.Trim(), textBox12.Text.Trim(), textBox11.Text.Trim());
             code_gage++;
+            textBox13.Text = "";
+            textBox12.Text = "";
+            textBox11.Text = "";
+            textBox13.Focus();
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch !=8 && ch != 46)
+            {
+                e.Handled = true;
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

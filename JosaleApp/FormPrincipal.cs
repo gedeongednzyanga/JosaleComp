@@ -21,6 +21,7 @@ namespace JosaleApp
         Tiers_user tier = new Tiers_user();
         Client_user client = new Client_user();
         Emprunt_user empruts= new Emprunt_user();
+        Credit_user credits = new Credit_user();
 
         public FormPrincipal()
         {
@@ -51,6 +52,14 @@ namespace JosaleApp
             emprunts.Dock = DockStyle.Fill;
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(emprunts);
+            panel_principal.Show();
+        }
+        void ShowCredit(object credit)
+        {
+            Credit_user credits = credit as Credit_user;
+            credits.Dock = DockStyle.Fill;
+            panel_principal.Controls.Clear();
+            panel_principal.Controls.Add(credits);
             panel_principal.Show();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -116,6 +125,11 @@ namespace JosaleApp
         private void label5_Click(object sender, EventArgs e)
         {
             new New_Client().ShowDialog();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+            ShowCredit(credits);
         }
     }
 }
