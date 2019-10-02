@@ -28,10 +28,6 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\D
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\GSMCommunication.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\PDUConverter.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\RS232.dll
-C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DevExpress.Data.v15.2.dll
-C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DevExpress.Utils.v15.2.dll
-C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DevExpress.XtraBars.v15.2.dll
-C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DevExpress.XtraEditors.v15.2.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DevExpress.Printing.v15.2.Core.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DevExpress.Data.v15.2.xml
