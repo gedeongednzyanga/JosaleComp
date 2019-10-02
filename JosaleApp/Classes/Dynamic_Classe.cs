@@ -98,5 +98,36 @@ namespace JosaleApp.Classes
                 ImplementeConnexion.Instance.Conn.Close();
             }
         }
+        public void Load_Credit(DataGridView liste)
+        {
+
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT_CREDIT_FOR_CUSTOMER";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+
+                        liste.Rows.Add(dr["N°"].ToString(), dr["Customer"].ToString(), dr["Mount"].ToString());
+                       
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur " + ex.Message, "Error");
+            }
+            finally
+            {
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+        }
     }
 }

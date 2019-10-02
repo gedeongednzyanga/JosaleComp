@@ -94,6 +94,12 @@
     <Compile Include="Forms\New_emprunt.Designer.cs">
       <DependentUpon>New_emprunt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\New_Payement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\New_Payement.Designer.cs">
+      <DependentUpon>New_Payement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\New_Tiers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\New_emprunt.resx">
       <DependentUpon>New_emprunt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\New_Payement.resx">
+      <DependentUpon>New_Payement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\New_Tiers.resx">
       <DependentUpon>New_Tiers.cs</DependentUpon>

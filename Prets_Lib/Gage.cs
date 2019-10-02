@@ -24,7 +24,7 @@ namespace Prets_Lib
                 ImplementeConnexion.Instance.Conn.Open();
             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
             {
-                cmd.CommandText = "SELECT MAX(code_gage) as last_id from gage";
+                cmd.CommandText = "SELECT MAX(code_remb) as last_id from gage";
                 IDataReader dr = cmd.ExecuteReader();
                 if(dr.Read()){
                     if (dr["last_id"] == DBNull.Value)

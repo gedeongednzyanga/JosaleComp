@@ -45,6 +45,7 @@
     <Compile Include="IPrets.cs" />
     <Compile Include="Prets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rembourssement.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Connexion_manager\Connexion_manager.csproj">

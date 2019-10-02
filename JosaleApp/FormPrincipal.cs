@@ -131,5 +131,10 @@ namespace JosaleApp
         {
             ShowCredit(credits);
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            new New_Payement().ShowDialog();
+        }
     }
 }
