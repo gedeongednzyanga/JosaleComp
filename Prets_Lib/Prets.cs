@@ -39,6 +39,21 @@ namespace Prets_Lib
             return prets;
 
         }
+
+        private IPrets GetAll_Rembou(IDataReader dr)
+        {
+            IPrets prets = new Prets();
+            prets.Id = Convert.ToInt32(dr["Numéro"].ToString());
+            prets.Nom = dr["Nom"].ToString();
+            prets.Postnom = dr["Postnom"].ToString();
+            prets.Prenom = dr["Prénom"].ToString();
+            prets.Montant = float.Parse(dr["montant"].ToString());
+            prets.Montantpaye = float.Parse(dr["Rest"].ToString());
+            prets.DatePret = Convert.ToDateTime(dr["Date Remb."].ToString());
+            return prets;
+
+        }
+
         public List<IPrets> Allcredit()
         {
             List<IPrets> list = new List<IPrets>();
@@ -52,6 +67,26 @@ namespace Prets_Lib
                 while (dr.Read())
                 {
                     list.Add(GetAll(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
+
+        public List<IPrets> AllRembou()
+        {
+            List<IPrets> list = new List<IPrets>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT_REMBOU";
+                cmd.CommandType = CommandType.StoredProcedure;
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetAll_Rembou(dr));
                 }
                 cmd.Dispose();
                 dr.Close();

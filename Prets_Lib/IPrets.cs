@@ -25,6 +25,7 @@ namespace Prets_Lib
         void Save(IPrets prets);
         void Delete(int id);
         List<IPrets> Allcredit();
+        List<IPrets> AllRembou();
         IPrets OneCredit(int id);
     }
 }

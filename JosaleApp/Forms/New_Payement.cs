@@ -35,7 +35,7 @@ namespace JosaleApp.Forms
                 rembou = new Rembourssement();
                 if (codeRembu == 0)
                 { MessageBox.Show("Clik at first the new Button !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
-                else if (string.IsNullOrEmpty(label3.Text) || string.IsNullOrEmpty(textBox1.Text))
+                else if (codeClient == 0 || string.IsNullOrEmpty(label3.Text) || string.IsNullOrEmpty(textBox1.Text))
                 { MessageBox.Show("Complete the mount case or select custumer please", "Messasge...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
                 else
                 {
@@ -52,9 +52,11 @@ namespace JosaleApp.Forms
             {
                 MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Get_Credit();
         }
         void Get_Credit()
         {
+            dataGridView1.Rows.Clear();
            Dynamic_Classe.Instance().Load_Credit(dataGridView1);
         }
 
@@ -92,6 +94,16 @@ namespace JosaleApp.Forms
                     Save_Rembou(true);
                     break;
             }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!Char.IsDigit(ch) && ch !=8  && ch != 46)
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }
