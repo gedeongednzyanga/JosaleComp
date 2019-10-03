@@ -1,0 +1,996 @@
+[33mcommit 09598531a8d8fc4a59f1e627756a448818f85215[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: GEDEON NZYANGA <gedeonnzyanga@gmail.com>
+Date:   Thu Oct 3 12:19:27 2019 +0200
+
+    Ajout formulaire rembourssement et codes affichage
+
+[1mdiff --git a/.vs/JosaleComp/v14/.suo b/.vs/JosaleComp/v14/.suo[m
+[1mindex 6b944ff..be90068 100644[m
+Binary files a/.vs/JosaleComp/v14/.suo and b/.vs/JosaleComp/v14/.suo differ
+[1mdiff --git a/JosaleApp/FormPrincipal.Designer.cs b/JosaleApp/FormPrincipal.Designer.cs[m
+[1mindex 8ab6696..0d9fb21 100644[m
+[1m--- a/JosaleApp/FormPrincipal.Designer.cs[m
+[1m+++ b/JosaleApp/FormPrincipal.Designer.cs[m
+[36m@@ -34,6 +34,7 @@[m
+             this.outilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+             this.panel1 = new System.Windows.Forms.Panel();[m
+             this.groupBox1 = new System.Windows.Forms.GroupBox();[m
+[32m+[m[32m            this.button1 = new System.Windows.Forms.Button();[m
+             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();[m
+             this.panel3 = new System.Windows.Forms.Panel();[m
+             this.panel7 = new System.Windows.Forms.Panel();[m
+[36m@@ -60,7 +61,7 @@[m
+             this.label9 = new System.Windows.Forms.Label();[m
+             this.label2 = new System.Windows.Forms.Label();[m
+             this.panel_principal = new System.Windows.Forms.Panel();[m
+[31m-            this.button1 = new System.Windows.Forms.Button();[m
+[32m+[m[32m            this.button2 = new System.Windows.Forms.Button();[m
+             this.menuStrip1.SuspendLayout();[m
+             this.panel1.SuspendLayout();[m
+             this.groupBox1.SuspendLayout();[m
+[36m@@ -111,6 +112,7 @@[m
+             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) [m
+             | System.Windows.Forms.AnchorStyles.Left) [m
+             | System.Windows.Forms.AnchorStyles.Right)));[m
+[32m+[m[32m            this.groupBox1.Controls.Add(this.button2);[m
+             this.groupBox1.Controls.Add(this.button1);[m
+             this.groupBox1.Location = new System.Drawing.Point(3, 4);[m
+             this.groupBox1.Name = "groupBox1";[m
+[36m@@ -118,6 +120,16 @@[m
+             this.groupBox1.TabIndex = 0;[m
+             this.groupBox1.TabStop = false;[m
+             // [m
+[32m+[m[32m            // button1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.button1.Location = new System.Drawing.Point(109, 19);[m
+[32m+[m[32m            this.button1.Name = "button1";[m
+[32m+[m[32m            this.button1.Size = new System.Drawing.Size(75, 33);[m
+[32m+[m[32m            this.button1.TabIndex = 0;[m
+[32m+[m[32m            this.button1.Text = "button1";[m
+[32m+[m[32m            this.button1.UseVisualStyleBackColor = true;[m
+[32m+[m[32m            this.button1.Click += new System.EventHandler(this.button1_Click_1);[m
+[32m+[m[32m            //[m[41m [m
+             // flowLayoutPanel1[m
+             // [m
+             this.flowLayoutPanel1.AutoScroll = true;[m
+[36m@@ -471,15 +483,15 @@[m
+             this.panel_principal.Size = new System.Drawing.Size(782, 412);[m
+             this.panel_principal.TabIndex = 3;[m
+             // [m
+[31m-            // button1[m
+[32m+[m[32m            // button2[m
+             // [m
+[31m-            this.button1.Location = new System.Drawing.Point(109, 19);[m
+[31m-            this.button1.Name = "button1";[m
+[31m-            this.button1.Size = new System.Drawing.Size(75, 33);[m
+[31m-            this.button1.TabIndex = 0;[m
+[31m-            this.button1.Text = "button1";[m
+[31m-            this.button1.UseVisualStyleBackColor = true;[m
+[31m-            this.button1.Click += new System.EventHandler(this.button1_Click_1);[m
+[32m+[m[32m            this.button2.Location = new System.Drawing.Point(209, 19);[m
+[32m+[m[32m            this.button2.Name = "button2";[m
+[32m+[m[32m            this.button2.Size = new System.Drawing.Size(75, 33);[m
+[32m+[m[32m            this.button2.TabIndex = 0;[m
+[32m+[m[32m            this.button2.Text = "button1";[m
+[32m+[m[32m            this.button2.UseVisualStyleBackColor = true;[m
+[32m+[m[32m            this.button2.Click += new System.EventHandler(this.button2_Click_1);[m
+             // [m
+             // FormPrincipal[m
+             // [m
+[36m@@ -547,6 +559,7 @@[m
+         private System.Windows.Forms.Label label5;[m
+         private System.Windows.Forms.Label label6;[m
+         private System.Windows.Forms.Button button1;[m
+[32m+[m[32m        private System.Windows.Forms.Button button2;[m
+     }[m
+ }[m
+ [m
+[1mdiff --git a/JosaleApp/FormPrincipal.cs b/JosaleApp/FormPrincipal.cs[m
+[1mindex 862830a..b0c2157 100644[m
+[1m--- a/JosaleApp/FormPrincipal.cs[m
+[1m+++ b/JosaleApp/FormPrincipal.cs[m
+[36m@@ -22,6 +22,7 @@[m [mnamespace JosaleApp[m
+         Client_user client = new Client_user();[m
+         Emprunt_user empruts= new Emprunt_user();[m
+         Credit_user credits = new Credit_user();[m
+[32m+[m[32m        Rembourssement_user rembou = new Rembourssement_user();[m
+ [m
+         public FormPrincipal()[m
+         {[m
+[36m@@ -62,6 +63,14 @@[m [mnamespace JosaleApp[m
+             panel_principal.Controls.Add(credits);[m
+             panel_principal.Show();[m
+         }[m
+[32m+[m[32m        void ShowRembou(object rembu)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Rembourssement_user rembus = rembu as Rembourssement_user;[m
+[32m+[m[32m            rembus.Dock = DockStyle.Fill;[m
+[32m+[m[32m            panel_principal.Controls.Clear();[m
+[32m+[m[32m            panel_principal.Controls.Add(rembus);[m
+[32m+[m[32m            panel_principal.Show();[m
+[32m+[m[32m        }[m
+         private void button1_Click(object sender, EventArgs e)[m
+         {[m
+            [m
+[36m@@ -136,5 +145,10 @@[m [mnamespace JosaleApp[m
+         {[m
+             new New_Payement().ShowDialog();[m
+         }[m
+[32m+[m
+[32m+[m[32m        private void button2_Click_1(object sender, EventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ShowRembou(rembou);[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+[1mdiff --git a/JosaleApp/Forms/New_Payement.Designer.cs b/JosaleApp/Forms/New_Payement.Designer.cs[m
+[1mindex 03cfe7a..48f283f 100644[m
+[1m--- a/JosaleApp/Forms/New_Payement.Designer.cs[m
+[1m+++ b/JosaleApp/Forms/New_Payement.Designer.cs[m
+[36m@@ -35,21 +35,21 @@[m
+             this.label2 = new System.Windows.Forms.Label();[m
+             this.groupBox1 = new System.Windows.Forms.GroupBox();[m
+             this.dataGridView1 = new System.Windows.Forms.DataGridView();[m
+[32m+[m[32m            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+             this.groupBox2 = new System.Windows.Forms.GroupBox();[m
+[31m-            this.label3 = new System.Windows.Forms.Label();[m
+[31m-            this.label4 = new System.Windows.Forms.Label();[m
+             this.textBox1 = new System.Windows.Forms.TextBox();[m
+[32m+[m[32m            this.label5 = new System.Windows.Forms.Label();[m
+[32m+[m[32m            this.label4 = new System.Windows.Forms.Label();[m
+[32m+[m[32m            this.label6 = new System.Windows.Forms.Label();[m
+[32m+[m[32m            this.label3 = new System.Windows.Forms.Label();[m
+             this.groupBox4 = new System.Windows.Forms.GroupBox();[m
+             this.btnSave = new System.Windows.Forms.Button();[m
+             this.groupBox3 = new System.Windows.Forms.GroupBox();[m
+             this.btnNew = new System.Windows.Forms.Button();[m
+             this.text_search = new System.Windows.Forms.TextBox();[m
+             this.pictureBox1 = new System.Windows.Forms.PictureBox();[m
+[31m-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[31m-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[31m-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[31m-            this.label5 = new System.Windows.Forms.Label();[m
+[31m-            this.label6 = new System.Windows.Forms.Label();[m
+             this.groupBox1.SuspendLayout();[m
+             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();[m
+             this.groupBox2.SuspendLayout();[m
+[36m@@ -129,6 +129,31 @@[m
+             this.dataGridView1.TabIndex = 0;[m
+             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);[m
+             // [m
+[32m+[m[32m            // Column1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;[m
+[32m+[m[32m            this.Column1.FillWeight = 137.0558F;[m
+[32m+[m[32m            this.Column1.HeaderText = "N°";[m
+[32m+[m[32m            this.Column1.Name = "Column1";[m
+[32m+[m[32m            this.Column1.ReadOnly = true;[m
+[32m+[m[32m            this.Column1.Width = 52;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column2[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column2.FillWeight = 81.47208F;[m
+[32m+[m[32m            this.Column2.HeaderText = "Customer";[m
+[32m+[m[32m            this.Column2.Name = "Column2";[m
+[32m+[m[32m            this.Column2.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column3[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;[m
+[32m+[m[32m            this.Column3.FillWeight = 81.47208F;[m
+[32m+[m[32m            this.Column3.HeaderText = "Mount";[m
+[32m+[m[32m            this.Column3.Name = "Column3";[m
+[32m+[m[32m            this.Column3.ReadOnly = true;[m
+[32m+[m[32m            this.Column3.Width = 80;[m
+[32m+[m[32m            //[m[41m [m
+             // groupBox2[m
+             // [m
+             this.groupBox2.Controls.Add(this.textBox1);[m
+[36m@@ -145,16 +170,24 @@[m
+             this.groupBox2.TabStop = false;[m
+             this.groupBox2.Text = "Payement";[m
+             // [m
+[31m-            // label3[m
+[32m+[m[32m            // textBox1[m
+             // [m
+[31m-            this.label3.BackColor = System.Drawing.SystemColors.Window;[m
+[31m-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;[m
+[31m-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[31m-            this.label3.Location = new System.Drawing.Point(107, 26);[m
+[31m-            this.label3.Name = "label3";[m
+[31m-            this.label3.Size = new System.Drawing.Size(215, 25);[m
+[31m-            this.label3.TabIndex = 0;[m
+[31m-            this.label3.Text = "Customer";[m
+[32m+[m[32m            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);[m
+[32m+[m[32m            this.textBox1.Location = new System.Drawing.Point(107, 92);[m
+[32m+[m[32m            this.textBox1.Name = "textBox1";[m
+[32m+[m[32m            this.textBox1.Size = new System.Drawing.Size(215, 24);[m
+[32m+[m[32m            this.textBox1.TabIndex = 2;[m
+[32m+[m[32m            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // label5[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.label5.AutoSize = true;[m
+[32m+[m[32m            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[32m+[m[32m            this.label5.Location = new System.Drawing.Point(8, 95);[m
+[32m+[m[32m            this.label5.Name = "label5";[m
+[32m+[m[32m            this.label5.Size = new System.Drawing.Size(94, 18);[m
+[32m+[m[32m            this.label5.TabIndex = 1;[m
+[32m+[m[32m            this.label5.Text = "Mount          :";[m
+             // [m
+             // label4[m
+             // [m
+[36m@@ -166,13 +199,27 @@[m
+             this.label4.TabIndex = 1;[m
+             this.label4.Text = "Rep. Mount :";[m
+             // [m
+[31m-            // textBox1[m
+[32m+[m[32m            // label6[m
+             // [m
+[31m-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);[m
+[31m-            this.textBox1.Location = new System.Drawing.Point(107, 92);[m
+[31m-            this.textBox1.Name = "textBox1";[m
+[31m-            this.textBox1.Size = new System.Drawing.Size(215, 24);[m
+[31m-            this.textBox1.TabIndex = 2;[m
+[32m+[m[32m            this.label6.BackColor = System.Drawing.SystemColors.Window;[m
+[32m+[m[32m            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;[m
+[32m+[m[32m            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[32m+[m[32m            this.label6.Location = new System.Drawing.Point(107, 59);[m
+[32m+[m[32m            this.label6.Name = "label6";[m
+[32m+[m[32m            this.label6.Size = new System.Drawing.Size(215, 25);[m
+[32m+[m[32m            this.label6.TabIndex = 0;[m
+[32m+[m[32m            this.label6.Text = "Mount";[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // label3[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.label3.BackColor = System.Drawing.SystemColors.Window;[m
+[32m+[m[32m            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;[m
+[32m+[m[32m            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[32m+[m[32m            this.label3.Location = new System.Drawing.Point(107, 26);[m
+[32m+[m[32m            this.label3.Name = "label3";[m
+[32m+[m[32m            this.label3.Size = new System.Drawing.Size(215, 25);[m
+[32m+[m[32m            this.label3.TabIndex = 0;[m
+[32m+[m[32m            this.label3.Text = "Customer";[m
+             // [m
+             // groupBox4[m
+             // [m
+[36m@@ -238,52 +285,6 @@[m
+             this.pictureBox1.TabIndex = 24;[m
+             this.pictureBox1.TabStop = false;[m
+             // [m
+[31m-            // Column1[m
+[31m-            // [m
+[31m-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;[m
+[31m-            this.Column1.FillWeight = 137.0558F;[m
+[31m-            this.Column1.HeaderText = "N°";[m
+[31m-            this.Column1.Name = "Column1";[m
+[31m-            this.Column1.ReadOnly = true;[m
+[31m-            this.Column1.Width = 52;[m
+[31m-            // [m
+[31m-            // Column2[m
+[31m-            // [m
+[31m-            this.Column2.FillWeight = 81.47208F;[m
+[31m-            this.Column2.HeaderText = "Customer";[m
+[31m-            this.Column2.Name = "Column2";[m
+[31m-            this.Column2.ReadOnly = true;[m
+[31m-            // [m
+[31m-            // Column3[m
+[31m-            // [m
+[31m-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;[m
+[31m-            this.Column3.FillWeight = 81.47208F;[m
+[31m-            this.Column3.HeaderText = "Mount";[m
+[31m-            this.Column3.Name = "Column3";[m
+[31m-            this.Column3.ReadOnly = true;[m
+[31m-            this.Column3.Width = 80;[m
+[31m-            // [m
+[31m-            // label5[m
+[31m-            // [m
+[31m-            this.label5.AutoSize = true;[m
+[31m-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[31m-            this.label5.Location = new System.Drawing.Point(8, 95);[m
+[31m-            this.label5.Name = "label5";[m
+[31m-            this.label5.Size = new System.Drawing.Size(94, 18);[m
+[31m-            this.label5.TabIndex = 1;[m
+[31m-            this.label5.Text = "Mount          :";[m
+[31m-            // [m
+[31m-            // label6[m
+[31m-            // [m
+[31m-            this.label6.BackColor = System.Drawing.SystemColors.Window;[m
+[31m-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;[m
+[31m-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[31m-            this.label6.Location = new System.Drawing.Point(107, 59);[m
+[31m-            this.label6.Name = "label6";[m
+[31m-            this.label6.Size = new System.Drawing.Size(215, 25);[m
+[31m-            this.label6.TabIndex = 0;[m
+[31m-            this.label6.Text = "Mount";[m
+[31m-            // [m
+             // New_Payement[m
+             // [m
+             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);[m
+[1mdiff --git a/JosaleApp/Forms/New_Payement.cs b/JosaleApp/Forms/New_Payement.cs[m
+[1mindex ca7d870..71bc6e4 100644[m
+[1m--- a/JosaleApp/Forms/New_Payement.cs[m
+[1m+++ b/JosaleApp/Forms/New_Payement.cs[m
+[36m@@ -35,7 +35,7 @@[m [mnamespace JosaleApp.Forms[m
+                 rembou = new Rembourssement();[m
+                 if (codeRembu == 0)[m
+                 { MessageBox.Show("Clik at first the new Button !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }[m
+[31m-                else if (string.IsNullOrEmpty(label3.Text) || string.IsNullOrEmpty(textBox1.Text))[m
+[32m+[m[32m                else if (codeClient == 0 || string.IsNullOrEmpty(label3.Text) || string.IsNullOrEmpty(textBox1.Text))[m
+                 { MessageBox.Show("Complete the mount case or select custumer please", "Messasge...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }[m
+                 else[m
+                 {[m
+[36m@@ -52,9 +52,11 @@[m [mnamespace JosaleApp.Forms[m
+             {[m
+                 MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);[m
+             }[m
+[32m+[m[32m            Get_Credit();[m
+         }[m
+         void Get_Credit()[m
+         {[m
+[32m+[m[32m            dataGridView1.Rows.Clear();[m
+            Dynamic_Classe.Instance().Load_Credit(dataGridView1);[m
+         }[m
+ [m
+[36m@@ -93,5 +95,15 @@[m [mnamespace JosaleApp.Forms[m
+                     break;[m
+             }[m
+         }[m
+[32m+[m
+[32m+[m[32m        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            char ch = e.KeyChar;[m
+[32m+[m[32m            if(!Char.IsDigit(ch) && ch !=8  && ch != 46)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                e.Handled = true;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+[1mdiff --git a/JosaleApp/JosaleApp.csproj b/JosaleApp/JosaleApp.csproj[m
+[1mindex 0f694d3..e621e07 100644[m
+[1m--- a/JosaleApp/JosaleApp.csproj[m
+[1m+++ b/JosaleApp/JosaleApp.csproj[m
+[36m@@ -126,6 +126,12 @@[m
+     <Compile Include="User_Controls\Emprunt_user.Designer.cs">[m
+       <DependentUpon>Emprunt_user.cs</DependentUpon>[m
+     </Compile>[m
+[32m+[m[32m    <Compile Include="User_Controls\Rembourssement_user.cs">[m
+[32m+[m[32m      <SubType>UserControl</SubType>[m
+[32m+[m[32m    </Compile>[m
+[32m+[m[32m    <Compile Include="User_Controls\Rembourssement_user.Designer.cs">[m
+[32m+[m[32m      <DependentUpon>Rembourssement_user.cs</DependentUpon>[m
+[32m+[m[32m    </Compile>[m
+     <Compile Include="User_Controls\Tiers_user.cs">[m
+       <SubType>UserControl</SubType>[m
+     </Compile>[m
+[36m@@ -168,6 +174,9 @@[m
+     <EmbeddedResource Include="User_Controls\Emprunt_user.resx">[m
+       <DependentUpon>Emprunt_user.cs</DependentUpon>[m
+     </EmbeddedResource>[m
+[32m+[m[32m    <EmbeddedResource Include="User_Controls\Rembourssement_user.resx">[m
+[32m+[m[32m      <DependentUpon>Rembourssement_user.cs</DependentUpon>[m
+[32m+[m[32m    </EmbeddedResource>[m
+     <EmbeddedResource Include="User_Controls\Tiers_user.resx">[m
+       <DependentUpon>Tiers_user.cs</DependentUpon>[m
+     </EmbeddedResource>[m
+[1mdiff --git a/JosaleApp/User_Controls/Rembourssement_user.Designer.cs b/JosaleApp/User_Controls/Rembourssement_user.Designer.cs[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6e18967[m
+[1m--- /dev/null[m
+[1m+++ b/JosaleApp/User_Controls/Rembourssement_user.Designer.cs[m
+[36m@@ -0,0 +1,262 @@[m
+[32m+[m[32m﻿namespace JosaleApp.User_Controls[m
+[32m+[m[32m{[m
+[32m+[m[32m    partial class Rembourssement_user[m
+[32m+[m[32m    {[m
+[32m+[m[32m        /// <summary>[m[41m [m
+[32m+[m[32m        /// Required designer variable.[m
+[32m+[m[32m        /// </summary>[m
+[32m+[m[32m        private System.ComponentModel.IContainer components = null;[m
+[32m+[m
+[32m+[m[32m        /// <summary>[m[41m [m
+[32m+[m[32m        /// Clean up any resources being used.[m
+[32m+[m[32m        /// </summary>[m
+[32m+[m[32m        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>[m
+[32m+[m[32m        protected override void Dispose(bool disposing)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            if (disposing && (components != null))[m
+[32m+[m[32m            {[m
+[32m+[m[32m                components.Dispose();[m
+[32m+[m[32m            }[m
+[32m+[m[32m            base.Dispose(disposing);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        #region Component Designer generated code[m
+[32m+[m
+[32m+[m[32m        /// <summary>[m[41m [m
+[32m+[m[32m        /// Required method for Designer support - do not modify[m[41m [m
+[32m+[m[32m        /// the contents of this method with the code editor.[m
+[32m+[m[32m        /// </summary>[m
+[32m+[m[32m        private void InitializeComponent()[m
+[32m+[m[32m        {[m
+[32m+[m[32m            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rembourssement_user));[m
+[32m+[m[32m            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();[m
+[32m+[m[32m            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();[m
+[32m+[m[32m            this.text_search = new System.Windows.Forms.TextBox();[m
+[32m+[m[32m            this.pictureBox1 = new System.Windows.Forms.PictureBox();[m
+[32m+[m[32m            this.groupBox1 = new System.Windows.Forms.GroupBox();[m
+[32m+[m[32m            this.dataGridView1 = new System.Windows.Forms.DataGridView();[m
+[32m+[m[32m            this.label1 = new System.Windows.Forms.Label();[m
+[32m+[m[32m            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();[m
+[32m+[m[32m            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();[m
+[32m+[m[32m            this.groupBox1.SuspendLayout();[m
+[32m+[m[32m            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();[m
+[32m+[m[32m            this.SuspendLayout();[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // text_search[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.text_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));[m
+[32m+[m[32m            this.text_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);[m
+[32m+[m[32m            this.text_search.Location = new System.Drawing.Point(603, 15);[m
+[32m+[m[32m            this.text_search.Name = "text_search";[m
+[32m+[m[32m            this.text_search.Size = new System.Drawing.Size(270, 23);[m
+[32m+[m[32m            this.text_search.TabIndex = 23;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // pictureBox1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));[m
+[32m+[m[32m            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;[m
+[32m+[m[32m            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));[m
+[32m+[m[32m            this.pictureBox1.Location = new System.Drawing.Point(872, 15);[m
+[32m+[m[32m            this.pictureBox1.Name = "pictureBox1";[m
+[32m+[m[32m            this.pictureBox1.Size = new System.Drawing.Size(22, 23);[m
+[32m+[m[32m            this.pictureBox1.TabIndex = 24;[m
+[32m+[m[32m            this.pictureBox1.TabStop = false;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // groupBox1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)[m[41m [m
+[32m+[m[32m            | System.Windows.Forms.AnchorStyles.Right)));[m
+[32m+[m[32m            this.groupBox1.Controls.Add(this.dataGridView1);[m
+[32m+[m[32m            this.groupBox1.Location = new System.Drawing.Point(3, 38);[m
+[32m+[m[32m            this.groupBox1.Name = "groupBox1";[m
+[32m+[m[32m            this.groupBox1.Size = new System.Drawing.Size(894, 273);[m
+[32m+[m[32m            this.groupBox1.TabIndex = 22;[m
+[32m+[m[32m            this.groupBox1.TabStop = false;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // dataGridView1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.dataGridView1.AllowUserToAddRows = false;[m
+[32m+[m[32m            this.dataGridView1.AllowUserToDeleteRows = false;[m
+[32m+[m[32m            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)[m[41m [m
+[32m+[m[32m            | System.Windows.Forms.AnchorStyles.Left)[m[41m [m
+[32m+[m[32m            | System.Windows.Forms.AnchorStyles.Right)));[m
+[32m+[m[32m            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;[m
+[32m+[m[32m            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;[m
+[32m+[m[32m            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;[m
+[32m+[m[32m            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;[m
+[32m+[m[32m            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;[m
+[32m+[m[32m            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[32m+[m[32m            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;[m
+[32m+[m[32m            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;[m
+[32m+[m[32m            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;[m
+[32m+[m[32m            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;[m
+[32m+[m[32m            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;[m
+[32m+[m[32m            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;[m
+[32m+[m[32m            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {[m
+[32m+[m[32m            this.Column1,[m
+[32m+[m[32m            this.Column2,[m
+[32m+[m[32m            this.Column3,[m
+[32m+[m[32m            this.Column4,[m
+[32m+[m[32m            this.Column5,[m
+[32m+[m[32m            this.Column6,[m
+[32m+[m[32m            this.Column7,[m
+[32m+[m[32m            this.Column8,[m
+[32m+[m[32m            this.Column9,[m
+[32m+[m[32m            this.Column10,[m
+[32m+[m[32m            this.Column11});[m
+[32m+[m[32m            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;[m
+[32m+[m[32m            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;[m
+[32m+[m[32m            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);[m
+[32m+[m[32m            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;[m
+[32m+[m[32m            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;[m
+[32m+[m[32m            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;[m
+[32m+[m[32m            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;[m
+[32m+[m[32m            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;[m
+[32m+[m[32m            this.dataGridView1.Location = new System.Drawing.Point(6, 16);[m
+[32m+[m[32m            this.dataGridView1.Name = "dataGridView1";[m
+[32m+[m[32m            this.dataGridView1.ReadOnly = true;[m
+[32m+[m[32m            this.dataGridView1.RowHeadersVisible = false;[m
+[32m+[m[32m            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;[m
+[32m+[m[32m            this.dataGridView1.Size = new System.Drawing.Size(882, 248);[m
+[32m+[m[32m            this.dataGridView1.TabIndex = 0;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // label1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.label1.AutoSize = true;[m
+[32m+[m[32m            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+[32m+[m[32m            this.label1.Location = new System.Drawing.Point(5, 6);[m
+[32m+[m[32m            this.label1.Name = "label1";[m
+[32m+[m[32m            this.label1.Size = new System.Drawing.Size(210, 23);[m
+[32m+[m[32m            this.label1.TabIndex = 21;[m
+[32m+[m[32m            this.label1.Text = "Credit reimbursement";[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column1[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column1.DataPropertyName = "Id";[m
+[32m+[m[32m            this.Column1.HeaderText = "Number";[m
+[32m+[m[32m            this.Column1.Name = "Column1";[m
+[32m+[m[32m            this.Column1.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column2[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column2.DataPropertyName = "Nom";[m
+[32m+[m[32m            this.Column2.HeaderText = "First name";[m
+[32m+[m[32m            this.Column2.Name = "Column2";[m
+[32m+[m[32m            this.Column2.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column3[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column3.DataPropertyName = "Postnom";[m
+[32m+[m[32m            this.Column3.HeaderText = "Last name";[m
+[32m+[m[32m            this.Column3.Name = "Column3";[m
+[32m+[m[32m            this.Column3.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column4[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column4.DataPropertyName = "Prenom";[m
+[32m+[m[32m            this.Column4.HeaderText = "Surname";[m
+[32m+[m[32m            this.Column4.Name = "Column4";[m
+[32m+[m[32m            this.Column4.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column5[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column5.DataPropertyName = "Montant";[m
+[32m+[m[32m            this.Column5.HeaderText = "Mount";[m
+[32m+[m[32m            this.Column5.Name = "Column5";[m
+[32m+[m[32m            this.Column5.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column6[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column6.DataPropertyName = "Montantpaye";[m
+[32m+[m[32m            this.Column6.HeaderText = "Rest";[m
+[32m+[m[32m            this.Column6.Name = "Column6";[m
+[32m+[m[32m            this.Column6.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column7[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column7.DataPropertyName = "DatePret";[m
+[32m+[m[32m            this.Column7.HeaderText = "Date operation";[m
+[32m+[m[32m            this.Column7.Name = "Column7";[m
+[32m+[m[32m            this.Column7.ReadOnly = true;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column8[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column8.DataPropertyName = "DateRembour";[m
+[32m+[m[32m            this.Column8.HeaderText = "Reapay date";[m
+[32m+[m[32m            this.Column8.Name = "Column8";[m
+[32m+[m[32m            this.Column8.ReadOnly = true;[m
+[32m+[m[32m            this.Column8.Visible = false;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column9[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column9.DataPropertyName = "RefInteret";[m
+[32m+[m[32m            this.Column9.HeaderText = "Column9";[m
+[32m+[m[32m            this.Column9.Name = "Column9";[m
+[32m+[m[32m            this.Column9.ReadOnly = true;[m
+[32m+[m[32m            this.Column9.Visible = false;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column10[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column10.DataPropertyName = "RefCli";[m
+[32m+[m[32m            this.Column10.HeaderText = "Column10";[m
+[32m+[m[32m            this.Column10.Name = "Column10";[m
+[32m+[m[32m            this.Column10.ReadOnly = true;[m
+[32m+[m[32m            this.Column10.Visible = false;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Column11[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.Column11.DataPropertyName = "Interet";[m
+[32m+[m[32m            this.Column11.HeaderText = "Column11";[m
+[32m+[m[32m            this.Column11.Name = "Column11";[m
+[32m+[m[32m            this.Column11.ReadOnly = true;[m
+[32m+[m[32m            this.Column11.Visible = false;[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            // Rembourssement_user[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);[m
+[32m+[m[32m            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;[m
+[32m+[m[32m            this.Controls.Add(this.text_search);[m
+[32m+[m[32m            this.Controls.Add(this.pictureBox1);[m
+[32m+[m[32m            this.Controls.Add(this.groupBox1);[m
+[32m+[m[32m            this.Controls.Add(this.label1);[m
+[32m+[m[32m            this.Name = "Rembourssement_user";[m
+[32m+[m[32m            this.Size = new System.Drawing.Size(900, 457);[m
+[32m+[m[32m            this.Load += new System.EventHandler(this.Rembourssement_user_Load);[m
+[32m+[m[32m            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();[m
+[32m+[m[32m            this.groupBox1.ResumeLayout(false);[m
+[32m+[m[32m            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();[m
+[32m+[m[32m            this.ResumeLayout(false);[m
+[32m+[m[32m            this.PerformLayout();[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        #endregion[m
+[32m+[m
+[32m+[m[32m        private System.Windows.Forms.TextBox text_search;[m
+[32m+[m[32m        private System.Windows.Forms.PictureBox pictureBox1;[m
+[32m+[m[32m        private System.Windows.Forms.GroupBox groupBox1;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridView dataGridView1;[m
+[32m+[m[32m        private System.Windows.Forms.Label label1;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;[m
+[32m+[m[32m        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/JosaleApp/User_Controls/Rembourssement_user.cs b/JosaleApp/User_Controls/Rembourssement_user.cs[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f4393cf[m
+[1m--- /dev/null[m
+[1m+++ b/JosaleApp/User_Controls/Rembourssement_user.cs[m
+[36m@@ -0,0 +1,31 @@[m
+[32m+[m[32m﻿using System;[m
+[32m+[m[32musing System.Collections.Generic;[m
+[32m+[m[32musing System.ComponentModel;[m
+[32m+[m[32musing System.Drawing;[m
+[32m+[m[32musing System.Data;[m
+[32m+[m[32musing System.Linq;[m
+[32m+[m[32musing System.Text;[m
+[32m+[m[32musing System.Threading.Tasks;[m
+[32m+[m[32musing System.Windows.Forms;[m
+[32m+[m[32musing Prets_Lib;[m
+[32m+[m
+[32m+[m[32mnamespace JosaleApp.User_Controls[m
+[32m+[m[32m{[m
+[32m+[m[32m    public partial class Rembourssement_user : UserControl[m
+[32m+[m[32m    {[m
+[32m+[m[32m        public Rembourssement_user()[m
+[32m+[m[32m        {[m
+[32m+[m[32m            InitializeComponent();[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        void Get_Rembourssement (IPrets rembou)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            dataGridView1.DataSource = rembou.AllRembou();[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void Rembourssement_user_Load(object sender, EventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Get_Rembourssement(new Prets());[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/JosaleApp/User_Controls/Rembourssement_user.resx b/JosaleApp/User_Controls/Rembourssement_user.resx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..acad808[m
+[1m--- /dev/null[m
+[1m+++ b/JosaleApp/User_Controls/Rembourssement_user.resx[m
+[36m@@ -0,0 +1,165 @@[m
+[32m+[m[32m﻿<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<root>[m
+[32m+[m[32m  <!--[m[41m [m
+[32m+[m[32m    Microsoft ResX Schema[m[41m [m
+[32m+[m[41m    [m
+[32m+[m[32m    Version 2.0[m
+[32m+[m[41m    [m
+[32m+[m[32m    The primary goals of this format is to allow a simple XML format[m[41m [m
+[32m+[m[32m    that is mostly human readable. The generation and parsing of the[m[41m [m
+[32m+[m[32m    various data types are done through the TypeConverter classes[m[41m [m
+[32m+[m[32m    associated with the data types.[m
+[32m+[m[41m    [m
+[32m+[m[32m    Example:[m
+[32m+[m[41m    [m
+[32m+[m[32m    ... ado.net/XML headers & schema ...[m
+[32m+[m[32m    <resheader name="resmimetype">text/microsoft-resx</resheader>[m
+[32m+[m[32m    <resheader name="version">2.0</resheader>[m
+[32m+[m[32m    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>[m
+[32m+[m[32m    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>[m
+[32m+[m[32m    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>[m
+[32m+[m[32m    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>[m
+[32m+[m[32m    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">[m
+[32m+[m[32m        <value>[base64 mime encoded serialized .NET Framework object]</value>[m
+[32m+[m[32m    </data>[m
+[32m+[m[32m    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">[m
+[32m+[m[32m        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>[m
+[32m+[m[32m        <comment>This is a comment</comment>[m
+[32m+[m[32m    </data>[m
+[32m+[m[41m                [m
+[32m+[m[32m    There are any number of "resheader" rows that contain simple[m[41m [m
+[32m+[m[32m    name/value pairs.[m
+[32m+[m[41m    [m
+[32m+[m[32m    Each data row contains a name, and value. The row also contains a[m[41m [m
+[32m+[m[32m    type or mimetype. Type corresponds to a .NET class that support[m[41m [m
+[32m+[m[32m    text/value conversion through the TypeConverter architecture.[m[41m [m
+[32m+[m[32m    Classes that don't support this are serialized and stored with the[m[41m [m
+[32m+[m[32m    mimetype set.[m
+[32m+[m[41m    [m
+[32m+[m[32m    The mimetype is used for serialized objects, and tells the[m[41m [m
+[32m+[m[32m    ResXResourceReader how to depersist the object. This is currently not[m[41m [m
+[32m+[m[32m    extensible. For a given mimetype the value must be set accordingly:[m
+[32m+[m[41m    [m
+[32m+[m[32m    Note - application/x-microsoft.net.object.binary.base64 is the format[m[41m [m
+[32m+[m[32m    that the ResXResourceWriter will generate, however the reader can[m[41m [m
+[32m+[m[32m    read any of the formats listed below.[m
+[32m+[m[41m    [m
+[32m+[m[32m    mimetype: application/x-microsoft.net.object.binary.base64[m
+[32m+[m[32m    value   : The object must be serialized with[m[41m [m
+[32m+[m[32m            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter[m
+[32m+[m[32m            : and then encoded with base64 encoding.[m
+[32m+[m[41m    [m
+[32m+[m[32m    mimetype: application/x-microsoft.net.object.soap.base64[m
+[32m+[m[32m    value   : The object must be serialized with[m[41m [m
+[32m+[m[32m            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter[m
+[32m+[m[32m            : and then encoded with base64 encoding.[m
+[32m+[m
+[32m+[m[32m    mimetype: application/x-microsoft.net.object.bytearray.base64[m
+[32m+[m[32m    value   : The object must be serialized into a byte array[m[41m [m
+[32m+[m[32m            : using a System.ComponentModel.TypeConverter[m
+[32m+[m[32m            : and then encoded with base64 encoding.[m
+[32m+[m[32m    -->[m
+[32m+[m[32m  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">[m
+[32m+[m[32m    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />[m
+[32m+[m[32m    <xsd:element name="root" msdata:IsDataSet="true">[m
+[32m+[m[32m      <xsd:complexType>[m
+[32m+[m[32m        <xsd:choice maxOccurs="unbounded">[m
+[32m+[m[32m          <xsd:element name="metadata">[m
+[32m+[m[32m            <xsd:complexType>[m
+[32m+[m[32m              <xsd:sequence>[m
+[32m+[m[32m                <xsd:element name="value" type="xsd:string" minOccurs="0" />[m
+[32m+[m[32m              </xsd:sequence>[m
+[32m+[m[32m              <xsd:attribute name="name" use="required" type="xsd:string" />[m
+[32m+[m[32m              <xsd:attribute name="type" type="xsd:string" />[m
+[32m+[m[32m              <xsd:attribute name="mimetype" type="xsd:string" />[m
+[32m+[m[32m              <xsd:attribute ref="xml:space" />[m
+[32m+[m[32m            </xsd:complexType>[m
+[32m+[m[32m          </xsd:element>[m
+[32m+[m[32m          <xsd:element name="assembly">[m
+[32m+[m[32m            <xsd:complexType>[m
+[32m+[m[32m              <xsd:attribute name="alias" type="xsd:string" />[m
+[32m+[m[32m              <xsd:attribute name="name" type="xsd:string" />[m
+[32m+[m[32m            </xsd:complexType>[m
+[32m+[m[32m          </xsd:element>[m
+[32m+[m[32m          <xsd:element name="data">[m
+[32m+[m[32m            <xsd:complexType>[m
+[32m+[m[32m              <xsd:sequence>[m
+[32m+[m[32m                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />[m
+[32m+[m[32m                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />[m
+[32m+[m[32m              </xsd:sequence>[m
+[32m+[m[32m              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />[m
+[32m+[m[32m              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />[m
+[32m+[m[32m              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />[m
+[32m+[m[32m              <xsd:attribute ref="xml:space" />[m
+[32m+[m[32m            </xsd:complexType>[m
+[32m+[m[32m          </xsd:element>[m
+[32m+[m[32m          <xsd:element name="resheader">[m
+[32m+[m[32m            <xsd:complexType>[m
+[32m+[m[32m              <xsd:sequence>[m
+[32m+[m[32m                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />[m
+[32m+[m[32m              </xsd:sequence>[m
+[32m+[m[32m              <xsd:attribute name="name" type="xsd:string" use="required" />[m
+[32m+[m[32m            </xsd:complexType>[m
+[32m+[m[32m          </xsd:element>[m
+[32m+[m[32m        </xsd:choice>[m
+[32m+[m[32m      </xsd:complexType>[m
+[32m+[m[32m    </xsd:element>[m
+[32m+[m[32m  </xsd:schema>[m
+[32m+[m[32m  <resheader name="resmimetype">[m
+[32m+[m[32m    <value>text/microsoft-resx</value>[m
+[32m+[m[32m  </resheader>[m
+[32m+[m[32m  <resheader name="version">[m
+[32m+[m[32m    <value>2.0</value>[m
+[32m+[m[32m  </resheader>[m
+[32m+[m[32m  <resheader name="reader">[m
+[32m+[m[32m    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>[m
+[32m+[m[32m  </resheader>[m
+[32m+[m[32m  <resheader name="writer">[m
+[32m+[m[32m    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>[m
+[32m+[m[32m  </resheader>[m
+[32m+[m[32m  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />[m
+[32m+[m[32m  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">[m
+[32m+[m[32m    <value>[m
+[32m+[m[32m        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAU5JREFUOE+9[m
+[32m+[m[32m        lM1Kw1AQhQP+4E4riqgvIog717oKiG4CCSFJU8jKPxRE8D1E8AnEdxDdqFRR0UcQoTtX+o2cQpGkV2Px[m
+[32m+[m[32m        wOF2Zs6cezPJrfcvCIJgLE3TJbhsq8Uq/Q5xHI9kWXaISQd+9LBD/gAMS+qGiWk6N4MkSW5Zd1nXbIVt[m
+[32m+[m[32m        y8Mz3/eH1NIfiPfUdPz9JBaTP7E6m2wrXQ12HUX8BttVj2XjoH4PX+230uVg10XbnUfeVKoUaHZMBxeU[m
+[32m+[m[32m        Kkez2VyVcF2pUrDxhnQrSpWje0K4pVQpqNsLcp+wZ4YPjhk+QfcMDQgH95YN1uT6Donf0eyHYTiptv5w[m
+[32m+[m[32m        3RQMjxS/oJ1VmxtVdzmKohniZ2im15hOfTX8BRg1OO2VTB/zPJ9TqT6KopjA7LJryijmVaqPVqs1jdmN[m
+[32m+[m[32m        TO8sVqk+mOE4Zhfw9Mf/Qi5g1rCLoXDQ8LxPJPXkowgOZawAAAAASUVORK5CYII=[m
+[32m+[m[32m</value>[m
+[32m+[m[32m  </data>[m
+[32m+[m[32m  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column9.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column10.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m  <metadata name="Column11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">[m
+[32m+[m[32m    <value>True</value>[m
+[32m+[m[32m  </metadata>[m
+[32m+[m[32m</root>[m
+\ No newline at end of file[m
+[1mdiff --git a/JosaleApp/bin/Debug/JosaleApp.exe b/JosaleApp/bin/Debug/JosaleApp.exe[m
+[1mindex 081feb5..bb1f43f 100644[m
+Binary files a/JosaleApp/bin/Debug/JosaleApp.exe and b/JosaleApp/bin/Debug/JosaleApp.exe differ
+[1mdiff --git a/JosaleApp/bin/Debug/JosaleApp.pdb b/JosaleApp/bin/Debug/JosaleApp.pdb[m
+[1mindex 8d02c8d..32e92d7 100644[m
+Binary files a/JosaleApp/bin/Debug/JosaleApp.pdb and b/JosaleApp/bin/Debug/JosaleApp.pdb differ
+[1mdiff --git a/JosaleApp/bin/Debug/Prets_Lib.dll b/JosaleApp/bin/Debug/Prets_Lib.dll[m
+[1mindex c82b7a6..4df268a 100644[m
+Binary files a/JosaleApp/bin/Debug/Prets_Lib.dll and b/JosaleApp/bin/Debug/Prets_Lib.dll differ
+[1mdiff --git a/JosaleApp/bin/Debug/Prets_Lib.pdb b/JosaleApp/bin/Debug/Prets_Lib.pdb[m
+[1mindex 1ebfab6..cf40915 100644[m
+Binary files a/JosaleApp/bin/Debug/Prets_Lib.pdb and b/JosaleApp/bin/Debug/Prets_Lib.pdb differ
+[1mdiff --git a/JosaleApp/obj/Debug/JosaleApp.User_Controls.Rembourssement_user.resources b/JosaleApp/obj/Debug/JosaleApp.User_Controls.Rembourssement_user.resources[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0c98af0[m
+Binary files /dev/null and b/JosaleApp/obj/Debug/JosaleApp.User_Controls.Rembourssement_user.resources differ
+[1mdiff --git a/JosaleApp/obj/Debug/JosaleApp.csproj.FileListAbsolute.txt b/JosaleApp/obj/Debug/JosaleApp.csproj.FileListAbsolute.txt[m
+[1mindex dc4e794..599dacb 100644[m
+[1m--- a/JosaleApp/obj/Debug/JosaleApp.csproj.FileListAbsolute.txt[m
+[1m+++ b/JosaleApp/obj/Debug/JosaleApp.csproj.FileListAbsolute.txt[m
+[36m@@ -67,3 +67,4 @@[m [mC:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\D[m
+ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Prets_Lib.pdb[m
+ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Credit_user.resources[m
+ C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.New_Payement.resources[m
+[32m+[m[32mC:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Rembourssement_user.resources[m
+[1mdiff --git a/JosaleApp/obj/Debug/JosaleApp.csproj.GenerateResource.Cache b/JosaleApp/obj/Debug/JosaleApp.csproj.GenerateResource.Cache[m
+[1mindex 07a8c96..fcd5029 100644[m
+Binary files a/JosaleApp/obj/Debug/JosaleApp.csproj.GenerateResource.Cache and b/JosaleApp/obj/Debug/JosaleApp.csproj.GenerateResource.Cache differ
+[1mdiff --git a/JosaleApp/obj/Debug/JosaleApp.csprojResolveAssemblyReference.cache b/JosaleApp/obj/Debug/JosaleApp.csprojResolveAssemblyReference.cache[m
+[1mindex 461775b..e0d6c41 100644[m
+Binary files a/JosaleApp/obj/Debug/JosaleApp.csprojResolveAssemblyReference.cache and b/JosaleApp/obj/Debug/JosaleApp.csprojResolveAssemblyReference.cache differ
+[1mdiff --git a/JosaleApp/obj/Debug/JosaleApp.exe b/JosaleApp/obj/Debug/JosaleApp.exe[m
+[1mindex 081feb5..bb1f43f 100644[m
+Binary files a/JosaleApp/obj/Debug/JosaleApp.exe and b/JosaleApp/obj/Debug/JosaleApp.exe differ
+[1mdiff --git a/JosaleApp/obj/Debug/JosaleApp.pdb b/JosaleApp/obj/Debug/JosaleApp.pdb[m
+[1mindex 8d02c8d..32e92d7 100644[m
+Binary files a/JosaleApp/obj/Debug/JosaleApp.pdb and b/JosaleApp/obj/Debug/JosaleApp.pdb differ
+[1mdiff --git a/Prets_Lib/Gage.cs b/Prets_Lib/Gage.cs[m
+[1mindex 7ee8e6c..31821b3 100644[m
+[1m--- a/Prets_Lib/Gage.cs[m
+[1m+++ b/Prets_Lib/Gage.cs[m
+[36m@@ -24,7 +24,7 @@[m [mnamespace Prets_Lib[m
+                 ImplementeConnexion.Instance.Conn.Open();[m
+             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())[m
+             {[m
+[31m-                cmd.CommandText = "SELECT MAX(code_remb) as last_id from gage";[m
+[32m+[m[32m                cmd.CommandText = "SELECT MAX(code_gage) as last_id from gage";[m
+                 IDataReader dr = cmd.ExecuteReader();[m
+                 if(dr.Read()){[m
+                     if (dr["last_id"] == DBNull.Value)[m
+[1mdiff --git a/Prets_Lib/IPrets.cs b/Prets_Lib/IPrets.cs[m
+[1mindex 181d604..402882a 100644[m
+[1m--- a/Prets_Lib/IPrets.cs[m
+[1m+++ b/Prets_Lib/IPrets.cs[m
+[36m@@ -25,6 +25,7 @@[m [mnamespace Prets_Lib[m
+         void Save(IPrets prets);[m
+         void Delete(int id);[m
+         List<IPrets> Allcredit();[m
+[32m+[m[32m        List<IPrets> AllRembou();[m
+         IPrets OneCredit(int id);[m
+     }[m
+ }[m
+[1mdiff --git a/Prets_Lib/Prets.cs b/Prets_Lib/Prets.cs[m
+[1mindex 77ad6df..61da397 100644[m
+[1m--- a/Prets_Lib/Prets.cs[m
+[1m+++ b/Prets_Lib/Prets.cs[m
+[36m@@ -39,6 +39,21 @@[m [mnamespace Prets_Lib[m
+             return prets;[m
+ [m
+         }[m
+[32m+[m
+[32m+[m[32m        private IPrets GetAll_Rembou(IDataReader dr)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            IPrets prets = new Prets();[m
+[32m+[m[32m            prets.Id = Convert.ToInt32(dr["Numéro"].ToString());[m
+[32m+[m[32m            prets.Nom = dr["Nom"].ToString();[m
+[32m+[m[32m            prets.Postnom = dr["Postnom"].ToString();[m
+[32m+[m[32m            prets.Prenom = dr["Prénom"].ToString();[m
+[32m+[m[32m            prets.Montant = float.Parse(dr["montant"].ToString());[m
+[32m+[m[32m            prets.Montantpaye = float.Parse(dr["Rest"].ToString());[m
+[32m+[m[32m            prets.DatePret = Convert.ToDateTime(dr["Date Remb."].ToString());[m
+[32m+[m[32m            return prets;[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+         public List<IPrets> Allcredit()[m
+         {[m
+             List<IPrets> list = new List<IPrets>();[m
+[36m@@ -59,6 +74,26 @@[m [mnamespace Prets_Lib[m
+             return list;[m
+         }[m
+ [m
+[32m+[m[32m        public List<IPrets> AllRembou()[m
+[32m+[m[32m        {[m
+[32m+[m[32m            List<IPrets> list = new List<IPrets>();[m
+[32m+[m[32m            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)[m
+[32m+[m[32m                ImplementeConnexion.Instance.Conn.Open();[m
+[32m+[m[32m            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())[m
+[32m+[m[32m            {[m
+[32m+[m[32m                cmd.CommandText = "SELECT_REMBOU";[m
+[32m+[m[32m                cmd.CommandType = CommandType.StoredProcedure;[m
+[32m+[m[32m                IDataReader dr = cmd.ExecuteReader();[m
+[32m+[m[32m                while (dr.Read())[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    list.Add(GetAll_Rembou(dr));[m
+[32m+[m[32m                }[m
+[32m+[m[32m                cmd.Dispose();[m
+[32m+[m[32m                dr.Close();[m
+[32m+[m[32m            }[m
+[32m+[m[32m            return list;[m
+[32m+[m[32m        }[m
+[32m+[m
+         public void Delete(int id)[m
+         {[m
+             try[m
+[1mdiff --git a/Prets_Lib/Rembourssement.cs b/Prets_Lib/Rembourssement.cs[m
+[1mindex 7cef5df..0110074 100644[m
+[1m--- a/Prets_Lib/Rembourssement.cs[m
+[1m+++ b/Prets_Lib/Rembourssement.cs[m
+[36m@@ -22,7 +22,7 @@[m [mnamespace Prets_Lib[m
+                 ImplementeConnexion.Instance.Conn.Open();[m
+             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())[m
+             {[m
+[31m-                cmd.CommandText = "SELECT MAX(code_gage) as last_id from gage";[m
+[32m+[m[32m                cmd.CommandText = "SELECT MAX(code_rembu) as last_id from rembourssement";[m
+                 IDataReader dr = cmd.ExecuteReader();[m
+                 if (dr.Read())[m
+                 {[m
+[1mdiff --git a/Prets_Lib/bin/Debug/Prets_Lib.dll b/Prets_Lib/bin/Debug/Prets_Lib.dll[m
+[1mindex c82b7a6..4df268a 100644[m
+Binary files a/Prets_Lib/bin/Debug/Prets_Lib.dll and b/Prets_Lib/bin/Debug/Prets_Lib.dll differ
+[1mdiff --git a/Prets_Lib/bin/Debug/Prets_Lib.pdb b/Prets_Lib/bin/Debug/Prets_Lib.pdb[m
+[1mindex 1ebfab6..cf40915 100644[m
+Binary files a/Prets_Lib/bin/Debug/Prets_Lib.pdb and b/Prets_Lib/bin/Debug/Prets_Lib.pdb differ
+[1mdiff --git a/Prets_Lib/obj/Debug/Prets_Lib.dll b/Prets_Lib/obj/Debug/Prets_Lib.dll[m
+[1mindex c82b7a6..4df268a 100644[m
+Binary files a/Prets_Lib/obj/Debug/Prets_Lib.dll and b/Prets_Lib/obj/Debug/Prets_Lib.dll differ
+[1mdiff --git a/Prets_Lib/obj/Debug/Prets_Lib.pdb b/Prets_Lib/obj/Debug/Prets_Lib.pdb[m
+[1mindex 1ebfab6..cf40915 100644[m
+Binary files a/Prets_Lib/obj/Debug/Prets_Lib.pdb and b/Prets_Lib/obj/Debug/Prets_Lib.pdb differ
