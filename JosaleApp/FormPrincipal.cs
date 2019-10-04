@@ -71,6 +71,21 @@ namespace JosaleApp
             panel_principal.Controls.Add(rembus);
             panel_principal.Show();
         }
+
+        //Méthodes design
+
+        void Enter_label(Label label)
+        {
+            
+            label.ForeColor = Color.Maroon;
+            label.Font = new Font(label.Font, FontStyle.Underline);
+        }
+        void Leave_label (Label label)
+        {
+            label.ForeColor = Color.Black;
+            label.Font = new Font(label.Font, FontStyle.Regular);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
            
@@ -94,6 +109,7 @@ namespace JosaleApp
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             Test_Configuration.Test_Flies();
+            ShowCredit(credits);
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -143,12 +159,108 @@ namespace JosaleApp
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            new New_Payement().ShowDialog();
+            
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+           
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
             ShowRembou(rembou);
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+            new New_Payement().ShowDialog();
+        }
+
+        private void label17_MouseEnter(object sender, EventArgs e)
+        {
+            switch (((Control)sender).Name)
+            {
+                case "label17":
+                    Enter_label(label17);
+                    break;
+                case "label16":
+                    Enter_label(label16);
+                    break;
+                case "label18":
+                    Enter_label(label18);
+                    break;
+                case "label4":
+                    Enter_label(label4);
+                    break;
+                case "label5":
+                    Enter_label(label5);
+                    break;
+                case "label6":
+                    Enter_label(label6);
+                    break;
+                case "label8":
+                    Enter_label(label8);
+                    break;
+                case "label9":
+                    Enter_label(label9);
+                    break;
+                case "label10":
+                    Enter_label(label10);
+                    break;
+                case "label13":
+                    Enter_label(label13);
+                    break;
+                case "label14":
+                    Enter_label(label14);
+                    break;
+                case "label15":
+                    Enter_label(label15);
+                    break;
+            }
+        }
+
+        private void label17_MouseLeave(object sender, EventArgs e)
+        {
+            switch (((Control)sender).Name)
+            {
+                case "label17":
+                    Leave_label(label17);
+                    break;
+                case "label16":
+                    Leave_label(label16);
+                    break;
+                case "label18":
+                    Leave_label(label18);
+                    break;
+                case "label4":
+                    Leave_label(label4);
+                    break;
+                case "label5":
+                    Leave_label(label5);
+                    break;
+                case "label6":
+                    Leave_label(label6);
+                    break;
+                case "label8":
+                    Leave_label(label8);
+                    break;
+                case "label9":
+                    Leave_label(label9);
+                    break;
+                case "label10":
+                    Leave_label(label10);
+                    break;
+                case "label13":
+                    Leave_label(label13);
+                    break;
+                case "label14":
+                    Leave_label(label14);
+                    break;
+                case "label15":
+                    Leave_label(label15);
+                    break;
+            }
         }
     }
 }
