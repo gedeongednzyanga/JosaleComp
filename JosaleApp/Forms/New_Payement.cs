@@ -56,7 +56,7 @@ namespace JosaleApp.Forms
         }
         void Get_Credit()
         {
-            dataGridView1.Rows.Clear();
+           dataGridView1.Rows.Clear();
            Dynamic_Classe.Instance().Load_Credit(dataGridView1);
         }
 
@@ -104,6 +104,16 @@ namespace JosaleApp.Forms
                 e.Handled = true;
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //DataGridView dv = new DataGridView(DataTable dt, "Column2='Gedeon'", "Column2 desc", DataViewRowState.CurrentRows);
+        }
+
+        private void text_search_TextChanged(object sender, EventArgs e)
+        {
+            Dynamic_Classe.Instance().Search_Credit(dataGridView1, text_search.Text.Trim());
         }
     }
 }

@@ -100,7 +100,7 @@ namespace JosaleApp.Classes
         }
         public void Load_Credit(DataGridView liste)
         {
-
+            int compteur = 1;
             try
             {
                 if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
@@ -113,8 +113,41 @@ namespace JosaleApp.Classes
                     while (dr.Read())
                     {
 
-                        liste.Rows.Add(dr["N°"].ToString(), dr["Customer"].ToString(), dr["Mount"].ToString());
-                       
+                        liste.Rows.Add(compteur, dr["N°"].ToString(), dr["Customer"].ToString(), dr["Mount"].ToString());
+                        compteur++;
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur " + ex.Message, "Error");
+            }
+            finally
+            {
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+        }
+
+        public void Search_Credit(DataGridView liste, string champ)
+        {
+            liste.Rows.Clear();
+            int compteur = 1;
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "RECHERCHE_CLIENT_FOR_PAYEMENT";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@noms", 50, DbType.String, champ));
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        liste.Rows.Add(compteur, dr["N°"].ToString(), dr["Customer"].ToString(), dr["Mount"].ToString());
+                        compteur++;
                     }
                     dr.Close();
                     cmd.Dispose();
