@@ -129,7 +129,7 @@ namespace Trier_Lib
                 {
                     lst.Add(GetTiers(rd));
                 }
-                rd.Dispose();
+                cmd.Dispose();
                 rd.Close();
             }
             return lst;

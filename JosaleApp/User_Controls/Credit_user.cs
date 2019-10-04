@@ -35,14 +35,42 @@ namespace JosaleApp.User_Controls
         {
             dataGridView1.DataSource = credit.Allcredit();
         }
+
+        void Search()
+        {
+            dataGridView1.DataSource = new Prets().Search(text_search.Text.Trim());
+        }
+        
+        void Loard_chart()
+        {
+            chart1.Series["Series1"].Points.AddXY("Janvier", 12);
+            chart1.Series["Series1"].Points.AddXY("Février", 20);
+            chart1.Series["Series1"].Points.AddXY("Mars", 50);
+            chart1.Series["Series1"].Points.AddXY("Avril", 42);
+            chart1.Series["Series1"].Points.AddXY("Mai", 10);
+            chart1.Series["Series1"].Points.AddXY("Juin", 30);
+            chart1.Series["Series1"].Points.AddXY("Juillet", 90);
+            chart1.Series["Series1"].Points.AddXY("Août", 50);
+            chart1.Series["Series1"].Points.AddXY("Septembre", 35);
+            chart1.Series["Series1"].Points.AddXY("Octobre", 50);
+            chart1.Series["Series1"].Points.AddXY("Novembre", 55);
+            chart1.Series["Series1"].Points.AddXY("Decembre", 85);
+        }
+    
         private void Credit_user_Load(object sender, EventArgs e)
         {
             Get_Credit(new Prets());
+            Loard_chart();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             Get_data();
+        }
+
+        private void text_search_TextChanged(object sender, EventArgs e)
+        {
+            Search();
         }
     }
 }
