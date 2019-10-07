@@ -68,3 +68,5 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\bin\D
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Credit_user.resources
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.New_Payement.resources
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Rembourssement_user.resources
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.xml

@@ -16,6 +16,10 @@ namespace JosaleApp
 {
     public partial class FormPrincipal : Form
     {
+        //Création des variables
+
+        int sommePret = 0;
+
         //Création des objects
 
         Tiers_user tier = new Tiers_user();
@@ -86,10 +90,20 @@ namespace JosaleApp
             label.Font = new Font(label.Font, FontStyle.Regular);
         }
 
+        //Autres méthodes
+        void Load_Somme()
+        {
+            sommePret=Dynamic_Classe.Instance().Count_data("prets", "code_pret", sommePret);
+            label18.Text = "All credits     " + "("+sommePret.ToString()+")";
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
            
         }
+
+       
+
 
         private void label8_Click(object sender, EventArgs e)
         {
@@ -110,6 +124,7 @@ namespace JosaleApp
         {
             Test_Configuration.Test_Flies();
             ShowCredit(credits);
+            Load_Somme();
         }
 
         private void label9_Click(object sender, EventArgs e)

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Parametre;
+using System.Xml;
+using System.Xml.Xsl;
+using System.IO;
 
 namespace JosaleApp.Classes
 {
@@ -63,7 +66,31 @@ namespace JosaleApp.Classes
             }
         }
 
-       public void Load_gage(int id, ListView liste)
+        public void Get_Annee_combo(ComboBox combAnne)
+        {
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "select DATEPART(YEAR, date_pret) as annee from prets group by DATEPART(YEAR, date_pret) order by DATEPART(YEAR, date_pret) desc";
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        combAnne.Items.Add(dr["annee"].ToString());
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public void Load_gage(int id, ListView liste)
         {
 
             try
@@ -161,6 +188,39 @@ namespace JosaleApp.Classes
             {
                 ImplementeConnexion.Instance.Conn.Close();
             }
+        }
+
+        public int Count_data (string table, string champ, int number)
+        {
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT COUNT(" + champ + ")  as Somme from " + table + " ";
+                IDataReader dr = cmd.ExecuteReader();
+                if (dr.Read()){
+                    if (dr["Somme"] == DBNull.Value)
+                        number = 0;
+                    else
+                        number = Convert.ToInt32(dr["Somme"].ToString());
+                }
+                dr.Dispose();
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+            return number;
+        }
+        public static void CreateWorkbook(DataSet ds, string path)
+        {
+            //var excelFile = new ExcelFile();
+            //XmlDataDocument xmldoc = new XmlDataDocument(ds);
+            //XslTransform xt = new XslTransform();
+            //StreamReader reader = new StreamReader(typeof(WorkbookEngine).Assembly.GetManifestResourceStream(typeof(WorkbookEngine),"Excel.xsl"));
+            //XmlTextReader xrd = new XmlTextReader(reader);
+            //xt.Load(xrd, null, null);
+            //StringWriter sw = new StringWriter();
+            //xt.Transform(xmldoc, null, sw, null);
+            //StreamWriter myWriter = new StreamWriter(path + "\\Report.xls");
+            //myWriter.Close();
         }
     }
 }
