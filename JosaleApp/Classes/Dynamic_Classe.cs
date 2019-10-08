@@ -11,6 +11,8 @@ using Parametre;
 using System.Xml;
 using System.Xml.Xsl;
 using System.IO;
+using DocumentFormat.OpenXml.Wordprocessing;
+//using DocumentFormat.OpenXml.
 
 namespace JosaleApp.Classes
 {
@@ -209,18 +211,13 @@ namespace JosaleApp.Classes
             }
             return number;
         }
-        public static void CreateWorkbook(DataSet ds, string path)
+        public void GeneratePDF(DataTable dt, string dataName)
         {
-            //var excelFile = new ExcelFile();
-            //XmlDataDocument xmldoc = new XmlDataDocument(ds);
-            //XslTransform xt = new XslTransform();
-            //StreamReader reader = new StreamReader(typeof(WorkbookEngine).Assembly.GetManifestResourceStream(typeof(WorkbookEngine),"Excel.xsl"));
-            //XmlTextReader xrd = new XmlTextReader(reader);
-            //xt.Load(xrd, null, null);
-            //StringWriter sw = new StringWriter();
-            //xt.Transform(xmldoc, null, sw, null);
-            //StreamWriter myWriter = new StreamWriter(path + "\\Report.xls");
-            //myWriter.Close();
+            //try
+            //{
+            //    Document document = new Document();
+                
+            //}
         }
     }
 }

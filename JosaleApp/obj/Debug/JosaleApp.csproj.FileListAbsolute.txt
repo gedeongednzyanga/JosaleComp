@@ -38,3 +38,5 @@ C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\D
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Rembourssement_user.resources
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.dll
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.xml
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DocumentFormat.OpenXml.xml

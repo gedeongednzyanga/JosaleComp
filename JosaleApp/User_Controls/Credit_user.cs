@@ -177,12 +177,6 @@ namespace JosaleApp.User_Controls
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (backgroundWorker.IsBusy)
-            {
-                backgroundWorker.CancelAsync();
-            }
-        }
+       
     }
 }
