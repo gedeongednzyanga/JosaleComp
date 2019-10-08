@@ -2,13 +2,11 @@
 using Prets_Lib;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using JosaleApp.Classes;
+using Pharmacie.Classes;
+using Microsoft.Office.Interop.Excel;
 using System.Threading;
 
 namespace JosaleApp.User_Controls
@@ -42,7 +40,7 @@ namespace JosaleApp.User_Controls
             dataGridView1.DataSource = credit.Allcredit();
             Load_annee();
         }
-
+       
         void Search()
         {
             dataGridView1.DataSource = new Prets().Search(text_search.Text.Trim());
@@ -71,25 +69,27 @@ namespace JosaleApp.User_Controls
 
         void Export_data()
         {
-            DataTable dt = new DataTable();
-            DataTable ds = new DataTable();
-            while (dt.Columns.Count < ds.Columns.Count)
-            {
-
-            }
+            System.Data.DataTable dt = new System.Data.DataTable();
+           // dt.Columns.Ad
+            string excelPath = "Excel2454.xlsx";
+            dt.ExportToExcel(excelPath);
         }
+
         private void Credit_user_Load(object sender, EventArgs e)
         {
             Get_Credit(new Prets());
             Loard_chart();
         }
 
+        //Struc Dataparameter
         private DataParameter _inputparameter;
         struct DataParameter
         {
-            public int progress;
-            public int delay;
+            public List<IPrets> ListePret;
+            public string Filename{ get; set;}
         }
+
+
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             Get_data();
@@ -109,39 +109,71 @@ namespace JosaleApp.User_Controls
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            //if (e.Error == null)
-            //{
-            //Thread.Sleep(100);
-            MessageBox.Show("Progress has been completed", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
+            if (e.Error == null)
+            {
+                Thread.Sleep(100);
+                MessageBox.Show("File has been Saved...", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                progressBar1.Value = 0;
+                lab_status.Text = "Progressing...0%";
+            }
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            int progress = ((DataParameter)e.Argument).progress;
-            int delay = ((DataParameter)e.Argument).delay;
-            int idex = 1;
-            try
+            List<IPrets> liste = ((DataParameter)e.Argument).ListePret;
+            string filename = ((DataParameter)e.Argument).Filename;
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
+            Worksheet ws = (Worksheet)excel.ActiveSheet;
+            excel.Visible = false;
+            int index = 1;
+            int progress = liste.Count;
+            //Add column
+            ws.Cells[1, 1] = "Number";
+            ws.Cells[1, 2] = "Name";
+            ws.Cells[1, 3] = "Last name";
+            ws.Cells[1, 4] = "Surname";
+            ws.Cells[1, 5] = "Mount";
+            ws.Cells[1, 6] = "Interest";
+            ws.Cells[1, 7] = "Repay mount";
+            ws.Cells[1, 8] = "Credit date";
+            ws.Cells[1, 9] = "Repay date";
+            foreach (IPrets pret in liste)
             {
-                for (int i = 0; i < progress; i++)
+                if(!backgroundWorker.CancellationPending)
                 {
-                    backgroundWorker.ReportProgress(idex++ * 100 / progress, string.Format("Progress data {0}", i));
-                    Thread.Sleep(delay);
+                    backgroundWorker.ReportProgress(index++ * 100 / progress);
+                    ws.Cells[index, 1] = pret.Id;
+                    ws.Cells[index, 2] = pret.Nom;
+                    ws.Cells[index, 3] = pret.Postnom;
+                    ws.Cells[index, 4] = pret.Prenom;
+                    ws.Cells[index, 5] = pret.Montant;
+                    ws.Cells[index, 6] = pret.Interet;
+                    ws.Cells[index, 7] = pret.Montantpaye;
+                    ws.Cells[index, 8] = pret.DatePret;
+                    ws.Cells[index, 9] = pret.DateRembour;
                 }
             }
-            catch (Exception)
-            {
 
-            }
+            //Save file
+            ws.SaveAs(filename, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+            excel.Quit();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!backgroundWorker.IsBusy)
+            if (backgroundWorker.IsBusy)
+                return;
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel workbook|*.xlsx" })
             {
-                _inputparameter.delay = 10;
-                _inputparameter.progress = 1200;
-                backgroundWorker.RunWorkerAsync(_inputparameter);
+                if(sfd.ShowDialog()==DialogResult.OK)
+                {
+                    _inputparameter.Filename = sfd.FileName;
+                    _inputparameter.ListePret = new Prets().Allcredit();
+                    progressBar1.Minimum = 0;
+                    progressBar1.Value = 0;
+                    backgroundWorker.RunWorkerAsync(_inputparameter);
+                }
             }
         }
 
