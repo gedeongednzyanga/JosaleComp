@@ -74,6 +74,49 @@ namespace Prets_Lib
             return list;
         }
 
+        public List<IPrets> Allcredit_Tri(int annee)
+        {
+            List<IPrets> list = new List<IPrets>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "TRI_PRETS_ANNEE";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@anne", 10, DbType.Int32, annee));
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetAll(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
+
+        public List<IPrets> Allcredit_Tri_moi(int annee, string mois)
+        {
+            List<IPrets> list = new List<IPrets>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "TRI_PRETS_ANNE_MOI";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@anne", 10, DbType.Int32, annee));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@mois", 50, DbType.String, mois));
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetAll(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
+
         public List<IPrets> AllRembou()
         {
             List<IPrets> list = new List<IPrets>();

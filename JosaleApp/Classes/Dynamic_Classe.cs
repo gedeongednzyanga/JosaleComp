@@ -51,19 +51,24 @@ namespace JosaleApp.Classes
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable Get_Data_combo(string tablename, string champ, string champ2)
+        public void Get_Data_one(string tablename, int code, string champ, Label label)
         {
             try
             {
                 if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
                     ImplementeConnexion.Instance.Conn.Open();
-                con = (SqlConnection)ImplementeConnexion.Instance.Conn;
-                da = new SqlDataAdapter("SELECT * FROM " + tablename + "", con);
-                ds = new DataSet();
-                da.Fill(ds, tablename);
-                con.Close();
-                return ds.Tables[0];
-
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT " + champ + " FROM " + tablename + " where ref_cli = '" + code + "'";
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        label.Text = dr[champ].ToString()+"$";
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+             
             }
             catch (Exception ex)
             {

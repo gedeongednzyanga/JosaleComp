@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Client_Lib;
+using JosaleApp.Classes;
 
 namespace JosaleApp.User_Controls
 {
     public partial class Client_user : UserControl
     {
+        int Id = 0;
         public Client_user()
         {
             InitializeComponent();
@@ -25,6 +27,20 @@ namespace JosaleApp.User_Controls
         void Search_client()
         {
             dataGridView1.DataSource = new Client().Search(text_search.Text.Trim());
+        }
+        void Get_gage()
+        {
+            listView1.Items.Clear();
+            Dynamic_Classe.Instance().Load_gage(Id, listView1);
+            Dynamic_Classe.Instance().Get_Data_one("prets", Id, "montant_remb", label9);
+        }
+        void Get_data()
+        {
+            int i = dataGridView1.CurrentRow.Index;
+            Id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+            Get_gage();
+            
+           // Total_gage();
         }
         void Get_customer()
         {
@@ -58,6 +74,7 @@ namespace JosaleApp.User_Controls
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             Get_customer();
+            Get_data();
         }
     }
 }

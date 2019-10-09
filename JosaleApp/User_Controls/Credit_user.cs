@@ -43,7 +43,15 @@ namespace JosaleApp.User_Controls
             dataGridView1.DataSource = credit.Allcredit();
             Load_annee();
         }
-       
+        void Get_Credit_annee(IPrets credit)
+        {
+            dataGridView1.DataSource = credit.Allcredit_Tri(Convert.ToInt32(comboBox1.Text.Trim()));
+        }
+        void Get_Credit_annee_mois(IPrets credit)
+        {
+            dataGridView1.DataSource = credit.Allcredit_Tri_moi(Convert.ToInt32(comboBox1.Text.Trim()), comboBox2.Text.Trim());
+        }
+
         void Search()
         {
             dataGridView1.DataSource = new Prets().Search(text_search.Text.Trim());
@@ -70,11 +78,11 @@ namespace JosaleApp.User_Controls
             label6.Text = i.ToString()+" "+" gage(s)";
         }
 
-        void Export_data()
-        {
-            Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
-            Dynamic_Classe.Instance().GeneratePDF(dtable, "liste", "Annees liste");
-        }
+        //void Export_data()
+        //{
+        //    Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
+        //    Dynamic_Classe.Instance().GeneratePDF(dtable, "liste", "Annees liste");
+        //}
 
         private void Credit_user_Load(object sender, EventArgs e)
         {
@@ -126,7 +134,7 @@ namespace JosaleApp.User_Controls
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet ws = (Worksheet)excel.ActiveSheet;
-            excel.Visible = false;
+            excel.Visible = true;
             int index = 1;
             int progress = liste.Count;
             //Add column
@@ -190,6 +198,40 @@ namespace JosaleApp.User_Controls
             }catch(Exception ex)
             {
                 MessageBox.Show("Error " + ex.Message);
+            }
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Get_Credit_annee(new Prets());
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message,"Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(comboBox1.Text))
+                    return;
+                else
+                    Get_Credit_annee_mois(new Prets());
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!Char.IsDigit(ch) && ch !=8 && ch != 48)
+            {
+                e.Handled = true;
             }
         }
     }
