@@ -14,6 +14,9 @@ namespace JosaleApp.User_Controls
     public partial class Credit_user : UserControl
     {
         int Id = 0;
+        System.Data.DataTable dtable = new System.Data.DataTable();
+
+
         public Credit_user()
         {
             InitializeComponent();
@@ -69,10 +72,8 @@ namespace JosaleApp.User_Controls
 
         void Export_data()
         {
-            System.Data.DataTable dt = new System.Data.DataTable();
-           // dt.Columns.Ad
-            string excelPath = "Excel2454.xlsx";
-            dt.ExportToExcel(excelPath);
+            Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
+            Dynamic_Classe.Instance().GeneratePDF(dtable, "liste", "Annees liste");
         }
 
         private void Credit_user_Load(object sender, EventArgs e)
@@ -177,6 +178,19 @@ namespace JosaleApp.User_Controls
             }
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Data.DataTable dt = Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
+                Dynamic_Classe.Instance().GeneratePDF(dtable, @"E:\Liste_client.pdf", "Friend List");
+                System.Diagnostics.Process.Start(@"E:\Liste_client.pdf");
+                //this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
+            }
+        }
     }
 }

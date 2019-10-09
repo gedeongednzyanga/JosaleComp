@@ -11,8 +11,11 @@ using Parametre;
 using System.Xml;
 using System.Xml.Xsl;
 using System.IO;
-using DocumentFormat.OpenXml.Wordprocessing;
-//using DocumentFormat.OpenXml.
+//using DocumentFormat.OpenXml.Wordprocessing;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 
 namespace JosaleApp.Classes
 {
@@ -23,7 +26,7 @@ namespace JosaleApp.Classes
         DataSet ds;
         public static Dynamic_Classe dynC;
 
-        public static  Dynamic_Classe Instance()
+        public static Dynamic_Classe Instance()
         {
             if (dynC == null)
                 dynC = new Dynamic_Classe();
@@ -43,7 +46,7 @@ namespace JosaleApp.Classes
                 con.Close();
                 return ds.Tables[0];
 
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -192,7 +195,7 @@ namespace JosaleApp.Classes
             }
         }
 
-        public int Count_data (string table, string champ, int number)
+        public int Count_data(string table, string champ, int number)
         {
             if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
                 ImplementeConnexion.Instance.Conn.Open();
@@ -200,7 +203,7 @@ namespace JosaleApp.Classes
             {
                 cmd.CommandText = "SELECT COUNT(" + champ + ")  as Somme from " + table + " ";
                 IDataReader dr = cmd.ExecuteReader();
-                if (dr.Read()){
+                if (dr.Read()) {
                     if (dr["Somme"] == DBNull.Value)
                         number = 0;
                     else
@@ -211,13 +214,88 @@ namespace JosaleApp.Classes
             }
             return number;
         }
-        public void GeneratePDF(DataTable dt, string dataName)
+
+        //Méthode pour génération PDF
+
+        public void GeneratePDF(DataTable dtblTable, String strPdfPath, string strHeader)
         {
-            //try
-            //{
-            //    Document document = new Document();
-                
-            //}
+            FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
+            Document document = new Document();
+            document.SetPageSize(iTextSharp.text.PageSize.A4);
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+            document.Open();
+
+            //Report Header
+            BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntHead = new Font(bfntHead, 16, 1, Color.GRAY);
+            Paragraph prgHeading = new Paragraph();
+            prgHeading.Alignment = Element.ALIGN_CENTER;
+            prgHeading.Add(new Chunk(strHeader.ToUpper(), fntHead));
+            document.Add(prgHeading);
+
+            //Auteur ou Entreprise
+            Paragraph prgAuthor = new Paragraph();
+            BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntAuthor = new Font(btnAuthor, 8, 2, Color.GRAY);
+            prgAuthor.Alignment = Element.ALIGN_RIGHT;
+            prgAuthor.Add(new Chunk("Author : Josale Company", fntAuthor));
+            prgAuthor.Add(new Chunk("\nRun Date : " + DateTime.Now.ToShortDateString(), fntAuthor));
+            document.Add(prgAuthor);
+
+            //Ajout de la ligne de separation
+            Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, Color.BLACK, Element.ALIGN_LEFT, 1)));
+            document.Add(p);
+
+            //Add line break
+            document.Add(new Chunk("\n", fntHead));
+
+            //Write the table
+            PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
+            //Table header
+            BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntColumnHeader = new Font(btnColumnHeader, 10, 1, Color.WHITE);
+            for (int i = 0; i < dtblTable.Columns.Count; i++)
+            {
+                PdfPCell cell = new PdfPCell();
+                cell.BackgroundColor = Color.GRAY;
+                cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
+                table.AddCell(cell);
+            }
+            //table Data
+            for (int i = 0; i < dtblTable.Rows.Count; i++)
+            {
+                for (int j = 0; j < dtblTable.Columns.Count; j++)
+                {
+                    table.AddCell(dtblTable.Rows[i][j].ToString());
+                }
+            }
+            document.Add(table);
+            document.Close();
+            writer.Close();
+            fs.Close();
+        }
+
+        //Méthode pour exporter DatagridView en DataTable
+
+        public DataTable ExportDatagrod_toDatatable(DataGridView dgv, DataTable dt)
+        {
+            while (dt.Columns.Count < dgv.Columns.Count)
+            {
+                foreach (DataGridViewColumn col in dgv.Columns)
+                {
+                    dt.Columns.Add(col.HeaderText.ToString());
+                }
+            }
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow drow = dt.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    drow[cell.ColumnIndex] = cell.Value;
+                }
+                dt.Rows.Add(drow);
+            }
+            return dt;
         }
     }
 }

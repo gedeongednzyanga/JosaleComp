@@ -19,6 +19,9 @@ namespace JosaleApp
         //Création des variables
 
         int sommePret = 0;
+        int sommeCustomer = 0;
+        int sommeDebt = 0;
+        int sommeSupplier = 0;
 
         //Création des objects
 
@@ -95,6 +98,12 @@ namespace JosaleApp
         {
             sommePret=Dynamic_Classe.Instance().Count_data("prets", "code_pret", sommePret);
             label18.Text = "All credits     " + "("+sommePret.ToString()+")";
+            sommeCustomer = Dynamic_Classe.Instance().Count_data("client", "code_cli", sommeCustomer);
+            label6.Text = "All customers   " + "(" + sommeCustomer.ToString() + ")";
+            sommeDebt = Dynamic_Classe.Instance().Count_data("emprunts", "code_emprunt", sommeDebt);
+            label9.Text = "All debits   " + "(" + sommeDebt.ToString() + ")";
+            sommeSupplier = Dynamic_Classe.Instance().Count_data("tier", "code_tier", sommeSupplier);
+            label15.Text = "All suppliers   " + "(" + sommeSupplier.ToString() + ")";
         }
 
         private void button1_Click(object sender, EventArgs e)
