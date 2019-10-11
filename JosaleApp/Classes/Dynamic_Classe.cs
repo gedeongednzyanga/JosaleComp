@@ -11,7 +11,6 @@ using Parametre;
 using System.Xml;
 using System.Xml.Xsl;
 using System.IO;
-//using DocumentFormat.OpenXml.Wordprocessing;
 using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -218,6 +217,62 @@ namespace JosaleApp.Classes
                 ImplementeConnexion.Instance.Conn.Close();
             }
             return number;
+        }
+
+        public void Get_Somme_debt(Label number, int mois)
+        {
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "select count(code_emprunt) as somme from emprunts  where DATEPART(month, date_rembu) ="+mois+"";
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        if (dr["somme"] == DBNull.Value)
+                            number.Text = "Total debt : 0";
+                        else
+                            number.Text = "Total debt : "+dr["somme"].ToString();
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void Get_Somme_debt_annee(Label number, int annee)
+        {
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "select count(code_emprunt) as somme from emprunts  where DATEPART(YEAR, date_rembu) =" + annee + "";
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        if (dr["somme"] == DBNull.Value)
+                            number.Text = "Total debt : 0";
+                        else
+                            number.Text = "Total debt : " + dr["somme"].ToString();
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         //Méthode pour génération PDF
