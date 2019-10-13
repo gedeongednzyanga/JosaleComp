@@ -30,6 +30,7 @@ namespace JosaleApp
         Emprunt_user empruts= new Emprunt_user();
         Credit_user credits = new Credit_user();
         Rembourssement_user rembou = new Rembourssement_user();
+        Loan_rembourssement_user loan = new Loan_rembourssement_user();
 
         public FormPrincipal()
         {
@@ -76,6 +77,14 @@ namespace JosaleApp
             rembus.Dock = DockStyle.Fill;
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(rembus);
+            panel_principal.Show();
+        }
+        void ShowRembouLoan(object rembu_loan)
+        {
+            Loan_rembourssement_user rembuL = rembu_loan as Loan_rembourssement_user;
+            rembuL.Dock = DockStyle.Fill;
+            panel_principal.Controls.Clear();
+            panel_principal.Controls.Add(rembuL);
             panel_principal.Show();
         }
 
@@ -285,6 +294,11 @@ namespace JosaleApp
                     Leave_label(label15);
                     break;
             }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            ShowRembouLoan(loan);
         }
     }
 }

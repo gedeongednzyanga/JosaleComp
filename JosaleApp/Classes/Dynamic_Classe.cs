@@ -148,8 +148,38 @@ namespace JosaleApp.Classes
                     IDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-
                         liste.Rows.Add(compteur, dr["N°"].ToString(), dr["Customer"].ToString(), dr["Mount"].ToString());
+                        compteur++;
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur " + ex.Message, "Error");
+            }
+            finally
+            {
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+        }
+
+        public void Load_Emprunt(DataGridView liste)
+        {
+            int compteur = 1;
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT_EMPRUNT_FOR_TIER";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        liste.Rows.Add(compteur, dr["N°"].ToString(), dr["Tier"].ToString(), dr["Mount"].ToString());
                         compteur++;
                     }
                     dr.Close();
@@ -183,6 +213,38 @@ namespace JosaleApp.Classes
                     while (dr.Read())
                     {
                         liste.Rows.Add(compteur, dr["N°"].ToString(), dr["Customer"].ToString(), dr["Mount"].ToString());
+                        compteur++;
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur " + ex.Message, "Error");
+            }
+            finally
+            {
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+        }
+        public void Search_Emprunt(DataGridView liste, string champ)
+        {
+            liste.Rows.Clear();
+            int compteur = 1;
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "RECHERCHE_TRIER_FOR_PAYEMENT";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@noms", 50, DbType.String, champ));
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        liste.Rows.Add(compteur, dr["N°"].ToString(), dr["Tier"].ToString(), dr["Mount"].ToString());
                         compteur++;
                     }
                     dr.Close();

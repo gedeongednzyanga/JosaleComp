@@ -138,6 +138,12 @@
     <Compile Include="User_Controls\Emprunt_user.Designer.cs">
       <DependentUpon>Emprunt_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Controls\Loan_rembourssement_user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\Loan_rembourssement_user.Designer.cs">
+      <DependentUpon>Loan_rembourssement_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\Rembourssement_user.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\Emprunt_user.resx">
       <DependentUpon>Emprunt_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\Loan_rembourssement_user.resx">
+      <DependentUpon>Loan_rembourssement_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\Rembourssement_user.resx">
       <DependentUpon>Rembourssement_user.cs</DependentUpon>

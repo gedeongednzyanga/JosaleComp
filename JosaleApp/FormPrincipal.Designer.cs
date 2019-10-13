@@ -434,9 +434,9 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(160, 28);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Dashboard";
+            this.label10.Text = "Reimbursement";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Click += new System.EventHandler(this.label9_Click);
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             this.label10.MouseEnter += new System.EventHandler(this.label17_MouseEnter);
             this.label10.MouseLeave += new System.EventHandler(this.label17_MouseLeave);
             // 
