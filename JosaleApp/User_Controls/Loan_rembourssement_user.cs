@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JosaleApp.Classes;
+using Emprunts_Lib;
 
 namespace JosaleApp.User_Controls
 {
     public partial class Loan_rembourssement_user : UserControl
     {
+        Rembourssement_emp Rembou; 
+        private int codeRembu = 0;
+        private int codeEmpr = 0;
         public Loan_rembourssement_user()
         {
             InitializeComponent();
@@ -21,6 +25,50 @@ namespace JosaleApp.User_Controls
         {
             dataGridView2.Rows.Clear();
             Dynamic_Classe.Instance().Load_Emprunt(dataGridView2);
+        }
+        void Nouveau()
+        {
+            Rembou = new Rembourssement_emp();
+            codeRembu = Rembou.Nouveau();
+        }
+
+        void Get_emprunt_pay()
+        {
+            try
+            {
+                int i = dataGridView2.CurrentRow.Index;
+                codeEmpr = Convert.ToInt32(dataGridView2["Column13", i].Value.ToString());
+                lab_name.Text = dataGridView2["Column14", i].Value.ToString();
+                lab_dete.Text = dataGridView2["Column15", i].Value.ToString();
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        void Save (bool btn)
+        {
+            try
+            {
+                Rembou = new Rembourssement_emp();
+                if (codeRembu == 0) { MessageBox.Show("Clik at first the new Button !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+                else if (codeEmpr == 0 || string.IsNullOrEmpty(lab_dete.Text) || string.IsNullOrEmpty(text_mount.Text) || string.IsNullOrEmpty(lab_reste.Text))
+                { MessageBox.Show("Complete the mount case or select supplier please", "Messasge...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+                else
+                {
+                    Rembou.Id = Convert.ToInt32(codeRembu);
+                    Rembou.Montant = float.Parse(text_mount.Text.Trim());
+                    Rembou.Reste = float.Parse(lab_reste.Text.Trim());
+                    Rembou.RefEmp = Convert.ToInt32(codeEmpr);
+                    if (btn)
+                        Rembou.Save(Rembou);
+                    else
+                        MessageBox.Show("Function delete not found please create this function");
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Get_Emprunt();
         }
         private void Loan_rembourssement_user_Load(object sender, EventArgs e)
         {
@@ -52,6 +100,39 @@ namespace JosaleApp.User_Controls
                 MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            switch (((Control)sender).Name)
+            {
+                case "btnNew":
+                    Nouveau();
+                    break;
+                case "btnSave":
+                    Save(true);
+                    break;
+            }
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            Get_emprunt_pay();
+        }
+
+        private void text_mount_TextChanged(object sender, EventArgs e)
+        {
+            if( text_mount.Text == "") { text_mount.Text = "0"; lab_reste.Text = "0"; } else
+            {
+                try
+                {
+                    lab_reste.Text = (float.Parse(lab_dete.Text.Trim()) - float.Parse(text_mount.Text.Trim())).ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }  
         }
     }
 }
