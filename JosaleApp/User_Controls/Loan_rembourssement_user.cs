@@ -26,6 +26,11 @@ namespace JosaleApp.User_Controls
             dataGridView2.Rows.Clear();
             Dynamic_Classe.Instance().Load_Emprunt(dataGridView2);
         }
+        void Get_Emprunt_Rem(IEmprunt rembou)
+        {
+            dataGridView1.DataSource = rembou.AllEmprunt_Remb();
+        }
+
         void Nouveau()
         {
             Rembou = new Rembourssement_emp();
@@ -73,6 +78,7 @@ namespace JosaleApp.User_Controls
         private void Loan_rembourssement_user_Load(object sender, EventArgs e)
         {
             Get_Emprunt();
+            Get_Emprunt_Rem(new Emprunt());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -122,7 +128,13 @@ namespace JosaleApp.User_Controls
 
         private void text_mount_TextChanged(object sender, EventArgs e)
         {
-            if( text_mount.Text == "") { text_mount.Text = "0"; lab_reste.Text = "0"; } else
+            if( text_mount.Text == "") { text_mount.Text = "0"; lab_reste.Text = "0"; }
+            else if(float.Parse(text_mount.Text.Trim()) > float.Parse(lab_dete.Text.Trim())) {
+                MessageBox.Show("Mount can't be greater than loan !!!", "Messasge...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lab_reste.Text = "";
+                text_mount.Text = "";
+            }
+            else
             {
                 try
                 {
@@ -133,6 +145,26 @@ namespace JosaleApp.User_Controls
                     MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }  
+        }
+
+        private void text_search_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.DataSource = new Emprunt().Search_remb(text_search.Text.Trim());
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void text_mount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!Char.IsDigit(ch) && ch !=8 && ch != 46)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

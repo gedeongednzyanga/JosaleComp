@@ -15,6 +15,7 @@ namespace Emprunts_Lib
         public int Id { get; set; }
         public float Montant { get; set; }
         public float MontantRemb { get; set; }
+        public float Reste { get; set; }
         public int Reftier { get; set; }
         public DateTime DateEmprunt { get; set; }
         public DateTime DateRembu { get; set; }
@@ -93,6 +94,18 @@ namespace Emprunts_Lib
             return emprunt;
         }
 
+        public IEmprunt GetEmprunt_Remb(IDataReader dr)
+        {
+            IEmprunt emprunt = new Emprunt();
+            emprunt.Id = Convert.ToInt32(dr["N°"].ToString());
+            emprunt.Name = dr["Noms"].ToString();
+            emprunt.Montant = float.Parse( dr["Emprunt"].ToString());
+            emprunt.MontantRemb = float.Parse(dr["Montant"].ToString());
+            emprunt.Reste = float.Parse(dr["Reste"].ToString());
+            emprunt.DateEmprunt = DateTime.Parse(dr["Date_op"].ToString());
+            return emprunt;
+        }
+
         public IEmprunt GetNomId(IDataReader dr)
         {
             IEmprunt tier = new Emprunt();
@@ -140,6 +153,26 @@ namespace Emprunts_Lib
             return list;
         }
 
+        public List<IEmprunt> AllEmprunt_Remb()
+        {
+            List<IEmprunt> list = new List<IEmprunt>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT_REMBOU_TIER";
+                cmd.CommandType = CommandType.StoredProcedure;
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetEmprunt_Remb(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
+
         public IEmprunt OneEmprunt(int id)
         {
             IEmprunt tier = new Emprunt();
@@ -173,6 +206,24 @@ namespace Emprunts_Lib
                 while (dr.Read())
                 {
                     list.Add(GetEmprunt(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
+        public List<IEmprunt> Search_remb(string recherche)
+        {
+            List<IEmprunt> list = new List<IEmprunt>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * FROM Affichage_Tier_Rembou WHERE Noms LIKE '%" + recherche + "%'";
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetEmprunt_Remb(dr));
                 }
                 cmd.Dispose();
                 dr.Close();

@@ -2,4 +2,3 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Parametre\bin\D
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Parametre\bin\Debug\Parametre.pdb
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Parametre\obj\Debug\Parametre.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Parametre\obj\Debug\Parametre.pdb
-C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Parametre\obj\Debug\Parametre.csprojResolveAssemblyReference.cache

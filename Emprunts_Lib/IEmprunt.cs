@@ -12,6 +12,7 @@ namespace Emprunts_Lib
         int Id { get; set; }
         float Montant { get; set; }
         float MontantRemb { get; set; }
+        float Reste { get; set; }
         int Reftier { get; set; }
         DateTime DateEmprunt { get; set; }
         DateTime DateRembu { get; set; }
@@ -25,6 +26,7 @@ namespace Emprunts_Lib
         void Delete(int id);
         List<IEmprunt> AllEmprunt();
         List<IEmprunt> Get_TierNomId();
+        List<IEmprunt> AllEmprunt_Remb();
         IEmprunt OneEmprunt(int id);
     }
 }

@@ -36,11 +36,16 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lab_dete = new System.Windows.Forms.Label();
+            this.lab_name = new System.Windows.Forms.Label();
+            this.lab_reste = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.text_mount = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -54,6 +59,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,12 +71,6 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lab_reste = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.lab_name = new System.Windows.Forms.Label();
-            this.lab_dete = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -128,6 +128,53 @@
             this.groupBox4.TabIndex = 33;
             this.groupBox4.TabStop = false;
             // 
+            // lab_dete
+            // 
+            this.lab_dete.BackColor = System.Drawing.Color.White;
+            this.lab_dete.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lab_dete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lab_dete.Location = new System.Drawing.Point(90, 50);
+            this.lab_dete.Name = "lab_dete";
+            this.lab_dete.Size = new System.Drawing.Size(273, 25);
+            this.lab_dete.TabIndex = 9;
+            this.lab_dete.Text = "0";
+            this.lab_dete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lab_name
+            // 
+            this.lab_name.BackColor = System.Drawing.Color.White;
+            this.lab_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lab_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lab_name.Location = new System.Drawing.Point(90, 21);
+            this.lab_name.Name = "lab_name";
+            this.lab_name.Size = new System.Drawing.Size(273, 25);
+            this.lab_name.TabIndex = 8;
+            this.lab_name.Text = "Names";
+            this.lab_name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lab_reste
+            // 
+            this.lab_reste.BackColor = System.Drawing.Color.White;
+            this.lab_reste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lab_reste.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lab_reste.Location = new System.Drawing.Point(90, 109);
+            this.lab_reste.Name = "lab_reste";
+            this.lab_reste.Size = new System.Drawing.Size(273, 25);
+            this.lab_reste.TabIndex = 8;
+            this.lab_reste.Text = "0";
+            this.lab_reste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(282, 144);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(81, 33);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -176,6 +223,16 @@
             this.text_mount.Size = new System.Drawing.Size(273, 24);
             this.text_mount.TabIndex = 5;
             this.text_mount.TextChanged += new System.EventHandler(this.text_mount_TextChanged);
+            this.text_mount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_mount_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 111);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 20);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Rest";
             // 
             // label4
             // 
@@ -198,7 +255,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(13, 22);
             this.pictureBox2.Name = "pictureBox2";
@@ -241,7 +297,7 @@
             this.Column15});
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -293,6 +349,7 @@
             this.text_search.Name = "text_search";
             this.text_search.Size = new System.Drawing.Size(264, 23);
             this.text_search.TabIndex = 28;
+            this.text_search.TextChanged += new System.EventHandler(this.text_search_TextChanged);
             // 
             // pictureBox1
             // 
@@ -364,6 +421,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(575, 324);
             this.dataGridView1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 23);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Loan reimbursement";
+            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -375,53 +442,58 @@
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "Nom";
-            this.Column2.HeaderText = "First name";
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Names";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "Postnom";
-            this.Column3.HeaderText = "Last name";
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.DataPropertyName = "Montant";
+            this.Column3.HeaderText = "Loan";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 67;
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "Prenom";
-            this.Column4.HeaderText = "Surname";
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.DataPropertyName = "MontantRemb";
+            this.Column4.HeaderText = "Payed Mount";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 126;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column5.DataPropertyName = "Montant";
-            this.Column5.HeaderText = "Mount";
+            this.Column5.DataPropertyName = "Reste";
+            this.Column5.HeaderText = "Rest to pay";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 80;
+            this.Column5.Width = 109;
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.DataPropertyName = "Montantpaye";
-            this.Column6.HeaderText = "Rest";
+            this.Column6.DataPropertyName = "DateEmprunt";
+            this.Column6.HeaderText = "Date";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 62;
+            this.Column6.Width = 66;
             // 
             // Column7
             // 
-            this.Column7.DataPropertyName = "DatePret";
+            this.Column7.DataPropertyName = "Reftier";
             this.Column7.HeaderText = "Date";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
             // 
             // Column8
             // 
-            this.Column8.DataPropertyName = "DateRembour";
+            this.Column8.DataPropertyName = "DateRembu";
             this.Column8.HeaderText = "Reapay date";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -429,7 +501,7 @@
             // 
             // Column9
             // 
-            this.Column9.DataPropertyName = "RefInteret";
+            this.Column9.DataPropertyName = "SurName";
             this.Column9.HeaderText = "Column9";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -437,7 +509,7 @@
             // 
             // Column10
             // 
-            this.Column10.DataPropertyName = "RefCli";
+            this.Column10.DataPropertyName = "LastName";
             this.Column10.HeaderText = "Column10";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
@@ -445,77 +517,11 @@
             // 
             // Column11
             // 
-            this.Column11.DataPropertyName = "Interet";
+            this.Column11.DataPropertyName = "Tier";
             this.Column11.HeaderText = "Column11";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             this.Column11.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 23);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Loan reimbursement";
-            // 
-            // lab_reste
-            // 
-            this.lab_reste.BackColor = System.Drawing.Color.White;
-            this.lab_reste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lab_reste.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lab_reste.Location = new System.Drawing.Point(90, 109);
-            this.lab_reste.Name = "lab_reste";
-            this.lab_reste.Size = new System.Drawing.Size(273, 25);
-            this.lab_reste.TabIndex = 8;
-            this.lab_reste.Text = "0";
-            this.lab_reste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 111);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 20);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Rest";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(282, 144);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(81, 33);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // lab_name
-            // 
-            this.lab_name.BackColor = System.Drawing.Color.White;
-            this.lab_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lab_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lab_name.Location = new System.Drawing.Point(90, 21);
-            this.lab_name.Name = "lab_name";
-            this.lab_name.Size = new System.Drawing.Size(273, 25);
-            this.lab_name.TabIndex = 8;
-            this.lab_name.Text = "Names";
-            this.lab_name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lab_dete
-            // 
-            this.lab_dete.BackColor = System.Drawing.Color.White;
-            this.lab_dete.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lab_dete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lab_dete.Location = new System.Drawing.Point(90, 50);
-            this.lab_dete.Name = "lab_dete";
-            this.lab_dete.Size = new System.Drawing.Size(273, 25);
-            this.lab_dete.TabIndex = 9;
-            this.lab_dete.Text = "0";
-            this.lab_dete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Loan_rembourssement_user
             // 
@@ -551,17 +557,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -584,5 +579,16 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label lab_name;
         private System.Windows.Forms.Label lab_dete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }
