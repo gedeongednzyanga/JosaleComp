@@ -42,3 +42,15 @@ C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\D
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\itextsharp.dll
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.User_Controls.Loan_rembourssement_user.resources
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll

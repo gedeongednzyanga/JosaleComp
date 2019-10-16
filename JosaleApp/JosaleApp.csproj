@@ -56,6 +56,8 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="PDUConverter">
       <HintPath>F:\Programmes\DLL FILES\DLL MESSAGE\PDUConverter.dll</HintPath>
     </Reference>
@@ -66,6 +68,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -117,6 +120,11 @@
     </Compile>
     <Compile Include="Forms\New_Tiers.Designer.cs">
       <DependentUpon>New_Tiers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JOSALE_COMPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JOSALE_COMPDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,6 +209,17 @@
     <EmbeddedResource Include="User_Controls\Tiers_user.resx">
       <DependentUpon>Tiers_user.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="JOSALE_COMPDataSet.xsc">
+      <DependentUpon>JOSALE_COMPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JOSALE_COMPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JOSALE_COMPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JOSALE_COMPDataSet.xss">
+      <DependentUpon>JOSALE_COMPDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -281,6 +300,9 @@
     <Content Include="Icons\icons8_US_Dollar_25px_2.png" />
     <Content Include="Icons\icons8_US_Dollar_25px_3.png" />
     <Content Include="Icons\icons8__Message_Filled_25px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
