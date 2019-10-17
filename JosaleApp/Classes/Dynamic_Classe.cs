@@ -14,15 +14,15 @@ using System.IO;
 using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-
+using Microsoft.Reporting.WinForms;
 
 namespace JosaleApp.Classes
 {
     class Dynamic_Classe
-    {
+    {                                                  
         SqlDataAdapter da = null;
         SqlConnection con;
-        DataSet ds;
+        System.Data.DataSet ds;
         public static Dynamic_Classe dynC;
 
         public static Dynamic_Classe Instance()
@@ -40,7 +40,7 @@ namespace JosaleApp.Classes
                     ImplementeConnexion.Instance.Conn.Open();
                 con = (SqlConnection)ImplementeConnexion.Instance.Conn;
                 da = new SqlDataAdapter("SELECT * FROM " + tablename + "", con);
-                ds = new DataSet();
+                ds = new System.Data.DataSet();
                 da.Fill(ds, tablename);
                 con.Close();
                 return ds.Tables[0];
@@ -334,6 +334,51 @@ namespace JosaleApp.Classes
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+        //Méthode Rapport
+
+        public void Call_Report(ReportViewer reportView, string path, int codePret)
+        {
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "select * from Recu where Numéro = " + codePret + "";
+                    da = new SqlDataAdapter((SqlCommand)cmd);
+                    ds = new System.Data.DataSet();
+                    //Remplissage du DataSet via DataAdapter
+                    da.Fill(ds, "DataSet_Recu");
+                    reportView.LocalReport.DataSources.Clear();
+                    //Source du reportViewr
+                    reportView.LocalReport.DataSources.Add(new ReportDataSource("DataSet_Recu", ds.Tables[0]));
+                    //Specificier le rapport à charger
+                    reportView.LocalReport.ReportEmbeddedResource = path;
+                    reportView.RefreshReport();
+                }
+            } catch(InvalidOperationException ex)
+            {
+                MessageBox.Show("Error "+ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error when Selecting data, " + ex.Message, "Selecting data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                if (ImplementeConnexion.Instance.Conn != null)
+                {
+                    if (ImplementeConnexion.Instance.Conn.State == System.Data.ConnectionState.Open)
+                        ImplementeConnexion.Instance.Conn.Close();
+                }
+
+                if (da != null)
+                    da.Dispose();
+                if (ds != null)
+                    ds.Dispose();
             }
         }
 

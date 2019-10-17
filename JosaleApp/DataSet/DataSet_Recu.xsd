@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_Recu" targetNamespace="http://tempuri.org/DataSet_Recu.xsd" xmlns:mstns="http://tempuri.org/DataSet_Recu.xsd" xmlns="http://tempuri.org/DataSet_Recu.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JOSALE_COMPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JOSALE_COMPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.JosaleApp.Properties.Settings.GlobalReference.Default.JOSALE_COMPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RecuTableAdapter" GeneratorDataComponentClassName="RecuTableAdapter" Name="Recu" UserDataComponentName="RecuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JOSALE_COMPConnectionString (Settings)" DbObjectName="JOSALE_COMP.dbo.Recu" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Numéro, nom, postnom, Prénom, Montantpret, Intéret, Montantapayé, DatePrêt, DateRemb FROM dbo.Recu</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Numéro" DataSetColumn="Numéro" />
+              <Mapping SourceColumn="nom" DataSetColumn="nom" />
+              <Mapping SourceColumn="postnom" DataSetColumn="postnom" />
+              <Mapping SourceColumn="Prénom" DataSetColumn="Prénom" />
+              <Mapping SourceColumn="Montantpret" DataSetColumn="Montantpret" />
+              <Mapping SourceColumn="Intéret" DataSetColumn="Intéret" />
+              <Mapping SourceColumn="Montantapayé" DataSetColumn="Montantapayé" />
+              <Mapping SourceColumn="DatePrêt" DataSetColumn="DatePrêt" />
+              <Mapping SourceColumn="DateRemb" DataSetColumn="DateRemb" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_Recu" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_Recu" msprop:Generator_UserDSName="DataSet_Recu">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Recu" msprop:Generator_TableClassName="RecuDataTable" msprop:Generator_TableVarName="tableRecu" msprop:Generator_TablePropName="Recu" msprop:Generator_RowDeletingName="RecuRowDeleting" msprop:Generator_RowChangingName="RecuRowChanging" msprop:Generator_RowEvHandlerName="RecuRowChangeEventHandler" msprop:Generator_RowDeletedName="RecuRowDeleted" msprop:Generator_UserTableName="Recu" msprop:Generator_RowChangedName="RecuRowChanged" msprop:Generator_RowEvArgName="RecuRowChangeEvent" msprop:Generator_RowClassName="RecuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Numéro" msprop:Generator_ColumnVarNameInTable="columnNuméro" msprop:Generator_ColumnPropNameInRow="Numéro" msprop:Generator_ColumnPropNameInTable="NuméroColumn" msprop:Generator_UserColumnName="Numéro" type="xs:int" />
+              <xs:element name="nom" msprop:Generator_ColumnVarNameInTable="columnnom" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_UserColumnName="nom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="postnom" msprop:Generator_ColumnVarNameInTable="columnpostnom" msprop:Generator_ColumnPropNameInRow="postnom" msprop:Generator_ColumnPropNameInTable="postnomColumn" msprop:Generator_UserColumnName="postnom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prénom" msprop:Generator_ColumnVarNameInTable="columnPrénom" msprop:Generator_ColumnPropNameInRow="Prénom" msprop:Generator_ColumnPropNameInTable="PrénomColumn" msprop:Generator_UserColumnName="Prénom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Montantpret" msprop:Generator_ColumnVarNameInTable="columnMontantpret" msprop:Generator_ColumnPropNameInRow="Montantpret" msprop:Generator_ColumnPropNameInTable="MontantpretColumn" msprop:Generator_UserColumnName="Montantpret" type="xs:double" />
+              <xs:element name="Intéret" msprop:Generator_ColumnVarNameInTable="columnIntéret" msprop:Generator_ColumnPropNameInRow="Intéret" msprop:Generator_ColumnPropNameInTable="IntéretColumn" msprop:Generator_UserColumnName="Intéret" type="xs:double" minOccurs="0" />
+              <xs:element name="Montantapayé" msprop:Generator_ColumnVarNameInTable="columnMontantapayé" msprop:Generator_ColumnPropNameInRow="Montantapayé" msprop:Generator_ColumnPropNameInTable="MontantapayéColumn" msprop:Generator_UserColumnName="Montantapayé" type="xs:double" />
+              <xs:element name="DatePrêt" msprop:Generator_ColumnVarNameInTable="columnDatePrêt" msprop:Generator_ColumnPropNameInRow="DatePrêt" msprop:Generator_ColumnPropNameInTable="DatePrêtColumn" msprop:Generator_UserColumnName="DatePrêt" type="xs:dateTime" />
+              <xs:element name="DateRemb" msprop:Generator_ColumnVarNameInTable="columnDateRemb" msprop:Generator_ColumnPropNameInRow="DateRemb" msprop:Generator_ColumnPropNameInTable="DateRembColumn" msprop:Generator_UserColumnName="DateRemb" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Recu" />
+      <xs:field xpath="mstns:Numéro" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

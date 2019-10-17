@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JosaleApp {
+namespace JosaleApp.DataSet {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace JosaleApp {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("JOSALE_COMPDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSet_Recu")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class JOSALE_COMPDataSet : global::System.Data.DataSet {
+    public partial class DataSet_Recu : global::System.Data.DataSet {
         
-        private Affichage_Client_PretsDataTable tableAffichage_Client_Prets;
+        private RecuDataTable tableRecu;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public JOSALE_COMPDataSet() {
+        public DataSet_Recu() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace JosaleApp {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected JOSALE_COMPDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSet_Recu(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace JosaleApp {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Affichage_Client_Prets"] != null)) {
-                    base.Tables.Add(new Affichage_Client_PretsDataTable(ds.Tables["Affichage_Client_Prets"]));
+                if ((ds.Tables["Recu"] != null)) {
+                    base.Tables.Add(new RecuDataTable(ds.Tables["Recu"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace JosaleApp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Affichage_Client_PretsDataTable Affichage_Client_Prets {
+        public RecuDataTable Recu {
             get {
-                return this.tableAffichage_Client_Prets;
+                return this.tableRecu;
             }
         }
         
@@ -127,7 +127,7 @@ namespace JosaleApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            JOSALE_COMPDataSet cln = ((JOSALE_COMPDataSet)(base.Clone()));
+            DataSet_Recu cln = ((DataSet_Recu)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace JosaleApp {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Affichage_Client_Prets"] != null)) {
-                    base.Tables.Add(new Affichage_Client_PretsDataTable(ds.Tables["Affichage_Client_Prets"]));
+                if ((ds.Tables["Recu"] != null)) {
+                    base.Tables.Add(new RecuDataTable(ds.Tables["Recu"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace JosaleApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableAffichage_Client_Prets = ((Affichage_Client_PretsDataTable)(base.Tables["Affichage_Client_Prets"]));
+            this.tableRecu = ((RecuDataTable)(base.Tables["Recu"]));
             if ((initTable == true)) {
-                if ((this.tableAffichage_Client_Prets != null)) {
-                    this.tableAffichage_Client_Prets.InitVars();
+                if ((this.tableRecu != null)) {
+                    this.tableRecu.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace JosaleApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "JOSALE_COMPDataSet";
+            this.DataSetName = "DataSet_Recu";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/JOSALE_COMPDataSet.xsd";
+            this.Namespace = "http://tempuri.org/DataSet_Recu.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableAffichage_Client_Prets = new Affichage_Client_PretsDataTable();
-            base.Tables.Add(this.tableAffichage_Client_Prets);
+            this.tableRecu = new RecuDataTable();
+            base.Tables.Add(this.tableRecu);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeAffichage_Client_Prets() {
+        private bool ShouldSerializeRecu() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace JosaleApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            JOSALE_COMPDataSet ds = new JOSALE_COMPDataSet();
+            DataSet_Recu ds = new DataSet_Recu();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace JosaleApp {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void Affichage_Client_PretsRowChangeEventHandler(object sender, Affichage_Client_PretsRowChangeEvent e);
+        public delegate void RecuRowChangeEventHandler(object sender, RecuRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Affichage_Client_PretsDataTable : global::System.Data.TypedTableBase<Affichage_Client_PretsRow> {
+        public partial class RecuDataTable : global::System.Data.TypedTableBase<RecuRow> {
             
             private global::System.Data.DataColumn columnNuméro;
             
@@ -287,20 +287,20 @@ namespace JosaleApp {
             
             private global::System.Data.DataColumn columnPrénom;
             
-            private global::System.Data.DataColumn columnMontant_prêté;
+            private global::System.Data.DataColumn columnMontantpret;
             
             private global::System.Data.DataColumn columnIntéret;
             
-            private global::System.Data.DataColumn columnMontant_à_payé;
+            private global::System.Data.DataColumn columnMontantapayé;
             
-            private global::System.Data.DataColumn columnDate_Prêt;
+            private global::System.Data.DataColumn columnDatePrêt;
             
-            private global::System.Data.DataColumn columnDate_Remb_;
+            private global::System.Data.DataColumn columnDateRemb;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_Client_PretsDataTable() {
-                this.TableName = "Affichage_Client_Prets";
+            public RecuDataTable() {
+                this.TableName = "Recu";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +308,7 @@ namespace JosaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Affichage_Client_PretsDataTable(global::System.Data.DataTable table) {
+            internal RecuDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +325,7 @@ namespace JosaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected Affichage_Client_PretsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected RecuDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -364,9 +364,9 @@ namespace JosaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Montant_prêtéColumn {
+            public global::System.Data.DataColumn MontantpretColumn {
                 get {
-                    return this.columnMontant_prêté;
+                    return this.columnMontantpret;
                 }
             }
             
@@ -380,25 +380,25 @@ namespace JosaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Montant_à_payéColumn {
+            public global::System.Data.DataColumn MontantapayéColumn {
                 get {
-                    return this.columnMontant_à_payé;
+                    return this.columnMontantapayé;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Date_PrêtColumn {
+            public global::System.Data.DataColumn DatePrêtColumn {
                 get {
-                    return this.columnDate_Prêt;
+                    return this.columnDatePrêt;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Date_Remb_Column {
+            public global::System.Data.DataColumn DateRembColumn {
                 get {
-                    return this.columnDate_Remb_;
+                    return this.columnDateRemb;
                 }
             }
             
@@ -413,60 +413,60 @@ namespace JosaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_Client_PretsRow this[int index] {
+            public RecuRow this[int index] {
                 get {
-                    return ((Affichage_Client_PretsRow)(this.Rows[index]));
+                    return ((RecuRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Affichage_Client_PretsRowChangeEventHandler Affichage_Client_PretsRowChanging;
+            public event RecuRowChangeEventHandler RecuRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Affichage_Client_PretsRowChangeEventHandler Affichage_Client_PretsRowChanged;
+            public event RecuRowChangeEventHandler RecuRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Affichage_Client_PretsRowChangeEventHandler Affichage_Client_PretsRowDeleting;
+            public event RecuRowChangeEventHandler RecuRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Affichage_Client_PretsRowChangeEventHandler Affichage_Client_PretsRowDeleted;
+            public event RecuRowChangeEventHandler RecuRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddAffichage_Client_PretsRow(Affichage_Client_PretsRow row) {
+            public void AddRecuRow(RecuRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_Client_PretsRow AddAffichage_Client_PretsRow(int Numéro, string nom, string postnom, string Prénom, double Montant_prêté, double Intéret, double Montant_à_payé, System.DateTime Date_Prêt, System.DateTime Date_Remb_) {
-                Affichage_Client_PretsRow rowAffichage_Client_PretsRow = ((Affichage_Client_PretsRow)(this.NewRow()));
+            public RecuRow AddRecuRow(int Numéro, string nom, string postnom, string Prénom, double Montantpret, double Intéret, double Montantapayé, System.DateTime DatePrêt, System.DateTime DateRemb) {
+                RecuRow rowRecuRow = ((RecuRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Numéro,
                         nom,
                         postnom,
                         Prénom,
-                        Montant_prêté,
+                        Montantpret,
                         Intéret,
-                        Montant_à_payé,
-                        Date_Prêt,
-                        Date_Remb_};
-                rowAffichage_Client_PretsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowAffichage_Client_PretsRow);
-                return rowAffichage_Client_PretsRow;
+                        Montantapayé,
+                        DatePrêt,
+                        DateRemb};
+                rowRecuRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRecuRow);
+                return rowRecuRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_Client_PretsRow FindByNuméro(int Numéro) {
-                return ((Affichage_Client_PretsRow)(this.Rows.Find(new object[] {
+            public RecuRow FindByNuméro(int Numéro) {
+                return ((RecuRow)(this.Rows.Find(new object[] {
                             Numéro})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Affichage_Client_PretsDataTable cln = ((Affichage_Client_PretsDataTable)(base.Clone()));
+                RecuDataTable cln = ((RecuDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -474,7 +474,7 @@ namespace JosaleApp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Affichage_Client_PretsDataTable();
+                return new RecuDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,11 +484,11 @@ namespace JosaleApp {
                 this.columnnom = base.Columns["nom"];
                 this.columnpostnom = base.Columns["postnom"];
                 this.columnPrénom = base.Columns["Prénom"];
-                this.columnMontant_prêté = base.Columns["Montant prêté"];
+                this.columnMontantpret = base.Columns["Montantpret"];
                 this.columnIntéret = base.Columns["Intéret"];
-                this.columnMontant_à_payé = base.Columns["Montant à payé"];
-                this.columnDate_Prêt = base.Columns["Date Prêt"];
-                this.columnDate_Remb_ = base.Columns["Date Remb_"];
+                this.columnMontantapayé = base.Columns["Montantapayé"];
+                this.columnDatePrêt = base.Columns["DatePrêt"];
+                this.columnDateRemb = base.Columns["DateRemb"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -502,16 +502,16 @@ namespace JosaleApp {
                 base.Columns.Add(this.columnpostnom);
                 this.columnPrénom = new global::System.Data.DataColumn("Prénom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrénom);
-                this.columnMontant_prêté = new global::System.Data.DataColumn("Montant prêté", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMontant_prêté);
+                this.columnMontantpret = new global::System.Data.DataColumn("Montantpret", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontantpret);
                 this.columnIntéret = new global::System.Data.DataColumn("Intéret", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIntéret);
-                this.columnMontant_à_payé = new global::System.Data.DataColumn("Montant à payé", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMontant_à_payé);
-                this.columnDate_Prêt = new global::System.Data.DataColumn("Date Prêt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate_Prêt);
-                this.columnDate_Remb_ = new global::System.Data.DataColumn("Date Remb_", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate_Remb_);
+                this.columnMontantapayé = new global::System.Data.DataColumn("Montantapayé", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontantapayé);
+                this.columnDatePrêt = new global::System.Data.DataColumn("DatePrêt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDatePrêt);
+                this.columnDateRemb = new global::System.Data.DataColumn("DateRemb", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateRemb);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNuméro}, true));
                 this.columnNuméro.AllowDBNull = false;
@@ -519,35 +519,35 @@ namespace JosaleApp {
                 this.columnnom.MaxLength = 50;
                 this.columnpostnom.MaxLength = 50;
                 this.columnPrénom.MaxLength = 50;
-                this.columnMontant_prêté.AllowDBNull = false;
-                this.columnMontant_à_payé.AllowDBNull = false;
-                this.columnDate_Prêt.AllowDBNull = false;
+                this.columnMontantpret.AllowDBNull = false;
+                this.columnMontantapayé.AllowDBNull = false;
+                this.columnDatePrêt.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_Client_PretsRow NewAffichage_Client_PretsRow() {
-                return ((Affichage_Client_PretsRow)(this.NewRow()));
+            public RecuRow NewRecuRow() {
+                return ((RecuRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Affichage_Client_PretsRow(builder);
+                return new RecuRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Affichage_Client_PretsRow);
+                return typeof(RecuRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Affichage_Client_PretsRowChanged != null)) {
-                    this.Affichage_Client_PretsRowChanged(this, new Affichage_Client_PretsRowChangeEvent(((Affichage_Client_PretsRow)(e.Row)), e.Action));
+                if ((this.RecuRowChanged != null)) {
+                    this.RecuRowChanged(this, new RecuRowChangeEvent(((RecuRow)(e.Row)), e.Action));
                 }
             }
             
@@ -555,8 +555,8 @@ namespace JosaleApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Affichage_Client_PretsRowChanging != null)) {
-                    this.Affichage_Client_PretsRowChanging(this, new Affichage_Client_PretsRowChangeEvent(((Affichage_Client_PretsRow)(e.Row)), e.Action));
+                if ((this.RecuRowChanging != null)) {
+                    this.RecuRowChanging(this, new RecuRowChangeEvent(((RecuRow)(e.Row)), e.Action));
                 }
             }
             
@@ -564,8 +564,8 @@ namespace JosaleApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Affichage_Client_PretsRowDeleted != null)) {
-                    this.Affichage_Client_PretsRowDeleted(this, new Affichage_Client_PretsRowChangeEvent(((Affichage_Client_PretsRow)(e.Row)), e.Action));
+                if ((this.RecuRowDeleted != null)) {
+                    this.RecuRowDeleted(this, new RecuRowChangeEvent(((RecuRow)(e.Row)), e.Action));
                 }
             }
             
@@ -573,14 +573,14 @@ namespace JosaleApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Affichage_Client_PretsRowDeleting != null)) {
-                    this.Affichage_Client_PretsRowDeleting(this, new Affichage_Client_PretsRowChangeEvent(((Affichage_Client_PretsRow)(e.Row)), e.Action));
+                if ((this.RecuRowDeleting != null)) {
+                    this.RecuRowDeleting(this, new RecuRowChangeEvent(((RecuRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveAffichage_Client_PretsRow(Affichage_Client_PretsRow row) {
+            public void RemoveRecuRow(RecuRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -589,7 +589,7 @@ namespace JosaleApp {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                JOSALE_COMPDataSet ds = new JOSALE_COMPDataSet();
+                DataSet_Recu ds = new DataSet_Recu();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -607,7 +607,7 @@ namespace JosaleApp {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Affichage_Client_PretsDataTable";
+                attribute2.FixedValue = "RecuDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -651,25 +651,25 @@ namespace JosaleApp {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Affichage_Client_PretsRow : global::System.Data.DataRow {
+        public partial class RecuRow : global::System.Data.DataRow {
             
-            private Affichage_Client_PretsDataTable tableAffichage_Client_Prets;
+            private RecuDataTable tableRecu;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Affichage_Client_PretsRow(global::System.Data.DataRowBuilder rb) : 
+            internal RecuRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableAffichage_Client_Prets = ((Affichage_Client_PretsDataTable)(this.Table));
+                this.tableRecu = ((RecuDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Numéro {
                 get {
-                    return ((int)(this[this.tableAffichage_Client_Prets.NuméroColumn]));
+                    return ((int)(this[this.tableRecu.NuméroColumn]));
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.NuméroColumn] = value;
+                    this[this.tableRecu.NuméroColumn] = value;
                 }
             }
             
@@ -678,14 +678,14 @@ namespace JosaleApp {
             public string nom {
                 get {
                     try {
-                        return ((string)(this[this.tableAffichage_Client_Prets.nomColumn]));
+                        return ((string)(this[this.tableRecu.nomColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nom\' in table \'Affichage_Client_Prets\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'nom\' in table \'Recu\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.nomColumn] = value;
+                    this[this.tableRecu.nomColumn] = value;
                 }
             }
             
@@ -694,14 +694,14 @@ namespace JosaleApp {
             public string postnom {
                 get {
                     try {
-                        return ((string)(this[this.tableAffichage_Client_Prets.postnomColumn]));
+                        return ((string)(this[this.tableRecu.postnomColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'postnom\' in table \'Affichage_Client_Prets\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'postnom\' in table \'Recu\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.postnomColumn] = value;
+                    this[this.tableRecu.postnomColumn] = value;
                 }
             }
             
@@ -710,25 +710,25 @@ namespace JosaleApp {
             public string Prénom {
                 get {
                     try {
-                        return ((string)(this[this.tableAffichage_Client_Prets.PrénomColumn]));
+                        return ((string)(this[this.tableRecu.PrénomColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Prénom\' in table \'Affichage_Client_Prets\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Prénom\' in table \'Recu\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.PrénomColumn] = value;
+                    this[this.tableRecu.PrénomColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Montant_prêté {
+            public double Montantpret {
                 get {
-                    return ((double)(this[this.tableAffichage_Client_Prets.Montant_prêtéColumn]));
+                    return ((double)(this[this.tableRecu.MontantpretColumn]));
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.Montant_prêtéColumn] = value;
+                    this[this.tableRecu.MontantpretColumn] = value;
                 }
             }
             
@@ -737,113 +737,113 @@ namespace JosaleApp {
             public double Intéret {
                 get {
                     try {
-                        return ((double)(this[this.tableAffichage_Client_Prets.IntéretColumn]));
+                        return ((double)(this[this.tableRecu.IntéretColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Intéret\' in table \'Affichage_Client_Prets\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Intéret\' in table \'Recu\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.IntéretColumn] = value;
+                    this[this.tableRecu.IntéretColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Montant_à_payé {
+            public double Montantapayé {
                 get {
-                    return ((double)(this[this.tableAffichage_Client_Prets.Montant_à_payéColumn]));
+                    return ((double)(this[this.tableRecu.MontantapayéColumn]));
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.Montant_à_payéColumn] = value;
+                    this[this.tableRecu.MontantapayéColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Date_Prêt {
+            public System.DateTime DatePrêt {
                 get {
-                    return ((global::System.DateTime)(this[this.tableAffichage_Client_Prets.Date_PrêtColumn]));
+                    return ((global::System.DateTime)(this[this.tableRecu.DatePrêtColumn]));
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.Date_PrêtColumn] = value;
+                    this[this.tableRecu.DatePrêtColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Date_Remb_ {
+            public System.DateTime DateRemb {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableAffichage_Client_Prets.Date_Remb_Column]));
+                        return ((global::System.DateTime)(this[this.tableRecu.DateRembColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Date Remb_\' in table \'Affichage_Client_Prets\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateRemb\' in table \'Recu\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Client_Prets.Date_Remb_Column] = value;
+                    this[this.tableRecu.DateRembColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsnomNull() {
-                return this.IsNull(this.tableAffichage_Client_Prets.nomColumn);
+                return this.IsNull(this.tableRecu.nomColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnomNull() {
-                this[this.tableAffichage_Client_Prets.nomColumn] = global::System.Convert.DBNull;
+                this[this.tableRecu.nomColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IspostnomNull() {
-                return this.IsNull(this.tableAffichage_Client_Prets.postnomColumn);
+                return this.IsNull(this.tableRecu.postnomColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetpostnomNull() {
-                this[this.tableAffichage_Client_Prets.postnomColumn] = global::System.Convert.DBNull;
+                this[this.tableRecu.postnomColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPrénomNull() {
-                return this.IsNull(this.tableAffichage_Client_Prets.PrénomColumn);
+                return this.IsNull(this.tableRecu.PrénomColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPrénomNull() {
-                this[this.tableAffichage_Client_Prets.PrénomColumn] = global::System.Convert.DBNull;
+                this[this.tableRecu.PrénomColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIntéretNull() {
-                return this.IsNull(this.tableAffichage_Client_Prets.IntéretColumn);
+                return this.IsNull(this.tableRecu.IntéretColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetIntéretNull() {
-                this[this.tableAffichage_Client_Prets.IntéretColumn] = global::System.Convert.DBNull;
+                this[this.tableRecu.IntéretColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDate_Remb_Null() {
-                return this.IsNull(this.tableAffichage_Client_Prets.Date_Remb_Column);
+            public bool IsDateRembNull() {
+                return this.IsNull(this.tableRecu.DateRembColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDate_Remb_Null() {
-                this[this.tableAffichage_Client_Prets.Date_Remb_Column] = global::System.Convert.DBNull;
+            public void SetDateRembNull() {
+                this[this.tableRecu.DateRembColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -851,22 +851,22 @@ namespace JosaleApp {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class Affichage_Client_PretsRowChangeEvent : global::System.EventArgs {
+        public class RecuRowChangeEvent : global::System.EventArgs {
             
-            private Affichage_Client_PretsRow eventRow;
+            private RecuRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_Client_PretsRowChangeEvent(Affichage_Client_PretsRow row, global::System.Data.DataRowAction action) {
+            public RecuRowChangeEvent(RecuRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_Client_PretsRow Row {
+            public RecuRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -882,7 +882,7 @@ namespace JosaleApp {
         }
     }
 }
-namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
+namespace JosaleApp.DataSet.DataSet_RecuTableAdapters {
     
     
     /// <summary>
@@ -894,7 +894,7 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Affichage_Client_PretsTableAdapter : global::System.ComponentModel.Component {
+    public partial class RecuTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -908,7 +908,7 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Affichage_Client_PretsTableAdapter() {
+        public RecuTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1005,16 +1005,16 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Affichage_Client_Prets";
+            tableMapping.DataSetTable = "Recu";
             tableMapping.ColumnMappings.Add("Numéro", "Numéro");
             tableMapping.ColumnMappings.Add("nom", "nom");
             tableMapping.ColumnMappings.Add("postnom", "postnom");
             tableMapping.ColumnMappings.Add("Prénom", "Prénom");
-            tableMapping.ColumnMappings.Add("Montant prêté", "Montant prêté");
+            tableMapping.ColumnMappings.Add("Montantpret", "Montantpret");
             tableMapping.ColumnMappings.Add("Intéret", "Intéret");
-            tableMapping.ColumnMappings.Add("Montant à payé", "Montant à payé");
-            tableMapping.ColumnMappings.Add("Date Prêt", "Date Prêt");
-            tableMapping.ColumnMappings.Add("Date Remb.", "Date Remb_");
+            tableMapping.ColumnMappings.Add("Montantapayé", "Montantapayé");
+            tableMapping.ColumnMappings.Add("DatePrêt", "DatePrêt");
+            tableMapping.ColumnMappings.Add("DateRemb", "DateRemb");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1031,8 +1031,8 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Numéro, nom, postnom, Prénom, [Montant prêté], Intéret, [Montant à payé], " +
-                "[Date Prêt], [Date Remb.] FROM dbo.Affichage_Client_Prets";
+            this._commandCollection[0].CommandText = "SELECT Numéro, nom, postnom, Prénom, Montantpret, Intéret, Montantapayé, DatePrêt" +
+                ", DateRemb FROM dbo.Recu";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1040,7 +1040,7 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(JOSALE_COMPDataSet.Affichage_Client_PretsDataTable dataTable) {
+        public virtual int Fill(DataSet_Recu.RecuDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1053,9 +1053,9 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual JOSALE_COMPDataSet.Affichage_Client_PretsDataTable GetData() {
+        public virtual DataSet_Recu.RecuDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            JOSALE_COMPDataSet.Affichage_Client_PretsDataTable dataTable = new JOSALE_COMPDataSet.Affichage_Client_PretsDataTable();
+            DataSet_Recu.RecuDataTable dataTable = new DataSet_Recu.RecuDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1129,7 +1129,7 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(JOSALE_COMPDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSet_Recu dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1139,7 +1139,7 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(JOSALE_COMPDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSet_Recu dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1149,7 +1149,7 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(JOSALE_COMPDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSet_Recu dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1183,7 +1183,7 @@ namespace JosaleApp.JOSALE_COMPDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(JOSALE_COMPDataSet dataSet) {
+        public virtual int UpdateAll(DataSet_Recu dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -76,5 +76,10 @@ namespace JosaleApp.User_Controls
             Get_customer();
             Get_data();
         }
+
+        private void button1_Click(object sender, EventArgs e)   
+        {
+            Dynamic_Classe.Instance().Call_Report(reportViewer1, "JosaleApp.Report.Recu.rdlc", Id);
+        }
     }
 }

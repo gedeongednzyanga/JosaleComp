@@ -85,6 +85,16 @@
     <Compile Include="Classes\Dynamic_Classe.cs" />
     <Compile Include="Classes\My_DataTable_Extensions.cs" />
     <Compile Include="Classes\Test_Configuration.cs" />
+    <Compile Include="DataSet\DataSet_Gage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Gage.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DataSet_Recu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Recu.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormConfigurationServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,11 +130,6 @@
     </Compile>
     <Compile Include="Forms\New_Tiers.Designer.cs">
       <DependentUpon>New_Tiers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="JOSALE_COMPDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JOSALE_COMPDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +196,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\Recu.rdlc" />
     <EmbeddedResource Include="User_Controls\Client_user.resx">
       <DependentUpon>Client_user.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,16 +215,27 @@
     <EmbeddedResource Include="User_Controls\Tiers_user.resx">
       <DependentUpon>Tiers_user.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="JOSALE_COMPDataSet.xsc">
-      <DependentUpon>JOSALE_COMPDataSet.xsd</DependentUpon>
+    <None Include="DataSet\DataSet_Gage.xsc">
+      <DependentUpon>DataSet_Gage.xsd</DependentUpon>
     </None>
-    <None Include="JOSALE_COMPDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JOSALE_COMPDataSet.Designer.cs</LastGenOutput>
+    <None Include="DataSet\DataSet_Gage.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Gage.Designer.cs</LastGenOutput>
     </None>
-    <None Include="JOSALE_COMPDataSet.xss">
-      <DependentUpon>JOSALE_COMPDataSet.xsd</DependentUpon>
+    <None Include="DataSet\DataSet_Gage.xss">
+      <DependentUpon>DataSet_Gage.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_Recu.xsc">
+      <DependentUpon>DataSet_Recu.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_Recu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Recu.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSet_Recu.xss">
+      <DependentUpon>DataSet_Recu.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -301,9 +318,7 @@
     <Content Include="Icons\icons8_US_Dollar_25px_3.png" />
     <Content Include="Icons\icons8__Message_Filled_25px_1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
