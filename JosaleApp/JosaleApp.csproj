@@ -196,6 +196,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\Gage.rdlc" />
     <EmbeddedResource Include="Report\Recu.rdlc" />
     <EmbeddedResource Include="User_Controls\Client_user.resx">
       <DependentUpon>Client_user.cs</DependentUpon>
@@ -317,6 +318,7 @@
     <Content Include="Icons\icons8_US_Dollar_25px_2.png" />
     <Content Include="Icons\icons8_US_Dollar_25px_3.png" />
     <Content Include="Icons\icons8__Message_Filled_25px_1.png" />
+    <Content Include="Images\logoJosale.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,6 +15,8 @@ using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Reporting.WinForms;
+using JosaleApp.DataSet;
+using Prets_Lib;
 
 namespace JosaleApp.Classes
 {
@@ -339,6 +341,14 @@ namespace JosaleApp.Classes
 
         //Méthode Rapport
 
+        //void Gage_Clie (object sender, SubreportProcessingEventArgs e)
+        //{
+        //    int codepret =int.Parse( e.Parameters["Code_pret"].Values[0].ToString());
+        //    DataTable CallSubR = Call_Report_gage(codepret);
+        //    ReportDataSource rds = new ReportDataSource("DataSet_gage1");
+        //    e.DataSources.Add(rds);
+
+        //}
         public void Call_Report(ReportViewer reportView, string path, int codePret)
         {
             try
@@ -381,6 +391,39 @@ namespace JosaleApp.Classes
                     ds.Dispose();
             }
         }
+
+        //public DataTable Call_Report_gage(int codePret)
+        //{
+        //    // DataTable dt = new DataTable();
+        //    try
+        //    {
+        //        if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+        //            ImplementeConnexion.Instance.Conn.Open();
+        //        using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = "select * from Recu where Numéro = " + codePret + "";
+        //            da = new SqlDataAdapter((SqlCommand)cmd);
+        //            ds = new System.Data.DataSet();
+        //            //Remplissage du DataSet via DataAdapter
+        //            da.Fill(ds, "DataSet_Recu");
+                   
+        //            //reportView.LocalReport.DataSources.Clear();
+        //            //Source du reportViewr
+        //            //reportView.LocalReport.DataSources.Add(new ReportDataSource("DataSet_Recu", ds.Tables[0]));
+        //            //Specificier le rapport à charger
+        //            //reportView.LocalReport.ReportEmbeddedResource = path;
+        //            //reportView.LocalReport.SubreportProcessing+= new SubreportProcessingEventHandler()
+        //            //reportView.RefreshReport();
+        //        }
+                
+        //    }
+        //    catch (InvalidOperationException ex)
+        //    {
+        //        MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    finally { ImplementeConnexion.Instance.Conn.Close(); }
+        //    return ds.Tables[0];
+        //}
 
         //Méthode pour génération PDF
 

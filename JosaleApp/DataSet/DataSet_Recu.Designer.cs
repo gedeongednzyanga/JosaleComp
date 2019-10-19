@@ -297,6 +297,12 @@ namespace JosaleApp.DataSet {
             
             private global::System.Data.DataColumn columnDateRemb;
             
+            private global::System.Data.DataColumn columncontact;
+            
+            private global::System.Data.DataColumn columnmail;
+            
+            private global::System.Data.DataColumn columnadresse;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RecuDataTable() {
@@ -404,6 +410,30 @@ namespace JosaleApp.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn contactColumn {
+                get {
+                    return this.columncontact;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn mailColumn {
+                get {
+                    return this.columnmail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn adresseColumn {
+                get {
+                    return this.columnadresse;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +469,7 @@ namespace JosaleApp.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RecuRow AddRecuRow(int Numéro, string nom, string postnom, string Prénom, double Montantpret, double Intéret, double Montantapayé, System.DateTime DatePrêt, System.DateTime DateRemb) {
+            public RecuRow AddRecuRow(int Numéro, string nom, string postnom, string Prénom, double Montantpret, double Intéret, double Montantapayé, System.DateTime DatePrêt, System.DateTime DateRemb, string contact, string mail, string adresse) {
                 RecuRow rowRecuRow = ((RecuRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Numéro,
@@ -450,7 +480,10 @@ namespace JosaleApp.DataSet {
                         Intéret,
                         Montantapayé,
                         DatePrêt,
-                        DateRemb};
+                        DateRemb,
+                        contact,
+                        mail,
+                        adresse};
                 rowRecuRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRecuRow);
                 return rowRecuRow;
@@ -489,6 +522,9 @@ namespace JosaleApp.DataSet {
                 this.columnMontantapayé = base.Columns["Montantapayé"];
                 this.columnDatePrêt = base.Columns["DatePrêt"];
                 this.columnDateRemb = base.Columns["DateRemb"];
+                this.columncontact = base.Columns["contact"];
+                this.columnmail = base.Columns["mail"];
+                this.columnadresse = base.Columns["adresse"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -512,6 +548,12 @@ namespace JosaleApp.DataSet {
                 base.Columns.Add(this.columnDatePrêt);
                 this.columnDateRemb = new global::System.Data.DataColumn("DateRemb", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateRemb);
+                this.columncontact = new global::System.Data.DataColumn("contact", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontact);
+                this.columnmail = new global::System.Data.DataColumn("mail", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmail);
+                this.columnadresse = new global::System.Data.DataColumn("adresse", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnadresse);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNuméro}, true));
                 this.columnNuméro.AllowDBNull = false;
@@ -522,6 +564,9 @@ namespace JosaleApp.DataSet {
                 this.columnMontantpret.AllowDBNull = false;
                 this.columnMontantapayé.AllowDBNull = false;
                 this.columnDatePrêt.AllowDBNull = false;
+                this.columncontact.MaxLength = 50;
+                this.columnmail.MaxLength = 50;
+                this.columnadresse.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -788,6 +833,54 @@ namespace JosaleApp.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string contact {
+                get {
+                    try {
+                        return ((string)(this[this.tableRecu.contactColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'contact\' in table \'Recu\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRecu.contactColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string mail {
+                get {
+                    try {
+                        return ((string)(this[this.tableRecu.mailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'mail\' in table \'Recu\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRecu.mailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string adresse {
+                get {
+                    try {
+                        return ((string)(this[this.tableRecu.adresseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'adresse\' in table \'Recu\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRecu.adresseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsnomNull() {
                 return this.IsNull(this.tableRecu.nomColumn);
             }
@@ -844,6 +937,42 @@ namespace JosaleApp.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDateRembNull() {
                 this[this.tableRecu.DateRembColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscontactNull() {
+                return this.IsNull(this.tableRecu.contactColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcontactNull() {
+                this[this.tableRecu.contactColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmailNull() {
+                return this.IsNull(this.tableRecu.mailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmailNull() {
+                this[this.tableRecu.mailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsadresseNull() {
+                return this.IsNull(this.tableRecu.adresseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetadresseNull() {
+                this[this.tableRecu.adresseColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1015,6 +1144,9 @@ namespace JosaleApp.DataSet.DataSet_RecuTableAdapters {
             tableMapping.ColumnMappings.Add("Montantapayé", "Montantapayé");
             tableMapping.ColumnMappings.Add("DatePrêt", "DatePrêt");
             tableMapping.ColumnMappings.Add("DateRemb", "DateRemb");
+            tableMapping.ColumnMappings.Add("contact", "contact");
+            tableMapping.ColumnMappings.Add("mail", "mail");
+            tableMapping.ColumnMappings.Add("adresse", "adresse");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1031,8 +1163,8 @@ namespace JosaleApp.DataSet.DataSet_RecuTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Numéro, nom, postnom, Prénom, Montantpret, Intéret, Montantapayé, DatePrêt" +
-                ", DateRemb FROM dbo.Recu";
+            this._commandCollection[0].CommandText = "SELECT        Numéro, nom, postnom, Prénom, Montantpret, Intéret, Montantapayé, D" +
+                "atePrêt, DateRemb, contact, mail, adresse\r\nFROM            Recu";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

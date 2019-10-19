@@ -9,10 +9,11 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RecuTableAdapter" GeneratorDataComponentClassName="RecuTableAdapter" Name="Recu" UserDataComponentName="RecuTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JOSALE_COMPConnectionString (Settings)" DbObjectName="JOSALE_COMP.dbo.Recu" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JOSALE_COMPConnectionString (Settings)" DbObjectName="JOSALE_COMP.dbo.Recu" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Numéro, nom, postnom, Prénom, Montantpret, Intéret, Montantapayé, DatePrêt, DateRemb FROM dbo.Recu</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Numéro, nom, postnom, Prénom, Montantpret, Intéret, Montantapayé, DatePrêt, DateRemb, contact, mail, adresse
+FROM            Recu</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -28,6 +29,9 @@
               <Mapping SourceColumn="Montantapayé" DataSetColumn="Montantapayé" />
               <Mapping SourceColumn="DatePrêt" DataSetColumn="DatePrêt" />
               <Mapping SourceColumn="DateRemb" DataSetColumn="DateRemb" />
+              <Mapping SourceColumn="contact" DataSetColumn="contact" />
+              <Mapping SourceColumn="mail" DataSetColumn="mail" />
+              <Mapping SourceColumn="adresse" DataSetColumn="adresse" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -39,7 +43,7 @@
   <xs:element name="DataSet_Recu" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_Recu" msprop:Generator_UserDSName="DataSet_Recu">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Recu" msprop:Generator_TableClassName="RecuDataTable" msprop:Generator_TableVarName="tableRecu" msprop:Generator_TablePropName="Recu" msprop:Generator_RowDeletingName="RecuRowDeleting" msprop:Generator_RowChangingName="RecuRowChanging" msprop:Generator_RowEvHandlerName="RecuRowChangeEventHandler" msprop:Generator_RowDeletedName="RecuRowDeleted" msprop:Generator_UserTableName="Recu" msprop:Generator_RowChangedName="RecuRowChanged" msprop:Generator_RowEvArgName="RecuRowChangeEvent" msprop:Generator_RowClassName="RecuRow">
+        <xs:element name="Recu" msprop:Generator_TableClassName="RecuDataTable" msprop:Generator_TableVarName="tableRecu" msprop:Generator_RowChangedName="RecuRowChanged" msprop:Generator_TablePropName="Recu" msprop:Generator_RowDeletingName="RecuRowDeleting" msprop:Generator_RowChangingName="RecuRowChanging" msprop:Generator_RowEvHandlerName="RecuRowChangeEventHandler" msprop:Generator_RowDeletedName="RecuRowDeleted" msprop:Generator_RowClassName="RecuRow" msprop:Generator_UserTableName="Recu" msprop:Generator_RowEvArgName="RecuRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Numéro" msprop:Generator_ColumnVarNameInTable="columnNuméro" msprop:Generator_ColumnPropNameInRow="Numéro" msprop:Generator_ColumnPropNameInTable="NuméroColumn" msprop:Generator_UserColumnName="Numéro" type="xs:int" />
@@ -69,6 +73,27 @@
               <xs:element name="Montantapayé" msprop:Generator_ColumnVarNameInTable="columnMontantapayé" msprop:Generator_ColumnPropNameInRow="Montantapayé" msprop:Generator_ColumnPropNameInTable="MontantapayéColumn" msprop:Generator_UserColumnName="Montantapayé" type="xs:double" />
               <xs:element name="DatePrêt" msprop:Generator_ColumnVarNameInTable="columnDatePrêt" msprop:Generator_ColumnPropNameInRow="DatePrêt" msprop:Generator_ColumnPropNameInTable="DatePrêtColumn" msprop:Generator_UserColumnName="DatePrêt" type="xs:dateTime" />
               <xs:element name="DateRemb" msprop:Generator_ColumnVarNameInTable="columnDateRemb" msprop:Generator_ColumnPropNameInRow="DateRemb" msprop:Generator_ColumnPropNameInTable="DateRembColumn" msprop:Generator_UserColumnName="DateRemb" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="contact" msprop:Generator_ColumnVarNameInTable="columncontact" msprop:Generator_ColumnPropNameInRow="contact" msprop:Generator_ColumnPropNameInTable="contactColumn" msprop:Generator_UserColumnName="contact" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mail" msprop:Generator_ColumnVarNameInTable="columnmail" msprop:Generator_ColumnPropNameInRow="mail" msprop:Generator_ColumnPropNameInTable="mailColumn" msprop:Generator_UserColumnName="mail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adresse" msprop:Generator_ColumnVarNameInTable="columnadresse" msprop:Generator_ColumnPropNameInRow="adresse" msprop:Generator_ColumnPropNameInTable="adresseColumn" msprop:Generator_UserColumnName="adresse" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
