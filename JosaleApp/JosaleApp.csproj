@@ -131,6 +131,12 @@
     <Compile Include="Forms\New_Tiers.Designer.cs">
       <DependentUpon>New_Tiers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Preview_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Preview_form.Designer.cs">
+      <DependentUpon>Preview_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User_Controls\Client_user.cs">
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\New_Tiers.resx">
       <DependentUpon>New_Tiers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Preview_form.resx">
+      <DependentUpon>Preview_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -302,6 +311,8 @@
     <Content Include="Icons\icons8_PDF_25px.png" />
     <Content Include="Icons\icons8_People_25px.png" />
     <Content Include="Icons\icons8_Plus_25px_5.png" />
+    <Content Include="Icons\icons8_Preview_Pane.ico" />
+    <Content Include="Icons\icons8_Preview_Pane_16px_1.png" />
     <Content Include="Icons\icons8_Receipt_25px.png" />
     <Content Include="Icons\icons8_Receive_Cash_25px.png" />
     <Content Include="Icons\icons8_Receive_Cash_25px_1.png" />

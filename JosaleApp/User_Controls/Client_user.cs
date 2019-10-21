@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Client_Lib;
 using JosaleApp.Classes;
+using JosaleApp.Forms;
 
 namespace JosaleApp.User_Controls
 {
@@ -80,6 +81,12 @@ namespace JosaleApp.User_Controls
         private void button1_Click(object sender, EventArgs e)   
         {
             Dynamic_Classe.Instance().Call_Report(reportViewer1, "JosaleApp.Report.Recu.rdlc", Id);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Preview_form previewF = new Preview_form(Id);
+            previewF.ShowDialog();
         }
     }
 }
