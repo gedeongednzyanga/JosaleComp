@@ -49,9 +49,8 @@ namespace Prets_Lib
             prets.Prenom = dr["Prénom"].ToString();
             prets.Montant = float.Parse(dr["montant"].ToString());
             prets.Montantpaye = float.Parse(dr["Rest"].ToString());
-            prets.DatePret = Convert.ToDateTime(dr["Date Remb."].ToString());
+            prets.DatePret = Convert.ToDateTime(dr["DateRemb."].ToString());
             return prets;
-
         }
 
         public List<IPrets> Allcredit()
@@ -149,6 +148,25 @@ namespace Prets_Lib
                 while (dr.Read())
                 {
                     list.Add(GetAll(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
+
+        public List<IPrets> Search_Rembou(string recherche)
+        {
+            List<IPrets> list = new List<IPrets>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using(IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * FROM Affichage_Client_Rembourssement WHERE nom LIKE '%" + recherche + "%' OR postnom LIKE '%" + recherche + "%' OR Prénom LIKE '%" + recherche + "%'";
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetAll_Rembou(dr));
                 }
                 cmd.Dispose();
                 dr.Close();

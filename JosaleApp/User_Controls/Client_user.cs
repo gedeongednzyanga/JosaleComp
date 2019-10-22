@@ -29,6 +29,10 @@ namespace JosaleApp.User_Controls
         {
             dataGridView1.DataSource = new Client().Search(text_search.Text.Trim());
         }
+        void Show_recu()
+        {
+            Dynamic_Classe.Instance().Call_Report(Report_preview, "JosaleApp.Report.Recu.rdlc", Id);
+        }
         void Get_gage()
         {
             listView1.Items.Clear();
@@ -54,6 +58,7 @@ namespace JosaleApp.User_Controls
                 lab_phone.Text = dataGridView1["Column5", i].Value.ToString();
                 lab_mail.Text = dataGridView1["Column6", i].Value.ToString();
                 lab_adress.Text = dataGridView1["Column7", i].Value.ToString();
+                
             }
             catch(Exception ex) { MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
@@ -80,13 +85,18 @@ namespace JosaleApp.User_Controls
 
         private void button1_Click(object sender, EventArgs e)   
         {
-            Dynamic_Classe.Instance().Call_Report(reportViewer1, "JosaleApp.Report.Recu.rdlc", Id);
+            Show_recu();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Preview_form previewF = new Preview_form(Id);
             previewF.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

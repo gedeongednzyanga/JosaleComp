@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_recu_rembou" targetNamespace="http://tempuri.org/DataSet_recu_rembou.xsd" xmlns:mstns="http://tempuri.org/DataSet_recu_rembou.xsd" xmlns="http://tempuri.org/DataSet_recu_rembou.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JOSALE_COMPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JOSALE_COMPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.JosaleApp.Properties.Settings.GlobalReference.Default.JOSALE_COMPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Affichage_Client_RembourssementTableAdapter" GeneratorDataComponentClassName="Affichage_Client_RembourssementTableAdapter" Name="Affichage_Client_Rembourssement" UserDataComponentName="Affichage_Client_RembourssementTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JOSALE_COMPConnectionString (Settings)" DbObjectName="JOSALE_COMP.dbo.Affichage_Client_Rembourssement" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Numéro, nom, postnom, Prénom, montant, Rest, [DateRemb.] FROM dbo.Affichage_Client_Rembourssement</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Numéro" DataSetColumn="Numéro" />
+              <Mapping SourceColumn="nom" DataSetColumn="nom" />
+              <Mapping SourceColumn="postnom" DataSetColumn="postnom" />
+              <Mapping SourceColumn="Prénom" DataSetColumn="Prénom" />
+              <Mapping SourceColumn="montant" DataSetColumn="montant" />
+              <Mapping SourceColumn="Rest" DataSetColumn="Rest" />
+              <Mapping SourceColumn="DateRemb." DataSetColumn="DateRemb_" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_recu_rembou" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_recu_rembou" msprop:Generator_UserDSName="DataSet_recu_rembou">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Affichage_Client_Rembourssement" msprop:Generator_TableClassName="Affichage_Client_RembourssementDataTable" msprop:Generator_TableVarName="tableAffichage_Client_Rembourssement" msprop:Generator_TablePropName="Affichage_Client_Rembourssement" msprop:Generator_RowDeletingName="Affichage_Client_RembourssementRowDeleting" msprop:Generator_RowChangingName="Affichage_Client_RembourssementRowChanging" msprop:Generator_RowEvHandlerName="Affichage_Client_RembourssementRowChangeEventHandler" msprop:Generator_RowDeletedName="Affichage_Client_RembourssementRowDeleted" msprop:Generator_UserTableName="Affichage_Client_Rembourssement" msprop:Generator_RowChangedName="Affichage_Client_RembourssementRowChanged" msprop:Generator_RowEvArgName="Affichage_Client_RembourssementRowChangeEvent" msprop:Generator_RowClassName="Affichage_Client_RembourssementRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Numéro" msprop:Generator_ColumnVarNameInTable="columnNuméro" msprop:Generator_ColumnPropNameInRow="Numéro" msprop:Generator_ColumnPropNameInTable="NuméroColumn" msprop:Generator_UserColumnName="Numéro" type="xs:int" />
+              <xs:element name="nom" msprop:Generator_ColumnVarNameInTable="columnnom" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_UserColumnName="nom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="postnom" msprop:Generator_ColumnVarNameInTable="columnpostnom" msprop:Generator_ColumnPropNameInRow="postnom" msprop:Generator_ColumnPropNameInTable="postnomColumn" msprop:Generator_UserColumnName="postnom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prénom" msprop:Generator_ColumnVarNameInTable="columnPrénom" msprop:Generator_ColumnPropNameInRow="Prénom" msprop:Generator_ColumnPropNameInTable="PrénomColumn" msprop:Generator_UserColumnName="Prénom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="montant" msprop:Generator_ColumnVarNameInTable="columnmontant" msprop:Generator_ColumnPropNameInRow="montant" msprop:Generator_ColumnPropNameInTable="montantColumn" msprop:Generator_UserColumnName="montant" type="xs:double" />
+              <xs:element name="Rest" msprop:Generator_ColumnVarNameInTable="columnRest" msprop:Generator_ColumnPropNameInRow="Rest" msprop:Generator_ColumnPropNameInTable="RestColumn" msprop:Generator_UserColumnName="Rest" type="xs:double" />
+              <xs:element name="DateRemb_" msprop:Generator_ColumnVarNameInTable="columnDateRemb_" msprop:Generator_ColumnPropNameInRow="DateRemb_" msprop:Generator_ColumnPropNameInTable="DateRemb_Column" msprop:Generator_UserColumnName="DateRemb_" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Affichage_Client_Rembourssement" />
+      <xs:field xpath="mstns:Numéro" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

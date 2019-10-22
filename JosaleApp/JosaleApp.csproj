@@ -95,6 +95,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_Recu.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DataSet_recu_rembou.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_recu_rembou.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormConfigurationServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +212,7 @@
     </Compile>
     <EmbeddedResource Include="Report\Gage.rdlc" />
     <EmbeddedResource Include="Report\Recu.rdlc" />
+    <EmbeddedResource Include="Report\Recu_rembou.rdlc" />
     <EmbeddedResource Include="User_Controls\Client_user.resx">
       <DependentUpon>Client_user.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +252,17 @@
     </None>
     <None Include="DataSet\DataSet_Recu.xss">
       <DependentUpon>DataSet_Recu.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_recu_rembou.xsc">
+      <DependentUpon>DataSet_recu_rembou.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_recu_rembou.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_recu_rembou.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSet_recu_rembou.xss">
+      <DependentUpon>DataSet_recu_rembou.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -313,6 +330,7 @@
     <Content Include="Icons\icons8_Plus_25px_5.png" />
     <Content Include="Icons\icons8_Preview_Pane.ico" />
     <Content Include="Icons\icons8_Preview_Pane_16px_1.png" />
+    <Content Include="Icons\icons8_Receipt_16px.png" />
     <Content Include="Icons\icons8_Receipt_25px.png" />
     <Content Include="Icons\icons8_Receive_Cash_25px.png" />
     <Content Include="Icons\icons8_Receive_Cash_25px_1.png" />

@@ -339,16 +339,6 @@ namespace JosaleApp.Classes
             }
         }
 
-        //Méthode Rapport
-
-        //void Gage_Clie (object sender, SubreportProcessingEventArgs e)
-        //{
-        //    int codepret =int.Parse( e.Parameters["Code_pret"].Values[0].ToString());
-        //    DataTable CallSubR = Call_Report_gage(codepret);
-        //    ReportDataSource rds = new ReportDataSource("DataSet_gage1");
-        //    e.DataSources.Add(rds);
-
-        //}
         public void Call_Report(ReportViewer reportView, string path, int codePret)
         {
             try
@@ -392,38 +382,51 @@ namespace JosaleApp.Classes
             }
         }
 
-        //public DataTable Call_Report_gage(int codePret)
-        //{
-        //    // DataTable dt = new DataTable();
-        //    try
-        //    {
-        //        if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
-        //            ImplementeConnexion.Instance.Conn.Open();
-        //        using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = "select * from Recu where Numéro = " + codePret + "";
-        //            da = new SqlDataAdapter((SqlCommand)cmd);
-        //            ds = new System.Data.DataSet();
-        //            //Remplissage du DataSet via DataAdapter
-        //            da.Fill(ds, "DataSet_Recu");
-                   
-        //            //reportView.LocalReport.DataSources.Clear();
-        //            //Source du reportViewr
-        //            //reportView.LocalReport.DataSources.Add(new ReportDataSource("DataSet_Recu", ds.Tables[0]));
-        //            //Specificier le rapport à charger
-        //            //reportView.LocalReport.ReportEmbeddedResource = path;
-        //            //reportView.LocalReport.SubreportProcessing+= new SubreportProcessingEventHandler()
-        //            //reportView.RefreshReport();
-        //        }
-                
-        //    }
-        //    catch (InvalidOperationException ex)
-        //    {
-        //        MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    finally { ImplementeConnexion.Instance.Conn.Close(); }
-        //    return ds.Tables[0];
-        //}
+        public void Call_Report_Recu_Rembou(ReportViewer reportView, string path, int codeRembou)
+        {
+            // DataTable dt = new DataTable();
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Affichage_Client_Rembourssement where Numéro = " + codeRembou + "";
+                    da = new SqlDataAdapter((SqlCommand)cmd);
+                    ds = new System.Data.DataSet();
+                    //Remplissage du DataSet via DataAdapter
+                    //Remplissage du DataSet via DataAdapter
+                    da.Fill(ds, "DataSet_recu_Rembou");
+                    reportView.LocalReport.DataSources.Clear();
+                    //Source du reportViewr
+                    reportView.LocalReport.DataSources.Add(new ReportDataSource("DataSet_recu_Rembou", ds.Tables[0]));
+                    //Specificier le rapport à charger
+                    reportView.LocalReport.ReportEmbeddedResource = path;
+                    reportView.RefreshReport();
+                }
+
+            }catch(InvalidOperationException ex)
+            {
+                MessageBox.Show("Error "+ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error when Selecting data, " + ex.Message, "Selecting data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                if (ImplementeConnexion.Instance.Conn != null)
+                {
+                    if (ImplementeConnexion.Instance.Conn.State == System.Data.ConnectionState.Open)
+                        ImplementeConnexion.Instance.Conn.Close();
+                }
+
+                if (da != null)
+                    da.Dispose();
+                if (ds != null)
+                    ds.Dispose();
+            }
+        }
 
         //Méthode pour génération PDF
 
