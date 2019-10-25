@@ -100,6 +100,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_recu_rembou.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DataSet_RembouHistoric.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_RembouHistoric.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormConfigurationServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +216,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Report\Gage.rdlc" />
+    <EmbeddedResource Include="Report\Historic_Credit.rdlc" />
     <EmbeddedResource Include="Report\Recu.rdlc" />
     <EmbeddedResource Include="Report\Recu_rembou.rdlc" />
     <EmbeddedResource Include="User_Controls\Client_user.resx">
@@ -263,6 +269,17 @@
     </None>
     <None Include="DataSet\DataSet_recu_rembou.xss">
       <DependentUpon>DataSet_recu_rembou.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_RembouHistoric.xsc">
+      <DependentUpon>DataSet_RembouHistoric.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_RembouHistoric.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_RembouHistoric.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSet_RembouHistoric.xss">
+      <DependentUpon>DataSet_RembouHistoric.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

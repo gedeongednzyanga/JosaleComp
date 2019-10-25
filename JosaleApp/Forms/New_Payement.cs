@@ -42,6 +42,7 @@ namespace JosaleApp.Forms
                     rembou.Id = Convert.ToInt32(codeRembu);
                     rembou.Montant = double.Parse(textBox1.Text.Trim());
                     rembou.RefCli = Convert.ToInt32(codeClient);
+                    rembou.Reste = double.Parse(label8.Text.Trim());
                     if (btn)
                         rembou.Save(rembou);
                     else
@@ -108,12 +109,29 @@ namespace JosaleApp.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //DataGridView dv = new DataGridView(DataTable dt, "Column2='Gedeon'", "Column2 desc", DataViewRowState.CurrentRows);
+            
         }
 
         private void text_search_TextChanged(object sender, EventArgs e)
         {
             Dynamic_Classe.Instance().Search_Credit(dataGridView1, text_search.Text.Trim());
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(Convert.ToDouble(label6.Text.Trim()) < Convert.ToDouble(textBox1.Text.Trim())) {
+                    MessageBox.Show("Mount is super than credit...", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox1.Text = "0";
+                    label8.Text = "0";
+                }
+                else { label8.Text = (Convert.ToDouble(label6.Text.Trim()) - (Convert.ToDouble(textBox1.Text.Trim()))).ToString(); }
+                
+            }   catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

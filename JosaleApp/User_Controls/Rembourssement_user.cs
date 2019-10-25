@@ -52,6 +52,19 @@ namespace JosaleApp.User_Controls
             }
         }
 
+        void Display_Historic()
+        {
+            try
+            {
+                Dynamic_Classe.Instance().Call_Report_Historic_Rembou(reportViewer1, "JosaleApp.Report.Historic_Credit.rdlc", 
+                    Convert.ToInt32(text_annee.Text),comboBox2.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Rembourssement_user_Load(object sender, EventArgs e)
         {
             Get_Rembourssement(new Prets());
@@ -71,6 +84,24 @@ namespace JosaleApp.User_Controls
         private void button2_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          if(string.IsNullOrEmpty(text_annee.Text) || string.IsNullOrEmpty(comboBox2.Text))
+            {
+                MessageBox.Show("Enter the year or Select month please. Then display again...", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else { Display_Historic(); }
+        }
+
+        private void text_annee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!Char.IsDigit(ch) && ch !=8 && ch != 46)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

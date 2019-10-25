@@ -48,7 +48,7 @@ namespace Prets_Lib
             prets.Postnom = dr["Postnom"].ToString();
             prets.Prenom = dr["Prénom"].ToString();
             prets.Montant = float.Parse(dr["montant"].ToString());
-            prets.Montantpaye = float.Parse(dr["Rest"].ToString());
+            prets.Montantpaye = float.Parse(dr["reste"].ToString());
             prets.DatePret = Convert.ToDateTime(dr["DateRemb."].ToString());
             return prets;
         }

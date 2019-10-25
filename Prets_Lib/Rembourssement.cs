@@ -14,6 +14,7 @@ namespace Prets_Lib
     {
         public int Id { get; set; }
         public double Montant { get; set; }
+        public double Reste { get; set; }
         public int RefCli { get; set; }
 
         public int Nouveau()
@@ -47,6 +48,7 @@ namespace Prets_Lib
                 cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@code", 10, DbType.Int32, Id));
                 cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@montant", 10, DbType.Double, Montant));
                 cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@refcli", 10, DbType.Int32, RefCli));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@reste", 10, DbType.Double, Reste));
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Saved successfully !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmd.Dispose();

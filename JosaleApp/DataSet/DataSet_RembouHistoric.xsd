@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DataSet_recu_rembou" targetNamespace="http://tempuri.org/DataSet_recu_rembou.xsd" xmlns:mstns="http://tempuri.org/DataSet_recu_rembou.xsd" xmlns="http://tempuri.org/DataSet_recu_rembou.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSet_RembouHistoric" targetNamespace="http://tempuri.org/DataSet_RembouHistoric.xsd" xmlns:mstns="http://tempuri.org/DataSet_RembouHistoric.xsd" xmlns="http://tempuri.org/DataSet_RembouHistoric.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -13,7 +13,8 @@
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Numéro, nom, postnom, Prénom, montant, reste, [DateRemb.]
-FROM            Affichage_Client_Rembourssement</CommandText>
+FROM            Affichage_Client_Rembourssement
+ORDER BY Numéro</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -35,10 +36,10 @@ FROM            Affichage_Client_Rembourssement</CommandText>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet_recu_rembou" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_recu_rembou" msprop:Generator_UserDSName="DataSet_recu_rembou">
+  <xs:element name="DataSet_RembouHistoric" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_RembouHistoric" msprop:Generator_UserDSName="DataSet_RembouHistoric">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Affichage_Client_Rembourssement" msprop:Generator_TableClassName="Affichage_Client_RembourssementDataTable" msprop:Generator_TableVarName="tableAffichage_Client_Rembourssement" msprop:Generator_RowChangedName="Affichage_Client_RembourssementRowChanged" msprop:Generator_TablePropName="Affichage_Client_Rembourssement" msprop:Generator_RowDeletingName="Affichage_Client_RembourssementRowDeleting" msprop:Generator_RowChangingName="Affichage_Client_RembourssementRowChanging" msprop:Generator_RowEvHandlerName="Affichage_Client_RembourssementRowChangeEventHandler" msprop:Generator_RowDeletedName="Affichage_Client_RembourssementRowDeleted" msprop:Generator_RowClassName="Affichage_Client_RembourssementRow" msprop:Generator_UserTableName="Affichage_Client_Rembourssement" msprop:Generator_RowEvArgName="Affichage_Client_RembourssementRowChangeEvent">
+        <xs:element name="Affichage_Client_Rembourssement" msprop:Generator_TableClassName="Affichage_Client_RembourssementDataTable" msprop:Generator_TableVarName="tableAffichage_Client_Rembourssement" msprop:Generator_TablePropName="Affichage_Client_Rembourssement" msprop:Generator_RowDeletingName="Affichage_Client_RembourssementRowDeleting" msprop:Generator_RowChangingName="Affichage_Client_RembourssementRowChanging" msprop:Generator_RowEvHandlerName="Affichage_Client_RembourssementRowChangeEventHandler" msprop:Generator_RowDeletedName="Affichage_Client_RembourssementRowDeleted" msprop:Generator_UserTableName="Affichage_Client_Rembourssement" msprop:Generator_RowChangedName="Affichage_Client_RembourssementRowChanged" msprop:Generator_RowEvArgName="Affichage_Client_RembourssementRowChangeEvent" msprop:Generator_RowClassName="Affichage_Client_RembourssementRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Numéro" msprop:Generator_ColumnVarNameInTable="columnNuméro" msprop:Generator_ColumnPropNameInRow="Numéro" msprop:Generator_ColumnPropNameInTable="NuméroColumn" msprop:Generator_UserColumnName="Numéro" type="xs:int" />
@@ -65,7 +66,7 @@ FROM            Affichage_Client_Rembourssement</CommandText>
               </xs:element>
               <xs:element name="montant" msprop:Generator_ColumnVarNameInTable="columnmontant" msprop:Generator_ColumnPropNameInRow="montant" msprop:Generator_ColumnPropNameInTable="montantColumn" msprop:Generator_UserColumnName="montant" type="xs:double" />
               <xs:element name="reste" msprop:Generator_ColumnVarNameInTable="columnreste" msprop:Generator_ColumnPropNameInRow="reste" msprop:Generator_ColumnPropNameInTable="resteColumn" msprop:Generator_UserColumnName="reste" type="xs:double" />
-              <xs:element name="DateRemb_" msdata:Caption="DateRemb." msprop:Generator_ColumnVarNameInTable="columnDateRemb_" msprop:Generator_ColumnPropNameInRow="DateRemb_" msprop:Generator_ColumnPropNameInTable="DateRemb_Column" msprop:Generator_UserColumnName="DateRemb_" type="xs:dateTime" />
+              <xs:element name="DateRemb_" msprop:Generator_ColumnVarNameInTable="columnDateRemb_" msprop:Generator_ColumnPropNameInRow="DateRemb_" msprop:Generator_ColumnPropNameInTable="DateRemb_Column" msprop:Generator_UserColumnName="DateRemb_" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -20,9 +20,9 @@ namespace JosaleApp.DataSet {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSet_recu_rembou")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSet_RembouHistoric")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSet_recu_rembou : global::System.Data.DataSet {
+    public partial class DataSet_RembouHistoric : global::System.Data.DataSet {
         
         private Affichage_Client_RembourssementDataTable tableAffichage_Client_Rembourssement;
         
@@ -30,7 +30,7 @@ namespace JosaleApp.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DataSet_recu_rembou() {
+        public DataSet_RembouHistoric() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace JosaleApp.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DataSet_recu_rembou(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSet_RembouHistoric(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace JosaleApp.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSet_recu_rembou cln = ((DataSet_recu_rembou)(base.Clone()));
+            DataSet_RembouHistoric cln = ((DataSet_RembouHistoric)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace JosaleApp.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSet_recu_rembou";
+            this.DataSetName = "DataSet_RembouHistoric";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet_recu_rembou.xsd";
+            this.Namespace = "http://tempuri.org/DataSet_RembouHistoric.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableAffichage_Client_Rembourssement = new Affichage_Client_RembourssementDataTable();
@@ -225,7 +225,7 @@ namespace JosaleApp.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSet_recu_rembou ds = new DataSet_recu_rembou();
+            DataSet_RembouHistoric ds = new DataSet_RembouHistoric();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -494,7 +494,6 @@ namespace JosaleApp.DataSet {
                 this.columnmontant.AllowDBNull = false;
                 this.columnreste.AllowDBNull = false;
                 this.columnDateRemb_.AllowDBNull = false;
-                this.columnDateRemb_.Caption = "DateRemb.";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -562,7 +561,7 @@ namespace JosaleApp.DataSet {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet_recu_rembou ds = new DataSet_recu_rembou();
+                DataSet_RembouHistoric ds = new DataSet_RembouHistoric();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -801,7 +800,7 @@ namespace JosaleApp.DataSet {
         }
     }
 }
-namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
+namespace JosaleApp.DataSet.DataSet_RembouHistoricTableAdapters {
     
     
     /// <summary>
@@ -949,7 +948,7 @@ namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Numéro, nom, postnom, Prénom, montant, reste, [DateRemb.]\r\nFROM    " +
-                "        Affichage_Client_Rembourssement";
+                "        Affichage_Client_Rembourssement\r\nORDER BY Numéro";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -957,7 +956,7 @@ namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet_recu_rembou.Affichage_Client_RembourssementDataTable dataTable) {
+        public virtual int Fill(DataSet_RembouHistoric.Affichage_Client_RembourssementDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -970,9 +969,9 @@ namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet_recu_rembou.Affichage_Client_RembourssementDataTable GetData() {
+        public virtual DataSet_RembouHistoric.Affichage_Client_RembourssementDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet_recu_rembou.Affichage_Client_RembourssementDataTable dataTable = new DataSet_recu_rembou.Affichage_Client_RembourssementDataTable();
+            DataSet_RembouHistoric.Affichage_Client_RembourssementDataTable dataTable = new DataSet_RembouHistoric.Affichage_Client_RembourssementDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1046,7 +1045,7 @@ namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DataSet_recu_rembou dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSet_RembouHistoric dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1056,7 +1055,7 @@ namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DataSet_recu_rembou dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSet_RembouHistoric dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1066,7 +1065,7 @@ namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DataSet_recu_rembou dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSet_RembouHistoric dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1100,7 +1099,7 @@ namespace JosaleApp.DataSet.DataSet_recu_rembouTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DataSet_recu_rembou dataSet) {
+        public virtual int UpdateAll(DataSet_RembouHistoric dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

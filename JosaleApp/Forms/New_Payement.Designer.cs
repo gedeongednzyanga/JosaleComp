@@ -40,6 +40,8 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -166,6 +168,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
@@ -175,25 +179,48 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 250);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(328, 128);
+            this.groupBox2.Size = new System.Drawing.Size(328, 158);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Payement";
             // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.SystemColors.Window;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(106, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(210, 25);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "0";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 18);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Rest             :";
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox1.Location = new System.Drawing.Point(106, 92);
+            this.textBox1.Location = new System.Drawing.Point(106, 88);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(210, 24);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 95);
+            this.label5.Location = new System.Drawing.Point(8, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 18);
             this.label5.TabIndex = 1;
@@ -203,7 +230,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 60);
+            this.label4.Location = new System.Drawing.Point(8, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 18);
             this.label4.TabIndex = 1;
@@ -214,7 +241,7 @@
             this.label6.BackColor = System.Drawing.SystemColors.Window;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(106, 59);
+            this.label6.Location = new System.Drawing.Point(106, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(210, 25);
             this.label6.TabIndex = 0;
@@ -234,7 +261,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnSave);
-            this.groupBox4.Location = new System.Drawing.Point(337, 318);
+            this.groupBox4.Location = new System.Drawing.Point(337, 335);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(141, 62);
             this.groupBox4.TabIndex = 15;
@@ -256,7 +283,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnNew);
-            this.groupBox3.Location = new System.Drawing.Point(337, 256);
+            this.groupBox3.Location = new System.Drawing.Point(337, 273);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(141, 62);
             this.groupBox3.TabIndex = 14;
@@ -300,7 +327,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 383);
+            this.ClientSize = new System.Drawing.Size(485, 412);
             this.Controls.Add(this.text_search);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox4);
@@ -351,5 +378,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
