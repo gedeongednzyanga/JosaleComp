@@ -90,6 +90,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_Gage.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DataSet_LoanHistoric.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_LoanHistoric.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DataSet_Recu.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,6 +222,7 @@
     </Compile>
     <EmbeddedResource Include="Report\Gage.rdlc" />
     <EmbeddedResource Include="Report\Historic_Credit.rdlc" />
+    <EmbeddedResource Include="Report\Loan_historic.rdlc" />
     <EmbeddedResource Include="Report\Recu.rdlc" />
     <EmbeddedResource Include="Report\Recu_rembou.rdlc" />
     <EmbeddedResource Include="User_Controls\Client_user.resx">
@@ -247,6 +253,17 @@
     </None>
     <None Include="DataSet\DataSet_Gage.xss">
       <DependentUpon>DataSet_Gage.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_LoanHistoric.xsc">
+      <DependentUpon>DataSet_LoanHistoric.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_LoanHistoric.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_LoanHistoric.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSet_LoanHistoric.xss">
+      <DependentUpon>DataSet_LoanHistoric.xsd</DependentUpon>
     </None>
     <None Include="DataSet\DataSet_Recu.xsc">
       <DependentUpon>DataSet_Recu.xsd</DependentUpon>

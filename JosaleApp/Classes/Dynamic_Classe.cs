@@ -451,7 +451,6 @@ namespace JosaleApp.Classes
                     reportView.LocalReport.ReportEmbeddedResource = path;
                     reportView.RefreshReport();
                 }
-
             }
             catch (InvalidOperationException ex)
             {
@@ -476,6 +475,50 @@ namespace JosaleApp.Classes
             }
         }
 
+        public void Call_Report_Historic_Debit(ReportViewer reportView, string path, int annee, string mois)
+        {
+            // DataTable dt = new DataTable();
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Affichage_Emprunt WHERE DATEPART(year, [Debt date])=" + annee + " and DATENAME(MONTH, [Debt date]) = '" + mois + "'";
+                    da = new SqlDataAdapter((SqlCommand)cmd);
+                    ds = new System.Data.DataSet();
+                    //Remplissage du DataSet via DataAdapter
+                    da.Fill(ds, "DataSet_RembouHistoric");
+                    reportView.LocalReport.DataSources.Clear();
+                    //Source du reportViewr
+                    reportView.LocalReport.DataSources.Add(new ReportDataSource("DataSet_RembouHistoric", ds.Tables[0]));
+                    //Specificier le rapport à charger
+                    reportView.LocalReport.ReportEmbeddedResource = path;
+                    reportView.RefreshReport();
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error when Selecting data, " + ex.Message, "Selecting data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                if (ImplementeConnexion.Instance.Conn != null)
+                {
+                    if (ImplementeConnexion.Instance.Conn.State == System.Data.ConnectionState.Open)
+                        ImplementeConnexion.Instance.Conn.Close();
+                }
+
+                if (da != null)
+                    da.Dispose();
+                if (ds != null)
+                    ds.Dispose();
+            }
+        }
 
 
         //Méthode pour génération PDF
