@@ -279,21 +279,21 @@ namespace JosaleApp.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Affichage_EmpruntDataTable : global::System.Data.TypedTableBase<Affichage_EmpruntRow> {
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columncode_emprunt;
             
-            private global::System.Data.DataColumn columnSurname;
+            private global::System.Data.DataColumn columnnom_t;
             
-            private global::System.Data.DataColumn columnMount;
+            private global::System.Data.DataColumn columnpostnom_t;
             
-            private global::System.Data.DataColumn columnnum;
+            private global::System.Data.DataColumn columnprenom_t;
             
-            private global::System.Data.DataColumn columnlastname;
+            private global::System.Data.DataColumn columnmontant;
             
-            private global::System.Data.DataColumn columndatedebt;
+            private global::System.Data.DataColumn columndate_emprunt;
             
-            private global::System.Data.DataColumn columndaterepay;
+            private global::System.Data.DataColumn columnmontant_remb;
             
-            private global::System.Data.DataColumn columnmountrest;
+            private global::System.Data.DataColumn columndate_rembu;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -330,65 +330,65 @@ namespace JosaleApp.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn code_empruntColumn {
                 get {
-                    return this.columnName;
+                    return this.columncode_emprunt;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SurnameColumn {
+            public global::System.Data.DataColumn nom_tColumn {
                 get {
-                    return this.columnSurname;
+                    return this.columnnom_t;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MountColumn {
+            public global::System.Data.DataColumn postnom_tColumn {
                 get {
-                    return this.columnMount;
+                    return this.columnpostnom_t;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn numColumn {
+            public global::System.Data.DataColumn prenom_tColumn {
                 get {
-                    return this.columnnum;
+                    return this.columnprenom_t;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn lastnameColumn {
+            public global::System.Data.DataColumn montantColumn {
                 get {
-                    return this.columnlastname;
+                    return this.columnmontant;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn datedebtColumn {
+            public global::System.Data.DataColumn date_empruntColumn {
                 get {
-                    return this.columndatedebt;
+                    return this.columndate_emprunt;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn daterepayColumn {
+            public global::System.Data.DataColumn montant_rembColumn {
                 get {
-                    return this.columndaterepay;
+                    return this.columnmontant_remb;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn mountrestColumn {
+            public global::System.Data.DataColumn date_rembuColumn {
                 get {
-                    return this.columnmountrest;
+                    return this.columndate_rembu;
                 }
             }
             
@@ -429,17 +429,17 @@ namespace JosaleApp.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_EmpruntRow AddAffichage_EmpruntRow(string Name, string Surname, double Mount, int num, string lastname, System.DateTime datedebt, System.DateTime daterepay, double mountrest) {
+            public Affichage_EmpruntRow AddAffichage_EmpruntRow(int code_emprunt, string nom_t, string postnom_t, string prenom_t, double montant, System.DateTime date_emprunt, double montant_remb, System.DateTime date_rembu) {
                 Affichage_EmpruntRow rowAffichage_EmpruntRow = ((Affichage_EmpruntRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Name,
-                        Surname,
-                        Mount,
-                        num,
-                        lastname,
-                        datedebt,
-                        daterepay,
-                        mountrest};
+                        code_emprunt,
+                        nom_t,
+                        postnom_t,
+                        prenom_t,
+                        montant,
+                        date_emprunt,
+                        montant_remb,
+                        date_rembu};
                 rowAffichage_EmpruntRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAffichage_EmpruntRow);
                 return rowAffichage_EmpruntRow;
@@ -447,9 +447,9 @@ namespace JosaleApp.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Affichage_EmpruntRow FindBynum(int num) {
+            public Affichage_EmpruntRow FindBycode_emprunt(int code_emprunt) {
                 return ((Affichage_EmpruntRow)(this.Rows.Find(new object[] {
-                            num})));
+                            code_emprunt})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -469,45 +469,45 @@ namespace JosaleApp.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnName = base.Columns["Name"];
-                this.columnSurname = base.Columns["Surname"];
-                this.columnMount = base.Columns["Mount"];
-                this.columnnum = base.Columns["num"];
-                this.columnlastname = base.Columns["lastname"];
-                this.columndatedebt = base.Columns["datedebt"];
-                this.columndaterepay = base.Columns["daterepay"];
-                this.columnmountrest = base.Columns["mountrest"];
+                this.columncode_emprunt = base.Columns["code_emprunt"];
+                this.columnnom_t = base.Columns["nom_t"];
+                this.columnpostnom_t = base.Columns["postnom_t"];
+                this.columnprenom_t = base.Columns["prenom_t"];
+                this.columnmontant = base.Columns["montant"];
+                this.columndate_emprunt = base.Columns["date_emprunt"];
+                this.columnmontant_remb = base.Columns["montant_remb"];
+                this.columndate_rembu = base.Columns["date_rembu"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnSurname = new global::System.Data.DataColumn("Surname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSurname);
-                this.columnMount = new global::System.Data.DataColumn("Mount", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMount);
-                this.columnnum = new global::System.Data.DataColumn("num", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnum);
-                this.columnlastname = new global::System.Data.DataColumn("lastname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlastname);
-                this.columndatedebt = new global::System.Data.DataColumn("datedebt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndatedebt);
-                this.columndaterepay = new global::System.Data.DataColumn("daterepay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndaterepay);
-                this.columnmountrest = new global::System.Data.DataColumn("mountrest", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmountrest);
+                this.columncode_emprunt = new global::System.Data.DataColumn("code_emprunt", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncode_emprunt);
+                this.columnnom_t = new global::System.Data.DataColumn("nom_t", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnom_t);
+                this.columnpostnom_t = new global::System.Data.DataColumn("postnom_t", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpostnom_t);
+                this.columnprenom_t = new global::System.Data.DataColumn("prenom_t", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprenom_t);
+                this.columnmontant = new global::System.Data.DataColumn("montant", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmontant);
+                this.columndate_emprunt = new global::System.Data.DataColumn("date_emprunt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate_emprunt);
+                this.columnmontant_remb = new global::System.Data.DataColumn("montant_remb", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmontant_remb);
+                this.columndate_rembu = new global::System.Data.DataColumn("date_rembu", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate_rembu);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnnum}, true));
-                this.columnName.MaxLength = 50;
-                this.columnSurname.MaxLength = 50;
-                this.columnMount.AllowDBNull = false;
-                this.columnnum.AllowDBNull = false;
-                this.columnnum.Unique = true;
-                this.columnlastname.MaxLength = 50;
-                this.columndatedebt.AllowDBNull = false;
-                this.columnmountrest.AllowDBNull = false;
+                                this.columncode_emprunt}, true));
+                this.columncode_emprunt.AllowDBNull = false;
+                this.columncode_emprunt.Unique = true;
+                this.columnnom_t.MaxLength = 50;
+                this.columnpostnom_t.MaxLength = 50;
+                this.columnprenom_t.MaxLength = 50;
+                this.columnmontant.AllowDBNull = false;
+                this.columndate_emprunt.AllowDBNull = false;
+                this.columnmontant_remb.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -650,158 +650,158 @@ namespace JosaleApp.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Name {
+            public int code_emprunt {
+                get {
+                    return ((int)(this[this.tableAffichage_Emprunt.code_empruntColumn]));
+                }
+                set {
+                    this[this.tableAffichage_Emprunt.code_empruntColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nom_t {
                 get {
                     try {
-                        return ((string)(this[this.tableAffichage_Emprunt.NameColumn]));
+                        return ((string)(this[this.tableAffichage_Emprunt.nom_tColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Affichage_Emprunt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'nom_t\' in table \'Affichage_Emprunt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Emprunt.NameColumn] = value;
+                    this[this.tableAffichage_Emprunt.nom_tColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Surname {
+            public string postnom_t {
                 get {
                     try {
-                        return ((string)(this[this.tableAffichage_Emprunt.SurnameColumn]));
+                        return ((string)(this[this.tableAffichage_Emprunt.postnom_tColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Surname\' in table \'Affichage_Emprunt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'postnom_t\' in table \'Affichage_Emprunt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Emprunt.SurnameColumn] = value;
+                    this[this.tableAffichage_Emprunt.postnom_tColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Mount {
-                get {
-                    return ((double)(this[this.tableAffichage_Emprunt.MountColumn]));
-                }
-                set {
-                    this[this.tableAffichage_Emprunt.MountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int num {
-                get {
-                    return ((int)(this[this.tableAffichage_Emprunt.numColumn]));
-                }
-                set {
-                    this[this.tableAffichage_Emprunt.numColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string lastname {
+            public string prenom_t {
                 get {
                     try {
-                        return ((string)(this[this.tableAffichage_Emprunt.lastnameColumn]));
+                        return ((string)(this[this.tableAffichage_Emprunt.prenom_tColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'lastname\' in table \'Affichage_Emprunt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'prenom_t\' in table \'Affichage_Emprunt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Emprunt.lastnameColumn] = value;
+                    this[this.tableAffichage_Emprunt.prenom_tColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime datedebt {
+            public double montant {
                 get {
-                    return ((global::System.DateTime)(this[this.tableAffichage_Emprunt.datedebtColumn]));
+                    return ((double)(this[this.tableAffichage_Emprunt.montantColumn]));
                 }
                 set {
-                    this[this.tableAffichage_Emprunt.datedebtColumn] = value;
+                    this[this.tableAffichage_Emprunt.montantColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime daterepay {
+            public System.DateTime date_emprunt {
+                get {
+                    return ((global::System.DateTime)(this[this.tableAffichage_Emprunt.date_empruntColumn]));
+                }
+                set {
+                    this[this.tableAffichage_Emprunt.date_empruntColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double montant_remb {
+                get {
+                    return ((double)(this[this.tableAffichage_Emprunt.montant_rembColumn]));
+                }
+                set {
+                    this[this.tableAffichage_Emprunt.montant_rembColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime date_rembu {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableAffichage_Emprunt.daterepayColumn]));
+                        return ((global::System.DateTime)(this[this.tableAffichage_Emprunt.date_rembuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'daterepay\' in table \'Affichage_Emprunt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'date_rembu\' in table \'Affichage_Emprunt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAffichage_Emprunt.daterepayColumn] = value;
+                    this[this.tableAffichage_Emprunt.date_rembuColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double mountrest {
-                get {
-                    return ((double)(this[this.tableAffichage_Emprunt.mountrestColumn]));
-                }
-                set {
-                    this[this.tableAffichage_Emprunt.mountrestColumn] = value;
-                }
+            public bool Isnom_tNull() {
+                return this.IsNull(this.tableAffichage_Emprunt.nom_tColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tableAffichage_Emprunt.NameColumn);
+            public void Setnom_tNull() {
+                this[this.tableAffichage_Emprunt.nom_tColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNameNull() {
-                this[this.tableAffichage_Emprunt.NameColumn] = global::System.Convert.DBNull;
+            public bool Ispostnom_tNull() {
+                return this.IsNull(this.tableAffichage_Emprunt.postnom_tColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSurnameNull() {
-                return this.IsNull(this.tableAffichage_Emprunt.SurnameColumn);
+            public void Setpostnom_tNull() {
+                this[this.tableAffichage_Emprunt.postnom_tColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSurnameNull() {
-                this[this.tableAffichage_Emprunt.SurnameColumn] = global::System.Convert.DBNull;
+            public bool Isprenom_tNull() {
+                return this.IsNull(this.tableAffichage_Emprunt.prenom_tColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IslastnameNull() {
-                return this.IsNull(this.tableAffichage_Emprunt.lastnameColumn);
+            public void Setprenom_tNull() {
+                this[this.tableAffichage_Emprunt.prenom_tColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetlastnameNull() {
-                this[this.tableAffichage_Emprunt.lastnameColumn] = global::System.Convert.DBNull;
+            public bool Isdate_rembuNull() {
+                return this.IsNull(this.tableAffichage_Emprunt.date_rembuColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsdaterepayNull() {
-                return this.IsNull(this.tableAffichage_Emprunt.daterepayColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetdaterepayNull() {
-                this[this.tableAffichage_Emprunt.daterepayColumn] = global::System.Convert.DBNull;
+            public void Setdate_rembuNull() {
+                this[this.tableAffichage_Emprunt.date_rembuColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -964,14 +964,14 @@ namespace JosaleApp.DataSet.DataSet_LoanHistoricTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Affichage_Emprunt";
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("Surname", "Surname");
-            tableMapping.ColumnMappings.Add("Mount", "Mount");
-            tableMapping.ColumnMappings.Add("num", "num");
-            tableMapping.ColumnMappings.Add("lastname", "lastname");
-            tableMapping.ColumnMappings.Add("datedebt", "datedebt");
-            tableMapping.ColumnMappings.Add("daterepay", "daterepay");
-            tableMapping.ColumnMappings.Add("mountrest", "mountrest");
+            tableMapping.ColumnMappings.Add("code_emprunt", "code_emprunt");
+            tableMapping.ColumnMappings.Add("nom_t", "nom_t");
+            tableMapping.ColumnMappings.Add("postnom_t", "postnom_t");
+            tableMapping.ColumnMappings.Add("prenom_t", "prenom_t");
+            tableMapping.ColumnMappings.Add("montant", "montant");
+            tableMapping.ColumnMappings.Add("date_emprunt", "date_emprunt");
+            tableMapping.ColumnMappings.Add("montant_remb", "montant_remb");
+            tableMapping.ColumnMappings.Add("date_rembu", "date_rembu");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -988,9 +988,8 @@ namespace JosaleApp.DataSet.DataSet_LoanHistoricTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        [N°] AS num, Name, [Last name] AS lastname, Surname, Mount, [Debt d" +
-                "ate] AS datedebt, [Repay mount] AS mountrest, [Repay date] AS daterepay\r\nFROM   " +
-                "         Affichage_Emprunt";
+            this._commandCollection[0].CommandText = "SELECT        code_emprunt, nom_t, postnom_t, prenom_t, montant, date_emprunt, mo" +
+                "ntant_remb, date_rembu\r\nFROM            Affichage_Emprunt";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

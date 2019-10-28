@@ -475,7 +475,7 @@ namespace JosaleApp.Classes
             }
         }
 
-        public void Call_Report_Historic_Debit(ReportViewer reportView, string path, int annee, string mois)
+        public void Call_Report_Historic_Debit(ReportViewer reportView, string path, int annee)
         {
             // DataTable dt = new DataTable();
             try
@@ -484,14 +484,14 @@ namespace JosaleApp.Classes
                     ImplementeConnexion.Instance.Conn.Open();
                 using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM Affichage_Emprunt WHERE DATEPART(year, [Debt date])=" + annee + " and DATENAME(MONTH, [Debt date]) = '" + mois + "'";
+                    cmd.CommandText = "SELECT * FROM Affichage_Emprunt WHERE DATEPART(year, date_emprunt)=" + annee + "";
                     da = new SqlDataAdapter((SqlCommand)cmd);
                     ds = new System.Data.DataSet();
                     //Remplissage du DataSet via DataAdapter
-                    da.Fill(ds, "DataSet_RembouHistoric");
+                    da.Fill(ds, "DataSet_LoanHistoric");
                     reportView.LocalReport.DataSources.Clear();
                     //Source du reportViewr
-                    reportView.LocalReport.DataSources.Add(new ReportDataSource("DataSet_RembouHistoric", ds.Tables[0]));
+                    reportView.LocalReport.DataSources.Add(new ReportDataSource("DataSet_LoanHistoric", ds.Tables[0]));
                     //Specificier le rapport à charger
                     reportView.LocalReport.ReportEmbeddedResource = path;
                     reportView.RefreshReport();

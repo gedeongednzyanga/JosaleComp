@@ -83,14 +83,14 @@ namespace Emprunts_Lib
         public IEmprunt GetEmprunt (IDataReader dr)
         {
             IEmprunt emprunt = new Emprunt();
-            emprunt.Id = Convert.ToInt32(dr["N°"].ToString());
-            emprunt.Name = dr["Name"].ToString();
-            emprunt.LastName = dr["Last name"].ToString();
-            emprunt.SurName = dr["Surname"].ToString();
-            emprunt.Montant = float.Parse(dr["Mount"].ToString());
-            emprunt.DateEmprunt = DateTime.Parse(dr["Debt date"].ToString());
-            emprunt.MontantRemb = float.Parse(dr["Repay mount"].ToString());
-            emprunt.DateRembu = DateTime.Parse(dr["Repay date"].ToString());
+            emprunt.Id = Convert.ToInt32(dr["code_emprunt"].ToString());
+            emprunt.Name = dr["nom_t"].ToString();
+            emprunt.LastName = dr["postnom_t"].ToString();
+            emprunt.SurName = dr["prenom_t"].ToString();
+            emprunt.Montant = float.Parse(dr["montant"].ToString());
+            emprunt.DateEmprunt = DateTime.Parse(dr["date_emprunt"].ToString());
+            emprunt.MontantRemb = float.Parse(dr["montant_remb"].ToString());
+            emprunt.DateRembu = DateTime.Parse(dr["date_rembu"].ToString());
             return emprunt;
         }
 
@@ -201,7 +201,7 @@ namespace Emprunts_Lib
                 ImplementeConnexion.Instance.Conn.Open();
             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
             {
-                cmd.CommandText = "SELECT * FROM Affichage_Emprunt WHERE Name LIKE '%"+recherche+ "%' OR [Last name] LIKE '%"+recherche+ "%' OR Surname LIKE '%"+recherche+"%'";
+                cmd.CommandText = "SELECT * FROM Affichage_Emprunt WHERE nom_t LIKE '%"+recherche+ "%' OR postnom_t LIKE '%"+recherche+ "%' OR prenom_t LIKE '%"+recherche+"%'";
                 IDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {

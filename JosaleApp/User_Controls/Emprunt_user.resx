@@ -162,4 +162,14 @@
   <metadata name="Column11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="btnPreview.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAEGSURBVDhPY6AYVM4+satk2tF/JdOO/CcNH/0H1LuDAcj5d/DZv/+HXvwnCYP0gPSCDMCqgBgM
+        0ksbAw7euv9//5aG/3sXhoDxgS2N/w/cfoChDosB//7vP7z0//5lcf937Nv9P7597/+zt17937VvF1hs
+        /+FlYDU4Ddi/d9r/I2sy/3//8vp/bNue/+5RRf89oorBBn3/8goolwFUMwO3AQf2TPl/bEP+/x9f3/6P
+        bd3z3y2y4L97ZCHYsB9f3/w/tj7///4903AbgOyFbbu3/o9p3Q3GO4BsorwAw7BA3D3PD4xJCETSMNUM
+        +HfwORlJGagHpJehYvbx3SCTyMHgzEQZYGAAAG4l4KmN7pDLAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

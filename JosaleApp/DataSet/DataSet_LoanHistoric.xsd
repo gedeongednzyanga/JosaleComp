@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="JOSALE_COMPConnectionString (Settings)" DbObjectName="JOSALE_COMP.dbo.Affichage_Emprunt" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        [N°] AS num, Name, [Last name] AS lastname, Surname, Mount, [Debt date] AS datedebt, [Repay mount] AS mountrest, [Repay date] AS daterepay
+                    <CommandText>SELECT        code_emprunt, nom_t, postnom_t, prenom_t, montant, date_emprunt, montant_remb, date_rembu
 FROM            Affichage_Emprunt</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -20,14 +20,14 @@ FROM            Affichage_Emprunt</CommandText>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Name" DataSetColumn="Name" />
-              <Mapping SourceColumn="Surname" DataSetColumn="Surname" />
-              <Mapping SourceColumn="Mount" DataSetColumn="Mount" />
-              <Mapping SourceColumn="num" DataSetColumn="num" />
-              <Mapping SourceColumn="lastname" DataSetColumn="lastname" />
-              <Mapping SourceColumn="datedebt" DataSetColumn="datedebt" />
-              <Mapping SourceColumn="daterepay" DataSetColumn="daterepay" />
-              <Mapping SourceColumn="mountrest" DataSetColumn="mountrest" />
+              <Mapping SourceColumn="code_emprunt" DataSetColumn="code_emprunt" />
+              <Mapping SourceColumn="nom_t" DataSetColumn="nom_t" />
+              <Mapping SourceColumn="postnom_t" DataSetColumn="postnom_t" />
+              <Mapping SourceColumn="prenom_t" DataSetColumn="prenom_t" />
+              <Mapping SourceColumn="montant" DataSetColumn="montant" />
+              <Mapping SourceColumn="date_emprunt" DataSetColumn="date_emprunt" />
+              <Mapping SourceColumn="montant_remb" DataSetColumn="montant_remb" />
+              <Mapping SourceColumn="date_rembu" DataSetColumn="date_rembu" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -39,35 +39,35 @@ FROM            Affichage_Emprunt</CommandText>
   <xs:element name="DataSet_LoanHistoric" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_LoanHistoric" msprop:Generator_UserDSName="DataSet_LoanHistoric">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Affichage_Emprunt" msprop:Generator_TableClassName="Affichage_EmpruntDataTable" msprop:Generator_TableVarName="tableAffichage_Emprunt" msprop:Generator_TablePropName="Affichage_Emprunt" msprop:Generator_RowDeletingName="Affichage_EmpruntRowDeleting" msprop:Generator_RowChangingName="Affichage_EmpruntRowChanging" msprop:Generator_RowEvHandlerName="Affichage_EmpruntRowChangeEventHandler" msprop:Generator_RowDeletedName="Affichage_EmpruntRowDeleted" msprop:Generator_UserTableName="Affichage_Emprunt" msprop:Generator_RowChangedName="Affichage_EmpruntRowChanged" msprop:Generator_RowEvArgName="Affichage_EmpruntRowChangeEvent" msprop:Generator_RowClassName="Affichage_EmpruntRow">
+        <xs:element name="Affichage_Emprunt" msprop:Generator_TableClassName="Affichage_EmpruntDataTable" msprop:Generator_TableVarName="tableAffichage_Emprunt" msprop:Generator_RowChangedName="Affichage_EmpruntRowChanged" msprop:Generator_TablePropName="Affichage_Emprunt" msprop:Generator_RowDeletingName="Affichage_EmpruntRowDeleting" msprop:Generator_RowChangingName="Affichage_EmpruntRowChanging" msprop:Generator_RowEvHandlerName="Affichage_EmpruntRowChangeEventHandler" msprop:Generator_RowDeletedName="Affichage_EmpruntRowDeleted" msprop:Generator_RowClassName="Affichage_EmpruntRow" msprop:Generator_UserTableName="Affichage_Emprunt" msprop:Generator_RowEvArgName="Affichage_EmpruntRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+              <xs:element name="code_emprunt" msprop:Generator_ColumnVarNameInTable="columncode_emprunt" msprop:Generator_ColumnPropNameInRow="code_emprunt" msprop:Generator_ColumnPropNameInTable="code_empruntColumn" msprop:Generator_UserColumnName="code_emprunt" type="xs:int" />
+              <xs:element name="nom_t" msprop:Generator_ColumnVarNameInTable="columnnom_t" msprop:Generator_ColumnPropNameInRow="nom_t" msprop:Generator_ColumnPropNameInTable="nom_tColumn" msprop:Generator_UserColumnName="nom_t" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Surname" msprop:Generator_ColumnVarNameInTable="columnSurname" msprop:Generator_ColumnPropNameInRow="Surname" msprop:Generator_ColumnPropNameInTable="SurnameColumn" msprop:Generator_UserColumnName="Surname" minOccurs="0">
+              <xs:element name="postnom_t" msprop:Generator_ColumnVarNameInTable="columnpostnom_t" msprop:Generator_ColumnPropNameInRow="postnom_t" msprop:Generator_ColumnPropNameInTable="postnom_tColumn" msprop:Generator_UserColumnName="postnom_t" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Mount" msprop:Generator_ColumnVarNameInTable="columnMount" msprop:Generator_ColumnPropNameInRow="Mount" msprop:Generator_ColumnPropNameInTable="MountColumn" msprop:Generator_UserColumnName="Mount" type="xs:double" />
-              <xs:element name="num" msprop:Generator_ColumnVarNameInTable="columnnum" msprop:Generator_ColumnPropNameInRow="num" msprop:Generator_ColumnPropNameInTable="numColumn" msprop:Generator_UserColumnName="num" type="xs:int" />
-              <xs:element name="lastname" msprop:Generator_ColumnVarNameInTable="columnlastname" msprop:Generator_ColumnPropNameInRow="lastname" msprop:Generator_ColumnPropNameInTable="lastnameColumn" msprop:Generator_UserColumnName="lastname" minOccurs="0">
+              <xs:element name="prenom_t" msprop:Generator_ColumnVarNameInTable="columnprenom_t" msprop:Generator_ColumnPropNameInRow="prenom_t" msprop:Generator_ColumnPropNameInTable="prenom_tColumn" msprop:Generator_UserColumnName="prenom_t" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="datedebt" msprop:Generator_ColumnVarNameInTable="columndatedebt" msprop:Generator_ColumnPropNameInRow="datedebt" msprop:Generator_ColumnPropNameInTable="datedebtColumn" msprop:Generator_UserColumnName="datedebt" type="xs:dateTime" />
-              <xs:element name="daterepay" msprop:Generator_ColumnVarNameInTable="columndaterepay" msprop:Generator_ColumnPropNameInRow="daterepay" msprop:Generator_ColumnPropNameInTable="daterepayColumn" msprop:Generator_UserColumnName="daterepay" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="mountrest" msprop:Generator_ColumnVarNameInTable="columnmountrest" msprop:Generator_ColumnPropNameInRow="mountrest" msprop:Generator_ColumnPropNameInTable="mountrestColumn" msprop:Generator_UserColumnName="mountrest" type="xs:double" />
+              <xs:element name="montant" msprop:Generator_ColumnVarNameInTable="columnmontant" msprop:Generator_ColumnPropNameInRow="montant" msprop:Generator_ColumnPropNameInTable="montantColumn" msprop:Generator_UserColumnName="montant" type="xs:double" />
+              <xs:element name="date_emprunt" msprop:Generator_ColumnVarNameInTable="columndate_emprunt" msprop:Generator_ColumnPropNameInRow="date_emprunt" msprop:Generator_ColumnPropNameInTable="date_empruntColumn" msprop:Generator_UserColumnName="date_emprunt" type="xs:dateTime" />
+              <xs:element name="montant_remb" msprop:Generator_ColumnVarNameInTable="columnmontant_remb" msprop:Generator_ColumnPropNameInRow="montant_remb" msprop:Generator_ColumnPropNameInTable="montant_rembColumn" msprop:Generator_UserColumnName="montant_remb" type="xs:double" />
+              <xs:element name="date_rembu" msprop:Generator_ColumnVarNameInTable="columndate_rembu" msprop:Generator_ColumnPropNameInRow="date_rembu" msprop:Generator_ColumnPropNameInTable="date_rembuColumn" msprop:Generator_UserColumnName="date_rembu" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -75,7 +75,7 @@ FROM            Affichage_Emprunt</CommandText>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Affichage_Emprunt" />
-      <xs:field xpath="mstns:num" />
+      <xs:field xpath="mstns:code_emprunt" />
     </xs:unique>
   </xs:element>
 </xs:schema>

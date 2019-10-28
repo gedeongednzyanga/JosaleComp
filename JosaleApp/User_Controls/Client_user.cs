@@ -90,7 +90,8 @@ namespace JosaleApp.User_Controls
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Preview_form previewF = new Preview_form(Id);
+            Preview_form previewF = new Preview_form();
+            Dynamic_Classe.Instance().Call_Report(previewF.reportViewp, "JosaleApp.Report.Recu.rdlc", Id);
             previewF.ShowDialog();
         }
 

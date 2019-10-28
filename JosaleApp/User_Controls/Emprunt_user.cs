@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JosaleApp.Classes;
+using JosaleApp.Forms;
 
 namespace JosaleApp.User_Controls
 {
@@ -53,8 +54,17 @@ namespace JosaleApp.User_Controls
             Dynamic_Classe.Instance().Get_Somme_debt_annee(label21, DateTime.Now.Year);
         }
 
-
-
+        void Load_Historic()
+        {
+            Dynamic_Classe.Instance().Call_Report_Historic_Debit(reportViewer1, "JosaleApp.Report.Loan_historic.rdlc", Convert.ToInt32(text_annee.Text));
+        }
+        void PreviewHistoric()
+        {
+            Preview_form frmp = new Preview_form();
+            frmp.Size = new Size(825, 601);
+            Dynamic_Classe.Instance().Call_Report_Historic_Debit(frmp.reportViewp, "JosaleApp.Report.Loan_historic.rdlc", Convert.ToInt32(text_annee.Text));
+            frmp.Show();
+        }
         private void Emprunt_user_Load(object sender, EventArgs e)
         {
             Load_emprunt(new Emprunt());
@@ -70,6 +80,44 @@ namespace JosaleApp.User_Controls
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             Get_data();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void text_annee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    private void btnShow_Click(object sender, EventArgs e)
+        {
+            switch (((Control)sender).Name)
+            {
+                case "btnShow":
+                    if (string.IsNullOrEmpty(text_annee.Text))
+                        MessageBox.Show("Check the year case please !!!", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        Load_Historic();
+                    break;
+                case "btnPreview":
+                    if(string.IsNullOrEmpty(text_annee.Text))
+                        MessageBox.Show("Check the year case please !!!", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        PreviewHistoric();
+                    break;
+            }
         }
     }
 }

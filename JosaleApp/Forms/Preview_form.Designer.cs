@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preview_form));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewp = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // reportViewp
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(546, 562);
-            this.reportViewer1.TabIndex = 0;
+            this.reportViewp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewp.Location = new System.Drawing.Point(0, 0);
+            this.reportViewp.Name = "reportViewp";
+            this.reportViewp.Size = new System.Drawing.Size(546, 562);
+            this.reportViewp.TabIndex = 0;
             // 
             // Preview_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 562);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.reportViewp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -61,6 +61,6 @@
 
         #endregion
 
-        public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        public Microsoft.Reporting.WinForms.ReportViewer reportViewp;
     }
 }
