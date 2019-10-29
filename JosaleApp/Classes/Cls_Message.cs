@@ -10,12 +10,22 @@ using System.Windows.Forms;
 
 namespace JosaleApp.Classes
 {
-    public class Cls_Message
+    class Cls_Message
     {
         public static int port, baudRate, timeout;
         public GsmCommMain comm;
+        public static Cls_Message cMessage = null;
+
+        public static Cls_Message Insatnce()
+        {
+            if (cMessage == null)
+                cMessage = new Cls_Message();
+            return cMessage;
+        }
        
-        public string GetAllPorts(ComboBox port)
+        //Méthode pour recuperer le port du modem
+
+        public string  GetAllPorts(ComboBox port)
         {
             string modems = "";
             try
@@ -39,7 +49,6 @@ namespace JosaleApp.Classes
                         port.SelectedIndex = 0;
                     }
                 }
-
                 return modems;
             }
             catch (Exception ex)
@@ -48,6 +57,8 @@ namespace JosaleApp.Classes
                 return "";
             }
         }
+         
+        //Méthode pour recuperer les ports
 
         public void SetData(int por, int baudRat, int timeoute)
         {
@@ -56,82 +67,10 @@ namespace JosaleApp.Classes
             timeout = timeoute;
         }
 
-        public bool EnterNewSettings()
-        {
-            int newPort;
-            int newBaudRate;
-            int newTimeout;
-
-            try
-            {
-                newPort = 13;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid port number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //comboBox1.Focus();
-                return false;
-            }
-
-            try
-            {
-                newBaudRate =9600;
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Invalid baud rate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                // comboBox2.Focus();
-                return false;
-            }
-
-            try
-            {
-                newTimeout = 150;
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Invalid timeout value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //comboBox3.Focus();
-                return false;
-            }
-
-            SetData(newPort, newBaudRate, newTimeout);
-
-            return true;
-        }
-
-        public void Send(string message ,string number )
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            try
-            {
-
-                SmsSubmitPdu pdu;
-                pdu = new SmsSubmitPdu(message, number, "");  // "" indicate SMSC No
-
-                if (!comm.IsOpen())
-                    comm.Open();
-                comm.SendMessage(pdu);
-                MessageBox.Show("message envoyé", "ENVOIE SIMPLE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                comm.Close();
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("L'envoie a échoué", "ENVOIE SIMPLE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            Cursor.Current = Cursors.Default;
-        }
+        //Méthode pour tester la configuration des ports
 
         public void Test_port()
         {
-            if (!EnterNewSettings())
-                return;
-
             Cursor.Current = Cursors.WaitCursor;
             comm = new GsmCommMain(port, baudRate, timeout);
             try
@@ -150,17 +89,34 @@ namespace JosaleApp.Classes
                     Cursor.Current = Cursors.WaitCursor;
                 }
                 MessageBox.Show("Successfully connected to the phone.", "Connection setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //x.conf(Int32.Parse(comboBox1.Text), Int32.Parse(comboBox2.Text), Int32.Parse(comboBox3.Text));
                 comm.Close();
             }
             catch (Exception ex)
             {
-                //Output("ERREUR : " + ex.Message);
-                //Output("");
-
                 MessageBox.Show("Connection error: " + ex.Message, "Connection setup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
+
+        //Méthode pour envoyer un message
+        public void Send(string message ,string number, string nothing)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                SmsSubmitPdu pdu;
+                pdu = new SmsSubmitPdu(message, number, nothing);  // "" indicate SMSC No
+                if (!comm.IsOpen())
+                    comm.Open();
+                comm.SendMessage(pdu);
+                MessageBox.Show("message envoyé", "ENVOIE SIMPLE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                comm.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("L'envoie a échoué", "ENVOIE SIMPLE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            Cursor.Current = Cursors.Default;
+        }  
     }
 }

@@ -8,14 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
 using JosaleApp.Classes;
 
 namespace JosaleApp.User_Controls
 {
     public partial class Tiers_user : UserControl
     {
+        SpeechSynthesizer s = new SpeechSynthesizer();
         public Tiers_user()
         {
+           
             InitializeComponent();
         }
 
@@ -51,9 +54,10 @@ namespace JosaleApp.User_Controls
 
         private void Tiers_Load(object sender, EventArgs e)
         {
-           Load_All_Tier(new Tiers());
-           new Cls_Message().GetAllPorts(comboBox1);
-            
+            Load_All_Tier(new Tiers());
+            Cls_Message.Insatnce().GetAllPorts(comboBox1);
+            comboBox2.SelectedIndex = 4;
+            comboBox3.SelectedIndex = 1;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -68,13 +72,38 @@ namespace JosaleApp.User_Controls
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new Cls_Message().EnterNewSettings();
-            new Cls_Message().Test_port();
+            if(string.IsNullOrEmpty(comboBox1.Text)|| string.IsNullOrEmpty(comboBox2.Text)||string.IsNullOrEmpty(comboBox3.Text))
+            {
+                MessageBox.Show("Configuration failed...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+               Cls_Message.Insatnce().SetData(Convert.ToInt32(comboBox1.Text.Trim()), Convert.ToInt32(comboBox2.Text.Trim()),
+                   Convert.ToInt32(comboBox3.Text.Trim()));
+                Cls_Message.Insatnce().Test_port();
+            } 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Cls_Message().Send(richTextBox1.Text,textBox1.Text.Trim());
+            s.SelectVoiceByHints(VoiceGender.Male);
+            if (string.IsNullOrEmpty(text_phone.Text) || string.IsNullOrEmpty(text_message.Text))
+            {
+                s.Speak("Specify the number or write a message to send");
+                MessageBox.Show("Specify the number or write a message to send.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else { Cls_Message.Insatnce().Send(text_message.Text, text_phone.Text.Trim(), ""); }
         }
+
+        private void text_phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!Char.IsDigit(ch) && ch !=8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+       
     }
 }
