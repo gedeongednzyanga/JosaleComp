@@ -1,6 +1,9 @@
 ﻿using GsmComm.GsmCommunication;
 using GsmComm.PduConverter;
+using Connexion_manager;
+using Parametre;
 using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -15,6 +18,9 @@ namespace JosaleApp.Classes
         public static int port, baudRate, timeout;
         public GsmCommMain comm;
         public static Cls_Message cMessage = null;
+
+        public string Message { get; set; }
+        public int Reftier { get; set; }
 
         public static Cls_Message Insatnce()
         {
@@ -118,5 +124,20 @@ namespace JosaleApp.Classes
             }
             Cursor.Current = Cursors.Default;
         }  
+
+        public void Save(Cls_Message message)
+        {
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using(IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "INSERT_MESSAGE_T";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@message", 255, DbType.String, Message));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@ref_tier", 10, DbType.UInt32, Reftier));
+                cmd.ExecuteNonQuery();
+   
+            }
+        }
     }
 }

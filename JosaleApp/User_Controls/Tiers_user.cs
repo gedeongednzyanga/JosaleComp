@@ -16,6 +16,8 @@ namespace JosaleApp.User_Controls
     public partial class Tiers_user : UserControl
     {
         SpeechSynthesizer s = new SpeechSynthesizer();
+        private int id_tier = 0;
+
         public Tiers_user()
         {
            
@@ -32,6 +34,7 @@ namespace JosaleApp.User_Controls
             try
             {
                 int i = dataGridView1.CurrentRow.Index;
+                id_tier = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
                 lab_names.Text = dataGridView1["Column2", i].Value.ToString() + " " + dataGridView1["Column3", i].Value.ToString() +
                     " " + dataGridView1["Column4", i].Value.ToString();
                 lab_phone.Text = dataGridView1["Column5", i].Value.ToString();
@@ -45,6 +48,23 @@ namespace JosaleApp.User_Controls
         {
             dataGridView1.DataSource = new Tiers().Search(text_search.Text.Trim());
             if(dataGridView1.Rows.Count <= 0) { MessageBox.Show("Aucune référence dans la Bd...", "Messasge...", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
+        }
+
+        void SaveMessage(bool btn)
+        {
+            try
+            {
+                Cls_Message message = new Cls_Message();
+                message.Message = text_message.Text.Trim();
+                message.Reftier = id_tier;
+                if (btn) { Cls_Message.Insatnce().Save(message); }
+                else { MessageBox.Show("Function not fund...", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -92,7 +112,9 @@ namespace JosaleApp.User_Controls
                 s.Speak("Specify the number or write a message to send");
                 MessageBox.Show("Specify the number or write a message to send.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else { Cls_Message.Insatnce().Send(text_message.Text, text_phone.Text.Trim(), ""); }
+            else { Cls_Message.Insatnce().Send(text_message.Text, text_phone.Text.Trim(), "");
+                SaveMessage(true);
+            }
         }
 
         private void text_phone_KeyPress(object sender, KeyPressEventArgs e)
