@@ -343,8 +343,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons\icon-delete-32.png" />
+    <Content Include="Icons\icon-edit-32.png" />
+    <Content Include="Icons\icon-print-32.png" />
+    <Content Include="Icons\icon-print-preview-32.png" />
     <Content Include="Icons\icons8_Add_User_Group_Man_Man_25px_2.png" />
     <Content Include="Icons\icons8_Add_User_Group_Woman_Man.ico" />
+    <Content Include="Icons\icons8_Alphabetical_Sorting_2_30px.png" />
+    <Content Include="Icons\icons8_Alphabetical_Sorting_30px.png" />
     <Content Include="Icons\icons8_Bar_Chart_25px.png" />
     <Content Include="Icons\icons8_Cash_in_Hand.ico" />
     <Content Include="Icons\icons8_Cash_in_Hand_25px.png" />
@@ -356,9 +362,12 @@
     <Content Include="Icons\icons8_customer.ico" />
     <Content Include="Icons\icons8_customer_25px.png" />
     <Content Include="Icons\icons8_customer_25px_1.png" />
+    <Content Include="Icons\icons8_Database_30px.png" />
     <Content Include="Icons\icons8_Debt_25px.png" />
     <Content Include="Icons\icons8_Delete_20px.png" />
     <Content Include="Icons\icons8_Delete_25px_3.png" />
+    <Content Include="Icons\icons8_Edit_25px.png" />
+    <Content Include="Icons\icons8_Edit_30px.png" />
     <Content Include="Icons\icons8_Forward_Message_25px.png" />
     <Content Include="Icons\icons8_Historical_25px.png" />
     <Content Include="Icons\icons8_Microsoft_Excel_25px_1.png" />
@@ -369,8 +378,10 @@
     <Content Include="Icons\icons8_Person_16px.png" />
     <Content Include="Icons\icons8_Plus_20px.png" />
     <Content Include="Icons\icons8_Plus_25px_5.png" />
+    <Content Include="Icons\icons8_Plus_30px.png" />
     <Content Include="Icons\icons8_Preview_Pane.ico" />
     <Content Include="Icons\icons8_Preview_Pane_16px_1.png" />
+    <Content Include="Icons\icons8_Print_25px.png" />
     <Content Include="Icons\icons8_Receipt_16px.png" />
     <Content Include="Icons\icons8_Receipt_25px.png" />
     <Content Include="Icons\icons8_Receive_Cash_25px.png" />
@@ -384,6 +395,7 @@
     <Content Include="Icons\icons8_Sent_15px.png" />
     <Content Include="Icons\icons8_SMS_25px_1.png" />
     <Content Include="Icons\icons8_User_50px.png" />
+    <Content Include="Icons\icons8_User_Group_Man_Man_30px.png" />
     <Content Include="Icons\icons8_User_Group_Man_Woman_25px.png" />
     <Content Include="Icons\icons8_User_Group_Man_Woman_25px_1.png" />
     <Content Include="Icons\icons8_US_Dollar_25px.png" />

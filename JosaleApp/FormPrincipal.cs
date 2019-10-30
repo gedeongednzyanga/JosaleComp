@@ -92,7 +92,6 @@ namespace JosaleApp
 
         void Enter_label(Label label)
         {
-            
             label.ForeColor = Color.Maroon;
             label.Font = new Font(label.Font, FontStyle.Underline);
         }
