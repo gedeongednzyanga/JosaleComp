@@ -22,6 +22,7 @@ namespace JosaleApp
         int sommeCustomer = 0;
         int sommeDebt = 0;
         int sommeSupplier = 0;
+        private string title = "";
 
         //Création des objects
 
@@ -31,6 +32,12 @@ namespace JosaleApp
         Credit_user credits = new Credit_user();
         Rembourssement_user rembou = new Rembourssement_user();
         Loan_rembourssement_user loan = new Loan_rembourssement_user();
+
+        New_Client client_new = new New_Client();
+        New_emprunt emprunt_new = new New_emprunt();
+        New_Payement payement_new = new New_Payement();
+        New_Tiers tier_new = new New_Tiers();
+        Preview_form prewiewF = new Preview_form();
 
         public FormPrincipal()
         {
@@ -46,6 +53,7 @@ namespace JosaleApp
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(tiers);
             panel_principal.Show();
+            title = "Tier";
         }
         void ShowClient(object client)
         {
@@ -54,6 +62,7 @@ namespace JosaleApp
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(clients);
             panel_principal.Show();
+            title = "Client";
         }
         void ShowEmprunt(object emprunt)
         {
@@ -62,6 +71,7 @@ namespace JosaleApp
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(emprunts);
             panel_principal.Show();
+            title = "Emprunt";
         }
         void ShowCredit(object credit)
         {
@@ -70,6 +80,7 @@ namespace JosaleApp
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(credits);
             panel_principal.Show();
+            title = "Credit";
         }
         void ShowRembou(object rembu)
         {
@@ -78,6 +89,7 @@ namespace JosaleApp
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(rembus);
             panel_principal.Show();
+            title = "Remourssement_client";
         }
         void ShowRembouLoan(object rembu_loan)
         {
@@ -86,6 +98,7 @@ namespace JosaleApp
             panel_principal.Controls.Clear();
             panel_principal.Controls.Add(rembuL);
             panel_principal.Show();
+            title = "Loan_rmbou";
         }
 
         //Méthodes design
@@ -93,11 +106,14 @@ namespace JosaleApp
         void Enter_label(Label label)
         {
             label.ForeColor = Color.Maroon;
+            label.BackColor = Color.WhiteSmoke;
             label.Font = new Font(label.Font, FontStyle.Underline);
+            
         }
         void Leave_label (Label label)
         {
             label.ForeColor = Color.Black;
+            label.BackColor = Color.Transparent;
             label.Font = new Font(label.Font, FontStyle.Regular);
         }
 
@@ -114,17 +130,43 @@ namespace JosaleApp
             label15.Text = "All suppliers   " + "(" + sommeSupplier.ToString() + ")";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void Call_froms_new()
         {
-           
+            try
+            {
+                switch (title)
+                {
+                    case "Client":
+                        client_new.ShowDialog();
+                        break;
+                    case "Tier":
+                        tier_new.ShowDialog();
+                        break;
+                    case "Credit":
+                        client_new.ShowDialog();
+                        break;
+                    case "Emprunt":
+                        emprunt_new.ShowDialog();
+                        break;
+                    case "Remourssement_client":
+                        payement_new.ShowDialog();
+                        break;
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error... ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-       
 
+
+
+        
+        //Les évenements
 
         private void label8_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -298,6 +340,67 @@ namespace JosaleApp
         private void label10_Click(object sender, EventArgs e)
         {
             ShowRembouLoan(loan);
+        }
+
+        private void btnNouveau_MouseHover(object sender, EventArgs e)
+        {
+            switch (((Control)sender).Name)
+            {
+                case "btnNouveau":
+                    Enter_label(btnNouveau);
+                    break;
+                case "btnModifier":
+                    Enter_label(btnModifier);
+                    break;
+                case "btnSupprimer":
+                    Enter_label(btnSupprimer);
+                    break;
+                case "btnPrint":
+                    Enter_label(btnPrint);
+                    break;
+                case "btnPreview":
+                    Enter_label(btnPreview);
+                    break;
+                case "btnSorta":
+                    Enter_label(btnSorta);
+                    break;
+                case "btnSortz":
+                    Enter_label(btnSortz);
+                    break;
+            }
+        }
+
+        private void btnNouveau_MouseLeave(object sender, EventArgs e)
+        {
+            switch (((Control)sender).Name)
+            {
+                case "btnNouveau":
+                    Leave_label(btnNouveau);
+                    break;
+                case "btnModifier":
+                    Leave_label(btnModifier);
+                    break;
+                case "btnSupprimer":
+                    Leave_label(btnSupprimer);
+                    break;
+                case "btnPrint":
+                    Leave_label(btnPrint);
+                    break;
+                case "btnPreview":
+                    Leave_label(btnPreview);
+                    break;
+                case "btnSorta":
+                    Leave_label(btnSorta);
+                    break;
+                case "btnSortz":
+                    Leave_label(btnSortz);
+                    break;
+            }
+        }
+
+        private void btnNouveau_Click(object sender, EventArgs e)
+        {
+            Call_froms_new();
         }
     }
 }
