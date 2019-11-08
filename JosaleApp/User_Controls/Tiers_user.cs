@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using JosaleApp.Classes;
+using JosaleApp.Forms;
 
 namespace JosaleApp.User_Controls
 {
@@ -72,6 +73,24 @@ namespace JosaleApp.User_Controls
 
         }
 
+        public void Modifier()
+        {
+            New_Tiers tiers = new New_Tiers();
+            int i = dataGridView1.CurrentRow.Index;
+            tiers.id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+            tiers.textBox1.Text = dataGridView1["Column2", i].Value.ToString();
+            tiers.textBox2.Text=dataGridView1["Column3", i].Value.ToString();
+            tiers.textBox3.Text = dataGridView1["Column4", i].Value.ToString();
+            tiers.textBox4.Text = dataGridView1["Column5", i].Value.ToString();
+            tiers.textBox5.Text = dataGridView1["Column6", i].Value.ToString();
+            tiers.textBox6.Text = dataGridView1["Column7", i].Value.ToString();
+            tiers.btnSave.Text = "Update";
+            tiers.btnNew.Enabled = false;
+            DialogResult dlr =MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes) { tiers.ShowDialog(); }
+        } 
+
+
         private void Tiers_Load(object sender, EventArgs e)
         {
             Load_All_Tier(new Tiers());
@@ -126,6 +145,15 @@ namespace JosaleApp.User_Controls
             }
         }
 
-       
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Modifier();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Load_All_Tier(new Tiers());
+        }
     }
 }

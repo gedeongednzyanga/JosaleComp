@@ -44,6 +44,20 @@ namespace JosaleApp.User_Controls
                 MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void Modifier()
+        {
+            New_emprunt emprunt = new New_emprunt();
+            int i = dataGridView1.CurrentRow.Index;
+            emprunt.id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+            emprunt.textBox1.Text = dataGridView1["Column5", i].Value.ToString();
+            emprunt.textBox2.Text = dataGridView1["Column7", i].Value.ToString();
+            emprunt.dateTimePicker1.Value = DateTime.Parse(dataGridView1["Column8", i].Value.ToString());
+            emprunt.btnSave.Text = " Update";
+            emprunt.btnNew.Enabled = false;
+            DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(dlr == DialogResult.Yes) { emprunt.ShowDialog(); }
+        }
         void Somme_emprunt()
         {
             Dynamic_Classe.Instance().Get_Somme_debt(label20, DateTime.Now.Month);
@@ -82,11 +96,6 @@ namespace JosaleApp.User_Controls
             Get_data();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void text_annee_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -118,6 +127,16 @@ namespace JosaleApp.User_Controls
                         PreviewHistoric();
                     break;
             }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Modifier();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Load_emprunt(new Emprunt());
         }
     }
 }

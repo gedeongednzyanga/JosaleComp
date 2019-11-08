@@ -40,6 +40,17 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -52,17 +63,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lab_supp = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -196,133 +196,6 @@
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(155, 90);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(214, 26);
-            this.dateTimePicker1.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 18);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Add new debt";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(8, 28);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(380, 139);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informations";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(155, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 26);
-            this.textBox2.TabIndex = 12;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(155, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 26);
-            this.textBox1.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label4.Location = new System.Drawing.Point(10, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Repay date";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label3.Location = new System.Drawing.Point(10, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Rapay mount";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label1.Location = new System.Drawing.Point(10, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Mount borrowed";
-            // 
-            // lab_error
-            // 
-            this.lab_error.AutoSize = true;
-            this.lab_error.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lab_error.ForeColor = System.Drawing.Color.Red;
-            this.lab_error.Location = new System.Drawing.Point(34, 393);
-            this.lab_error.Name = "lab_error";
-            this.lab_error.Size = new System.Drawing.Size(105, 19);
-            this.lab_error.TabIndex = 6;
-            this.lab_error.Text = "Rapay mount";
-            this.lab_error.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(5, 174);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 17);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Select a supplier here";
-            // 
-            // lab_supp
-            // 
-            this.lab_supp.AutoSize = true;
-            this.lab_supp.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lab_supp.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lab_supp.Location = new System.Drawing.Point(156, 174);
-            this.lab_supp.Name = "lab_supp";
-            this.lab_supp.Size = new System.Drawing.Size(137, 17);
-            this.lab_supp.TabIndex = 6;
-            this.lab_supp.Text = "Select a supplier here";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(11, 393);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(18, 19);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "X";
-            this.label5.Visible = false;
-            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -411,6 +284,133 @@
             this.Column11.ReadOnly = true;
             this.Column11.Visible = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(155, 90);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(214, 26);
+            this.dateTimePicker1.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 18);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Add new debt";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.groupBox1.Location = new System.Drawing.Point(8, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(380, 139);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informations";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(155, 58);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(214, 26);
+            this.textBox2.TabIndex = 12;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(155, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(214, 26);
+            this.textBox1.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.label4.Location = new System.Drawing.Point(10, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Repay date";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.label3.Location = new System.Drawing.Point(10, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Rapay mount";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.label1.Location = new System.Drawing.Point(10, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Mount borrowed";
+            // 
+            // lab_error
+            // 
+            this.lab_error.AutoSize = true;
+            this.lab_error.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lab_error.ForeColor = System.Drawing.Color.Red;
+            this.lab_error.Location = new System.Drawing.Point(34, 393);
+            this.lab_error.Name = "lab_error";
+            this.lab_error.Size = new System.Drawing.Size(105, 19);
+            this.lab_error.TabIndex = 6;
+            this.lab_error.Text = "Rapay mount";
+            this.lab_error.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(5, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 17);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Select a supplier here";
+            // 
+            // lab_supp
+            // 
+            this.lab_supp.AutoSize = true;
+            this.lab_supp.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.lab_supp.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lab_supp.Location = new System.Drawing.Point(156, 174);
+            this.lab_supp.Name = "lab_supp";
+            this.lab_supp.Size = new System.Drawing.Size(137, 17);
+            this.lab_supp.TabIndex = 6;
+            this.lab_supp.Text = "Select a supplier here";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(11, 393);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(18, 19);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "X";
+            this.label5.Visible = false;
+            // 
             // New_emprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,17 +450,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
@@ -480,5 +474,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Button btnDelete;
+        public System.Windows.Forms.Button btnSave;
+        public System.Windows.Forms.Button btnNew;
     }
 }

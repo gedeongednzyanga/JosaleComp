@@ -362,6 +362,7 @@
     <Content Include="Icons\icons8_customer.ico" />
     <Content Include="Icons\icons8_customer_25px.png" />
     <Content Include="Icons\icons8_customer_25px_1.png" />
+    <Content Include="Icons\icons8_customer_48px.png" />
     <Content Include="Icons\icons8_Database_30px.png" />
     <Content Include="Icons\icons8_Debt_25px.png" />
     <Content Include="Icons\icons8_Delete_20px.png" />

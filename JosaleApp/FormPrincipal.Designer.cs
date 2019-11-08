@@ -290,6 +290,7 @@
             this.btnModifier.TabIndex = 0;
             this.btnModifier.Text = "Edit";
             this.btnModifier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             this.btnModifier.MouseLeave += new System.EventHandler(this.btnNouveau_MouseLeave);
             this.btnModifier.MouseHover += new System.EventHandler(this.btnNouveau_MouseHover);
             // 

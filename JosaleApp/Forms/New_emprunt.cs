@@ -13,7 +13,7 @@ namespace JosaleApp.Forms
 {
     public partial class New_emprunt : Form
     {
-        int id = 0;
+        public int id = 0;
         int code_tier = 0;
 
         public New_emprunt()

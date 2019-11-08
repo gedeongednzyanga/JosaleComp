@@ -402,5 +402,19 @@ namespace JosaleApp
         {
             Call_froms_new();
         }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            switch (title)
+            {
+                case "Tier":
+                    tier.Modifier();
+                    break;
+                case "Emprunt":
+                    empruts.Modifier();
+                    break;
+            }
+           
+        }
     }
 }
