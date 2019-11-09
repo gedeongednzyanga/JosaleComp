@@ -23,11 +23,11 @@ namespace JosaleApp.User_Controls
 
         void Load_Clients(IClient client_list )
         {
-            dataGridView1.DataSource = client_list.AllClient();
+            gridClient.DataSource = client_list.AllClient();
         }
         void Search_client()
         {
-            dataGridView1.DataSource = new Client().Search(text_search.Text.Trim());
+            gridClient.DataSource = new Client().Search(text_search.Text.Trim());
         }
         void Show_recu()
         {
@@ -41,8 +41,8 @@ namespace JosaleApp.User_Controls
         }
         void Get_data()
         {
-            int i = dataGridView1.CurrentRow.Index;
-            Id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+            int i = gridClient.CurrentRow.Index;
+            Id = Convert.ToInt32(gridClient["Column1", i].Value.ToString());
             Get_gage();
             
            // Total_gage();
@@ -51,17 +51,33 @@ namespace JosaleApp.User_Controls
         {
             try
             {
-                int i = dataGridView1.CurrentRow.Index;
-                lab_name.Text = dataGridView1["Column2", i].Value.ToString() + " " + dataGridView1["Column3", i].Value.ToString()
-                    +" "+ dataGridView1["Column4", i].Value.ToString();
+                int i = gridClient.CurrentRow.Index;
+                lab_name.Text = gridClient["Column2", i].Value.ToString() + " " + gridClient["Column3", i].Value.ToString()
+                    +" "+ gridClient["Column4", i].Value.ToString();
                 lab_customername.Text = lab_name.Text;
-                lab_phone.Text = dataGridView1["Column5", i].Value.ToString();
-                lab_mail.Text = dataGridView1["Column6", i].Value.ToString();
-                lab_adress.Text = dataGridView1["Column7", i].Value.ToString();
+                lab_phone.Text = gridClient["Column5", i].Value.ToString();
+                lab_mail.Text = gridClient["Column6", i].Value.ToString();
+                lab_adress.Text = gridClient["Column7", i].Value.ToString();
                 
             }
             catch(Exception ex) { MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
+
+        public void Modifier()
+        {
+            Update_Client clients = new Update_Client();
+            int a = gridClient.CurrentRow.Index;
+            clients.code_cli = Convert.ToInt32(gridClient["Column1", a].Value.ToString());
+            clients.textBox1.Text = gridClient["Column2", a].Value.ToString();
+            clients.textBox2.Text = gridClient["Column3", a].Value.ToString();
+            clients.textBox3.Text = gridClient["Column4", a].Value.ToString();
+            clients.textBox4.Text = gridClient["Column5", a].Value.ToString();
+            clients.textBox5.Text = gridClient["Column6", a].Value.ToString();
+            clients.textBox6.Text = gridClient["Column7", a].Value.ToString();
+            DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes) { clients.ShowDialog(); }
+        }
+
         private void label8_Click(object sender, EventArgs e)
         {
 
@@ -98,6 +114,16 @@ namespace JosaleApp.User_Controls
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Modifier();
         }
     }
 }

@@ -18,7 +18,8 @@ namespace JosaleApp.Forms
         IClient client;
         IPrets prets;
         Gage gage;
-        int code_cli=0, code_pret=0, code_interet=0, code_gage=0;
+        public int code_cli = 0;
+        int code_pret=0, code_interet=0, code_gage=0;
 
         public New_Client()
         {
@@ -147,6 +148,7 @@ namespace JosaleApp.Forms
                 Save_Gage(true);
             }
         }
+
 
         private void button5_Click(object sender, EventArgs e)
         {

@@ -8,6 +8,7 @@ using JosaleApp.Classes;
 using Pharmacie.Classes;
 using Microsoft.Office.Interop.Excel;
 using System.Threading;
+using JosaleApp.Forms;
 
 namespace JosaleApp.User_Controls
 {
@@ -78,11 +79,24 @@ namespace JosaleApp.User_Controls
             label6.Text = i.ToString()+" "+" gage(s)";
         }
 
-        //void Export_data()
-        //{
-        //    Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
-        //    Dynamic_Classe.Instance().GeneratePDF(dtable, "liste", "Annees liste");
-        //}
+        public void Modifier()
+        {
+            try
+            {
+                Update_credit credit = new Update_credit();
+                int i = dataGridView1.CurrentRow.Index;
+                credit.id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+                credit.textBox7.Text = dataGridView1["Column5", i].Value.ToString();
+                //client.btnNew.Enabled = false;
+                //client.btnSave.Text = "Update";
+                DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes) { credit.ShowDialog(); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         private void Credit_user_Load(object sender, EventArgs e)
         {
@@ -90,7 +104,7 @@ namespace JosaleApp.User_Controls
             Loard_chart();
         }
 
-        //Struc Dataparameter
+        
         private DataParameter _inputparameter;
         struct DataParameter
         {
@@ -233,6 +247,11 @@ namespace JosaleApp.User_Controls
             {
                 e.Handled = true;
             }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Modifier();
         }
     }
 }

@@ -413,6 +413,12 @@ namespace JosaleApp
                 case "Emprunt":
                     empruts.Modifier();
                     break;
+                case "Client":
+                    client.Modifier();
+                    break;
+                case "Credit":
+                    credits.Modifier();
+                    break;
             }
            
         }
