@@ -6,3 +6,4 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Remboursemment_
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Remboursemment_Lib\bin\Debug\Parametre.pdb
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Remboursemment_Lib\obj\Debug\Remboursemment_Lib.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Remboursemment_Lib\obj\Debug\Remboursemment_Lib.pdb
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\Remboursemment_Lib\obj\Debug\Remboursemment_Lib.csprojResolveAssemblyReference.cache

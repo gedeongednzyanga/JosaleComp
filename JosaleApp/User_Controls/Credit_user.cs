@@ -39,7 +39,7 @@ namespace JosaleApp.User_Controls
             listView1.Items.Clear();
             Dynamic_Classe.Instance().Load_gage(Id, listView1);
         }
-        void Get_Credit(IPrets credit)
+        public void Get_Credit(IPrets credit)
         {
             dataGridView1.DataSource = credit.Allcredit();
             Load_annee();
@@ -86,7 +86,10 @@ namespace JosaleApp.User_Controls
                 Update_credit credit = new Update_credit();
                 int i = dataGridView1.CurrentRow.Index;
                 credit.id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+                credit.labCustomerName.Text = dataGridView1["Column2", i].Value.ToString() + " " + dataGridView1["Column3", i].Value.ToString() +
+                   " " + dataGridView1["Column4", i].Value.ToString();
                 credit.textBox7.Text = dataGridView1["Column5", i].Value.ToString();
+               
                 //client.btnNew.Enabled = false;
                 //client.btnSave.Text = "Update";
                 DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -252,6 +255,11 @@ namespace JosaleApp.User_Controls
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Modifier();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Get_Credit(new Prets());
         }
     }
 }

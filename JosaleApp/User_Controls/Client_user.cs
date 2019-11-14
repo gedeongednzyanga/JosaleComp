@@ -21,7 +21,7 @@ namespace JosaleApp.User_Controls
             InitializeComponent();
         }
 
-        void Load_Clients(IClient client_list )
+        public void Load_Clients(IClient client_list )
         {
             gridClient.DataSource = client_list.AllClient();
         }
@@ -65,17 +65,25 @@ namespace JosaleApp.User_Controls
 
         public void Modifier()
         {
-            Update_Client clients = new Update_Client();
-            int a = gridClient.CurrentRow.Index;
-            clients.code_cli = Convert.ToInt32(gridClient["Column1", a].Value.ToString());
-            clients.textBox1.Text = gridClient["Column2", a].Value.ToString();
-            clients.textBox2.Text = gridClient["Column3", a].Value.ToString();
-            clients.textBox3.Text = gridClient["Column4", a].Value.ToString();
-            clients.textBox4.Text = gridClient["Column5", a].Value.ToString();
-            clients.textBox5.Text = gridClient["Column6", a].Value.ToString();
-            clients.textBox6.Text = gridClient["Column7", a].Value.ToString();
-            DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes) { clients.ShowDialog(); }
+            try
+            {
+                Update_Client clients = new Update_Client();
+                int a;
+                a= gridClient.CurrentRow.Index;
+                clients.code_cli = Convert.ToInt32(gridClient["Column1", a].Value.ToString());
+                clients.textBox1.Text = gridClient["Column2", a].Value.ToString();
+                clients.textBox2.Text = gridClient["Column3", a].Value.ToString();
+                clients.textBox3.Text = gridClient["Column4", a].Value.ToString();
+                clients.textBox4.Text = gridClient["Column5", a].Value.ToString();
+                clients.textBox5.Text = gridClient["Column6", a].Value.ToString();
+                clients.textBox6.Text = gridClient["Column7", a].Value.ToString();
+                DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes) { clients.ShowDialog(); }
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -124,6 +132,11 @@ namespace JosaleApp.User_Controls
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Modifier();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Load_Clients(new Client());
         }
     }
 }

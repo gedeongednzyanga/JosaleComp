@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JosaleApp.Classes;
 using Emprunts_Lib;
+using JosaleApp.Forms;
 
 namespace JosaleApp.User_Controls
 {
@@ -45,7 +46,8 @@ namespace JosaleApp.User_Controls
                 codeEmpr = Convert.ToInt32(dataGridView2["Column13", i].Value.ToString());
                 lab_name.Text = dataGridView2["Column14", i].Value.ToString();
                 lab_dete.Text = dataGridView2["Column15", i].Value.ToString();
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -74,6 +76,22 @@ namespace JosaleApp.User_Controls
                 MessageBox.Show("Error " + ex.Message, "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Get_Emprunt();
+        }
+
+        void GetRembouUpdate()
+        {
+            Update_loan loans = new Update_loan();
+            int i = dataGridView1.CurrentRow.Index;
+            loans.Id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+            loans.lab_name.Text = dataGridView1["Column2", i].Value.ToString();
+            loans.lab_dete.Text = ((double.Parse(dataGridView1["Column5", i].Value.ToString()) + (double.Parse(dataGridView1["Column4", i].Value.ToString())))).ToString();
+            loans.text_mount.Text = dataGridView1["Column4", i].Value.ToString();
+            loans.codeEmpr = Convert.ToInt32(dataGridView1["Column7", i].Value.ToString());
+            DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                loans.ShowDialog();
+            }
         }
         private void Loan_rembourssement_user_Load(object sender, EventArgs e)
         {
@@ -165,6 +183,17 @@ namespace JosaleApp.User_Controls
             {
                 e.Handled = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Get_Emprunt_Rem(new Emprunt());
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetRembouUpdate(); 
+            
         }
     }
 }

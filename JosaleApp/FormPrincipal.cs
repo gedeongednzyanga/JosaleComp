@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using JosaleApp.User_Controls;
 using JosaleApp.Forms;
 using JosaleApp.Classes;
+using Prets_Lib;
+using Client_Lib;
+using Trier_Lib;
 
 namespace JosaleApp
 {
@@ -367,6 +370,7 @@ namespace JosaleApp
                 case "btnSortz":
                     Enter_label(btnSortz);
                     break;
+                
             }
         }
 
@@ -395,6 +399,7 @@ namespace JosaleApp
                 case "btnSortz":
                     Leave_label(btnSortz);
                     break;
+               
             }
         }
 
@@ -414,7 +419,7 @@ namespace JosaleApp
                     empruts.Modifier();
                     break;
                 case "Client":
-                    client.Modifier();
+                    MessageBox.Show("Double clic to the customer selected.", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case "Credit":
                     credits.Modifier();
@@ -422,5 +427,8 @@ namespace JosaleApp
             }
            
         }
+
+       
     }
 }
+

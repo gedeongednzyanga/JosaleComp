@@ -25,7 +25,7 @@ namespace JosaleApp.User_Controls
             InitializeComponent();
         }
 
-        void Load_All_Tier(Tiers tiers)
+        public void Load_All_Tier(Tiers tiers)
         {
             dataGridView1.DataSource = tiers.AllTiers();
         }

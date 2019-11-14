@@ -151,7 +151,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Century Gothic", 7.25F);
             this.label24.ForeColor = System.Drawing.Color.DarkGray;
-            this.label24.Location = new System.Drawing.Point(363, 53);
+            this.label24.Location = new System.Drawing.Point(365, 54);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(59, 15);
             this.label24.TabIndex = 32;
@@ -162,7 +162,7 @@
             this.btnSortz.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSortz.Image = ((System.Drawing.Image)(resources.GetObject("btnSortz.Image")));
             this.btnSortz.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSortz.Location = new System.Drawing.Point(409, 3);
+            this.btnSortz.Location = new System.Drawing.Point(411, 4);
             this.btnSortz.Name = "btnSortz";
             this.btnSortz.Size = new System.Drawing.Size(60, 45);
             this.btnSortz.TabIndex = 30;
@@ -176,7 +176,7 @@
             this.btnSorta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSorta.Image = ((System.Drawing.Image)(resources.GetObject("btnSorta.Image")));
             this.btnSorta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSorta.Location = new System.Drawing.Point(344, 3);
+            this.btnSorta.Location = new System.Drawing.Point(346, 4);
             this.btnSorta.Name = "btnSorta";
             this.btnSorta.Size = new System.Drawing.Size(59, 45);
             this.btnSorta.TabIndex = 31;
@@ -192,7 +192,7 @@
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunifuSeparator2.LineThickness = 2;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(330, 8);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(332, 9);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(6);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(10, 55);
@@ -205,7 +205,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 7.25F);
             this.label23.ForeColor = System.Drawing.Color.DarkGray;
-            this.label23.Location = new System.Drawing.Point(227, 53);
+            this.label23.Location = new System.Drawing.Point(229, 54);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(61, 15);
             this.label23.TabIndex = 27;
@@ -216,7 +216,7 @@
             this.btnPreview.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPreview.Image = ((System.Drawing.Image)(resources.GetObject("btnPreview.Image")));
             this.btnPreview.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPreview.Location = new System.Drawing.Point(261, 3);
+            this.btnPreview.Location = new System.Drawing.Point(263, 4);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(60, 45);
             this.btnPreview.TabIndex = 24;
@@ -230,7 +230,7 @@
             this.btnPrint.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPrint.Location = new System.Drawing.Point(201, 3);
+            this.btnPrint.Location = new System.Drawing.Point(203, 4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(54, 45);
             this.btnPrint.TabIndex = 25;
@@ -244,7 +244,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 7.25F);
             this.label22.ForeColor = System.Drawing.Color.DarkGray;
-            this.label22.Location = new System.Drawing.Point(57, 53);
+            this.label22.Location = new System.Drawing.Point(93, 53);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(50, 15);
             this.label22.TabIndex = 22;
@@ -257,7 +257,7 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunifuSeparator1.LineThickness = 2;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(184, 8);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(186, 9);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(6);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(10, 55);

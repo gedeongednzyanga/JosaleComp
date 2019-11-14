@@ -50,6 +50,8 @@ namespace Prets_Lib
             prets.Montant = float.Parse(dr["montant"].ToString());
             prets.Montantpaye = float.Parse(dr["reste"].ToString());
             prets.DatePret = Convert.ToDateTime(dr["DateRemb."].ToString());
+            prets.RefCli = Convert.ToInt32(dr["refcli"].ToString());
+    
             return prets;
         }
 

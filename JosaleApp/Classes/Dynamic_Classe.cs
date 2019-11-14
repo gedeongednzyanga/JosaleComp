@@ -47,7 +47,28 @@ namespace JosaleApp.Classes
                 con.Close();
                 return ds.Tables[0];
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public DataTable Get_Data(string tablename, string idRef, int id)
+        {
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                con = (SqlConnection)ImplementeConnexion.Instance.Conn;
+                da = new SqlDataAdapter("SELECT * FROM " + tablename + " WHERE "+idRef+"="+id+"", con);
+                ds = new System.Data.DataSet();
+                da.Fill(ds, tablename);
+                con.Close();
+                return ds.Tables[0];
+
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

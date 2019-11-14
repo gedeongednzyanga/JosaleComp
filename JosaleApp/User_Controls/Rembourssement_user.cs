@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prets_Lib;
 using JosaleApp.Classes;
+using JosaleApp.Forms;
 
 namespace JosaleApp.User_Controls
 {
@@ -65,6 +66,23 @@ namespace JosaleApp.User_Controls
             }
         }
 
+        void GetRembouUpdate()
+        {
+            Update_rembou_credit credit = new Update_rembou_credit();
+            int i = dataGridView1.CurrentRow.Index;
+            credit.Id = Convert.ToInt32(dataGridView1["Column1", i].Value.ToString());
+            credit.lab_name.Text = dataGridView1["Column2", i].Value.ToString()+' '+ dataGridView1["Column3", i].Value.ToString()+
+                ' '+ dataGridView1["Column4", i].Value.ToString();
+            credit.lab_dete.Text = ((double.Parse(dataGridView1["Column5", i].Value.ToString()) + (double.Parse(dataGridView1["Column6", i].Value.ToString())))).ToString();
+            credit.text_mount.Text = dataGridView1["Column5", i].Value.ToString();
+            credit.client = Convert.ToInt32(dataGridView1["Column10", i].Value.ToString());
+            DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                credit.ShowDialog();
+            }
+        }
+
         private void Rembourssement_user_Load(object sender, EventArgs e)
         {
             Get_Rembourssement(new Prets());
@@ -98,10 +116,20 @@ namespace JosaleApp.User_Controls
         private void text_annee_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if(!Char.IsDigit(ch) && ch !=8 && ch != 46)
+            if(!Char.IsDigit(ch) && ch !=8 && ch != 46)                                                     
             {
                 e.Handled = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Get_Rembourssement(new Prets());
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetRembouUpdate();
         }
     }
 }

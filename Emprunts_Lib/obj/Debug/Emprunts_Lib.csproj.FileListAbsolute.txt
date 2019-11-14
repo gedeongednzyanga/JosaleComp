@@ -6,3 +6,4 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bi
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\bin\Debug\Parametre.pdb
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\obj\Debug\Emprunts_Lib.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Emprunts_Lib\obj\Debug\Emprunts_Lib.pdb
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\Emprunts_Lib\obj\Debug\Emprunts_Lib.csprojResolveAssemblyReference.cache

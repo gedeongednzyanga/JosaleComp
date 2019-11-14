@@ -103,6 +103,7 @@ namespace Emprunts_Lib
             emprunt.MontantRemb = float.Parse(dr["Montant"].ToString());
             emprunt.Reste = float.Parse(dr["Reste"].ToString());
             emprunt.DateEmprunt = DateTime.Parse(dr["Date_op"].ToString());
+            emprunt.Reftier =Convert.ToInt32(dr["ref_emp"].ToString());
             return emprunt;
         }
 
