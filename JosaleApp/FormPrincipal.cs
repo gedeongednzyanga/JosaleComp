@@ -123,7 +123,7 @@ namespace JosaleApp
         //Autres méthodes
         void Load_Somme()
         {
-            sommePret=Dynamic_Classe.Instance().Count_data("prets", "code_pret", sommePret);
+            sommePret=Dynamic_Classe.Instance().Count_data_prets("prets", "code_pret", sommePret);
             label18.Text = "All credits     " + "("+sommePret.ToString()+")";
             sommeCustomer = Dynamic_Classe.Instance().Count_data("client", "code_cli", sommeCustomer);
             label6.Text = "All customers   " + "(" + sommeCustomer.ToString() + ")";
@@ -419,11 +419,22 @@ namespace JosaleApp
                     empruts.Modifier();
                     break;
                 case "Client":
+                    //client.Modifier();
                     MessageBox.Show("Double clic to the customer selected.", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case "Credit":
                     credits.Modifier();
                     break;
+                case "Remourssement_client":
+                    rembou.GetRembouUpdate();
+                    break;
+                case "Loan_rmbou":
+                    loan.GetRembouUpdate();
+                    break;
+
+                    
+
+
             }
            
         }

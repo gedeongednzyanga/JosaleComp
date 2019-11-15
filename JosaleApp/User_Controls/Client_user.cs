@@ -68,8 +68,7 @@ namespace JosaleApp.User_Controls
             try
             {
                 Update_Client clients = new Update_Client();
-                int a;
-                a= gridClient.CurrentRow.Index;
+                int a= gridClient.CurrentRow.Index;
                 clients.code_cli = Convert.ToInt32(gridClient["Column1", a].Value.ToString());
                 clients.textBox1.Text = gridClient["Column2", a].Value.ToString();
                 clients.textBox2.Text = gridClient["Column3", a].Value.ToString();

@@ -304,6 +304,27 @@ namespace JosaleApp.Classes
             return number;
         }
 
+        public int Count_data_prets(string table, string champ, int number)
+        {
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT COUNT(" + champ + ")  as Somme from " + table + " where montant_remb > 0";
+                IDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    if (dr["Somme"] == DBNull.Value)
+                        number = 0;
+                    else
+                        number = Convert.ToInt32(dr["Somme"].ToString());
+                }
+                dr.Dispose();
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+            return number;
+        }
+
         public void Get_Somme_debt(Label number, int mois)
         {
             try

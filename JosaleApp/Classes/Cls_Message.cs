@@ -10,6 +10,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace JosaleApp.Classes
 {
@@ -19,7 +20,7 @@ namespace JosaleApp.Classes
         public GsmCommMain comm;
         public static Cls_Message cMessage = null;
 
-        public string Message { get; set; }
+        public string _Message { get; set; }
         public int Reftier { get; set; }
 
         public static Cls_Message Insatnce()
@@ -133,10 +134,63 @@ namespace JosaleApp.Classes
             {
                 cmd.CommandText = "INSERT_MESSAGE_T";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@message", 255, DbType.String, Message));
-                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@ref_tier", 10, DbType.UInt32, Reftier));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@message", 255, DbType.String, message._Message));
+                cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@ref_tier", 10, DbType.Int32, message.Reftier));
                 cmd.ExecuteNonQuery();
    
+            }
+        }
+
+
+        public void Get_Message(FlowLayoutPanel container, PictureBox img)
+        {
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "select top (3) * from Affichage_Message order by datemessage desc";
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    //Creation des object
+                    GroupBox groupe = new GroupBox();
+                    PictureBox image = new PictureBox();
+                    Label name = new Label();
+                    Label message = new Label();
+                    Label datemessage = new Label();
+
+                    image.Image = img.Image;
+
+                    //Localisation des objects
+                    image.Location = new Point(5, 11);
+                    name.Location= new Point(30, 11);
+                    message.Location = new Point(2, 33);
+                    datemessage.Location = new Point(250, 84);
+
+                    //Taille des objets
+                    image.Size = new Size(18, 19);
+                    name.AutoSize = true;
+                    message.Size = new Size(367, 45);
+                    datemessage.Size = new Size(119, 13);
+
+                    //Font
+                    name.Font = new Font("Segoe UI Semibold", 10, FontStyle.Underline);
+
+                    //Ajout des objets sur le panel
+                    groupe.Controls.Add(image);
+                    groupe.Controls.Add(name);
+                    groupe.Controls.Add(message);
+                    groupe.Controls.Add(datemessage);
+                    groupe.Location.X.Equals(3);
+                    groupe.Location.Y.Equals(3);
+
+                    //Affectation des données de la Base aux objets
+                    name.Text = dr["Tiers"].ToString();
+                    message.Text = dr["message_env"].ToString();
+                    datemessage.Text = dr["datemessage"].ToString();
+                    groupe.Size = new Size(378, 105);
+                    container.Controls.Add(groupe);
+                }
             }
         }
     }

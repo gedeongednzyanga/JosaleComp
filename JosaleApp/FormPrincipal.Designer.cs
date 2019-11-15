@@ -118,10 +118,10 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(4, 3);
+            this.tabControl1.Location = new System.Drawing.Point(6, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 103);
+            this.tabControl1.Size = new System.Drawing.Size(982, 94);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -142,16 +142,17 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(976, 70);
+            this.tabPage1.Size = new System.Drawing.Size(974, 61);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Font = new System.Drawing.Font("Century Gothic", 7.25F);
             this.label24.ForeColor = System.Drawing.Color.DarkGray;
-            this.label24.Location = new System.Drawing.Point(365, 54);
+            this.label24.Location = new System.Drawing.Point(365, 47);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(59, 15);
             this.label24.TabIndex = 32;
@@ -159,12 +160,12 @@
             // 
             // btnSortz
             // 
-            this.btnSortz.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSortz.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSortz.Image = ((System.Drawing.Image)(resources.GetObject("btnSortz.Image")));
             this.btnSortz.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSortz.Location = new System.Drawing.Point(411, 4);
+            this.btnSortz.Location = new System.Drawing.Point(409, 3);
             this.btnSortz.Name = "btnSortz";
-            this.btnSortz.Size = new System.Drawing.Size(60, 45);
+            this.btnSortz.Size = new System.Drawing.Size(54, 43);
             this.btnSortz.TabIndex = 30;
             this.btnSortz.Text = "Sort Z-A";
             this.btnSortz.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -173,12 +174,12 @@
             // 
             // btnSorta
             // 
-            this.btnSorta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSorta.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSorta.Image = ((System.Drawing.Image)(resources.GetObject("btnSorta.Image")));
             this.btnSorta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSorta.Location = new System.Drawing.Point(346, 4);
+            this.btnSorta.Location = new System.Drawing.Point(346, 3);
             this.btnSorta.Name = "btnSorta";
-            this.btnSorta.Size = new System.Drawing.Size(59, 45);
+            this.btnSorta.Size = new System.Drawing.Size(54, 43);
             this.btnSorta.TabIndex = 31;
             this.btnSorta.Text = "Sort A-Z";
             this.btnSorta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -195,7 +196,7 @@
             this.bunifuSeparator2.Location = new System.Drawing.Point(332, 9);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(6);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(10, 55);
+            this.bunifuSeparator2.Size = new System.Drawing.Size(10, 46);
             this.bunifuSeparator2.TabIndex = 28;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = true;
@@ -203,9 +204,10 @@
             // label23
             // 
             this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 7.25F);
             this.label23.ForeColor = System.Drawing.Color.DarkGray;
-            this.label23.Location = new System.Drawing.Point(229, 54);
+            this.label23.Location = new System.Drawing.Point(229, 47);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(61, 15);
             this.label23.TabIndex = 27;
@@ -213,12 +215,12 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPreview.Image = ((System.Drawing.Image)(resources.GetObject("btnPreview.Image")));
             this.btnPreview.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPreview.Location = new System.Drawing.Point(263, 4);
+            this.btnPreview.Location = new System.Drawing.Point(263, 3);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(60, 45);
+            this.btnPreview.Size = new System.Drawing.Size(54, 43);
             this.btnPreview.TabIndex = 24;
             this.btnPreview.Text = "Preview";
             this.btnPreview.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -227,12 +229,12 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPrint.Location = new System.Drawing.Point(203, 4);
+            this.btnPrint.Location = new System.Drawing.Point(203, 3);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(54, 45);
+            this.btnPrint.Size = new System.Drawing.Size(54, 43);
             this.btnPrint.TabIndex = 25;
             this.btnPrint.Text = "Print";
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -242,9 +244,10 @@
             // label22
             // 
             this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 7.25F);
             this.label22.ForeColor = System.Drawing.Color.DarkGray;
-            this.label22.Location = new System.Drawing.Point(93, 53);
+            this.label22.Location = new System.Drawing.Point(70, 47);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(50, 15);
             this.label22.TabIndex = 22;
@@ -260,19 +263,19 @@
             this.bunifuSeparator1.Location = new System.Drawing.Point(186, 9);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(6);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 55);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 46);
             this.bunifuSeparator1.TabIndex = 21;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimer.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnSupprimer.Image")));
             this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSupprimer.Location = new System.Drawing.Point(127, 3);
+            this.btnSupprimer.Location = new System.Drawing.Point(127, 2);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(54, 45);
+            this.btnSupprimer.Size = new System.Drawing.Size(54, 43);
             this.btnSupprimer.TabIndex = 0;
             this.btnSupprimer.Text = "Delete";
             this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -281,12 +284,12 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifier.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifier.Image = ((System.Drawing.Image)(resources.GetObject("btnModifier.Image")));
             this.btnModifier.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnModifier.Location = new System.Drawing.Point(67, 3);
+            this.btnModifier.Location = new System.Drawing.Point(67, 2);
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(54, 45);
+            this.btnModifier.Size = new System.Drawing.Size(54, 43);
             this.btnModifier.TabIndex = 0;
             this.btnModifier.Text = "Edit";
             this.btnModifier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -296,12 +299,12 @@
             // 
             // btnNouveau
             // 
-            this.btnNouveau.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNouveau.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNouveau.Image = ((System.Drawing.Image)(resources.GetObject("btnNouveau.Image")));
             this.btnNouveau.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNouveau.Location = new System.Drawing.Point(7, 3);
+            this.btnNouveau.Location = new System.Drawing.Point(7, 2);
             this.btnNouveau.Name = "btnNouveau";
-            this.btnNouveau.Size = new System.Drawing.Size(54, 45);
+            this.btnNouveau.Size = new System.Drawing.Size(54, 43);
             this.btnNouveau.TabIndex = 0;
             this.btnNouveau.Text = "New";
             this.btnNouveau.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -327,7 +330,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(976, 70);
+            this.tabPage3.Size = new System.Drawing.Size(974, 61);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -337,7 +340,7 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Century Gothic", 7.25F);
             this.label31.ForeColor = System.Drawing.Color.DarkGray;
-            this.label31.Location = new System.Drawing.Point(21, 53);
+            this.label31.Location = new System.Drawing.Point(21, 47);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(75, 15);
             this.label31.TabIndex = 28;
@@ -345,24 +348,24 @@
             // 
             // label30
             // 
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Image = ((System.Drawing.Image)(resources.GetObject("label30.Image")));
             this.label30.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label30.Location = new System.Drawing.Point(68, 3);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(54, 45);
+            this.label30.Size = new System.Drawing.Size(54, 43);
             this.label30.TabIndex = 2;
             this.label30.Text = "Server";
             this.label30.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label29
             // 
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Image = ((System.Drawing.Image)(resources.GetObject("label29.Image")));
             this.label29.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label29.Location = new System.Drawing.Point(8, 3);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(54, 45);
+            this.label29.Size = new System.Drawing.Size(54, 43);
             this.label29.TabIndex = 1;
             this.label29.Text = "User";
             this.label29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -391,9 +394,9 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.label5);
             this.panel7.Controls.Add(this.label3);
             this.panel7.Controls.Add(this.label4);
-            this.panel7.Controls.Add(this.label5);
             this.panel7.Controls.Add(this.label6);
             this.panel7.Location = new System.Drawing.Point(3, 185);
             this.panel7.Name = "panel7";
@@ -439,7 +442,7 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(21, 38);
+            this.label5.Location = new System.Drawing.Point(21, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 28);
             this.label5.TabIndex = 0;
@@ -456,7 +459,7 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(21, 73);
+            this.label6.Location = new System.Drawing.Point(21, 37);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 28);
             this.label6.TabIndex = 0;
@@ -468,9 +471,9 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label16);
-            this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Location = new System.Drawing.Point(3, 34);
             this.panel6.Name = "panel6";
@@ -517,7 +520,7 @@
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label17.Location = new System.Drawing.Point(21, 40);
+            this.label17.Location = new System.Drawing.Point(21, 74);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(160, 28);
             this.label17.TabIndex = 0;
@@ -534,7 +537,7 @@
             this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label18.Location = new System.Drawing.Point(21, 74);
+            this.label18.Location = new System.Drawing.Point(21, 39);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(160, 28);
             this.label18.TabIndex = 0;
@@ -620,7 +623,7 @@
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label14.Location = new System.Drawing.Point(21, 39);
+            this.label14.Location = new System.Drawing.Point(21, 73);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(160, 28);
             this.label14.TabIndex = 0;
@@ -637,7 +640,7 @@
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label15.Location = new System.Drawing.Point(21, 73);
+            this.label15.Location = new System.Drawing.Point(21, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(160, 28);
             this.label15.TabIndex = 0;
@@ -699,7 +702,7 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Location = new System.Drawing.Point(21, 39);
+            this.label8.Location = new System.Drawing.Point(20, 72);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(160, 28);
             this.label8.TabIndex = 0;
@@ -716,7 +719,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.Location = new System.Drawing.Point(21, 73);
+            this.label9.Location = new System.Drawing.Point(20, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(160, 28);
             this.label9.TabIndex = 0;

@@ -66,7 +66,7 @@ namespace JosaleApp.User_Controls
             }
         }
 
-        void GetRembouUpdate()
+        public void GetRembouUpdate()
         {
             Update_rembou_credit credit = new Update_rembou_credit();
             int i = dataGridView1.CurrentRow.Index;

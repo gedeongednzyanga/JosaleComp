@@ -89,9 +89,6 @@ namespace JosaleApp.User_Controls
                 credit.labCustomerName.Text = dataGridView1["Column2", i].Value.ToString() + " " + dataGridView1["Column3", i].Value.ToString() +
                    " " + dataGridView1["Column4", i].Value.ToString();
                 credit.textBox7.Text = dataGridView1["Column5", i].Value.ToString();
-               
-                //client.btnNew.Enabled = false;
-                //client.btnSave.Text = "Update";
                 DialogResult dlr = MessageBox.Show("Do you want to change this registration ?", "Message...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlr == DialogResult.Yes) { credit.ShowDialog(); }
             }

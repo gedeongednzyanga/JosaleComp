@@ -78,7 +78,7 @@ namespace JosaleApp.User_Controls
             Get_Emprunt();
         }
 
-        void GetRembouUpdate()
+        public void GetRembouUpdate()
         {
             Update_loan loans = new Update_loan();
             int i = dataGridView1.CurrentRow.Index;

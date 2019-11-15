@@ -637,6 +637,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "New_Client";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Customer";
             this.Load += new System.EventHandler(this.New_Client_Load);

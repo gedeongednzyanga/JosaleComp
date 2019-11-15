@@ -39,6 +39,7 @@ namespace JosaleApp.User_Controls
                 lab_names.Text = dataGridView1["Column2", i].Value.ToString() + " " + dataGridView1["Column3", i].Value.ToString() +
                     " " + dataGridView1["Column4", i].Value.ToString();
                 lab_phone.Text = dataGridView1["Column5", i].Value.ToString();
+                text_phone.Text = dataGridView1["Column5", i].Value.ToString();
                 lab_mail.Text = dataGridView1["Column6", i].Value.ToString();
                 lab_adresse.Text = dataGridView1["Column7", i].Value.ToString();
             }
@@ -56,7 +57,7 @@ namespace JosaleApp.User_Controls
             try
             {
                 Cls_Message message = new Cls_Message();
-                message.Message = text_message.Text.Trim();
+                message._Message = text_message.Text.Trim();
                 message.Reftier = id_tier;
                 if (btn) { Cls_Message.Insatnce().Save(message); }
                 else { MessageBox.Show("Function not fund...", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information); }
@@ -66,6 +67,13 @@ namespace JosaleApp.User_Controls
             {
                 MessageBox.Show("Error " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Get_Message();
+        }
+
+        void Get_Message()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            Cls_Message.Insatnce().Get_Message(flowLayoutPanel1, pictureBox5);
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -97,6 +105,7 @@ namespace JosaleApp.User_Controls
             Cls_Message.Insatnce().GetAllPorts(comboBox1);
             comboBox2.SelectedIndex = 4;
             comboBox3.SelectedIndex = 1;
+            Get_Message();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
