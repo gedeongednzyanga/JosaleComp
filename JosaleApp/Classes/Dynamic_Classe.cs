@@ -100,6 +100,7 @@ namespace JosaleApp.Classes
 
         public void Get_Annee_combo(ComboBox combAnne)
         {
+            combAnne.Items.Clear();
             try
             {
                 if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
@@ -425,6 +426,8 @@ namespace JosaleApp.Classes
                     ds.Dispose();
             }
         }
+
+       
 
         public void Call_Report_Recu_Rembou(ReportViewer reportView, string path, int codeRembou)
         {

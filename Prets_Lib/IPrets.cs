@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Prets_Lib
 {
@@ -29,5 +30,6 @@ namespace Prets_Lib
         List<IPrets> Allcredit_Tri_moi(int annee, string mois);
         List<IPrets> AllRembou();
         IPrets OneCredit(int id);
+        void Show_Chat(Chart stat, int annee);
     }
 }

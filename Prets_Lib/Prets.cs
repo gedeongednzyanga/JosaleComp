@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Prets_Lib
 {
@@ -255,6 +256,32 @@ namespace Prets_Lib
                 cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@daterembour", 20, DbType.Date, DateRembour));
                 cmd.ExecuteNonQuery();
                 //MessageBox.Show("Saved successfully !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void Show_Chat(Chart stat, int annee)
+        {
+            stat.Series["Series1"].Points.Clear();
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT_DATACHAT";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@annee", 10, DbType.Int32, annee));
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        stat.Series["Series1"].Points.AddXY(dr["Mois"].ToString(), dr["NbrPret"]);
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+            }catch(Exception ex)
+            {
+               MessageBox.Show("Error " + ex.Message, "Error chart", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

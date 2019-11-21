@@ -16,7 +16,7 @@ namespace JosaleApp.User_Controls
     {
         int Id = 0;
         System.Data.DataTable dtable = new System.Data.DataTable();
-
+        Prets pret = new Prets();
 
         public Credit_user()
         {
@@ -43,6 +43,8 @@ namespace JosaleApp.User_Controls
         {
             dataGridView1.DataSource = credit.Allcredit();
             Load_annee();
+            comboBox1.SelectedIndex = 0;
+            Load_Chart(pret);
         }
         void Get_Credit_annee(IPrets credit)
         {
@@ -57,23 +59,31 @@ namespace JosaleApp.User_Controls
         {
             dataGridView1.DataSource = new Prets().Search(text_search.Text.Trim());
         }
-        
-        void Loard_chart()
+
+        void Load_Chart(IPrets chart_loaded)
         {
-            chart1.Series["Series1"].Points.AddXY("Janvier", 12);
-            chart1.Series["Series1"].Points.AddXY("Février", 20);
-            chart1.Series["Series1"].Points.AddXY("Mars", 50);
-            chart1.Series["Series1"].Points.AddXY("Avril", 42);
-            chart1.Series["Series1"].Points.AddXY("Mai", 10);
-            chart1.Series["Series1"].Points.AddXY("Juin", 30);
-            chart1.Series["Series1"].Points.AddXY("Juillet", 90);
-            chart1.Series["Series1"].Points.AddXY("Août", 50);
-            chart1.Series["Series1"].Points.AddXY("Septembre", 35);
-            chart1.Series["Series1"].Points.AddXY("Octobre", 50);
-            chart1.Series["Series1"].Points.AddXY("Novembre", 55);
-            chart1.Series["Series1"].Points.AddXY("Decembre", 85);
+            if (comboBox1.Items.Count >= 1)
+            { chart_loaded.Show_Chat(chart1, Convert.ToInt32(comboBox1.Text.Trim())); }
+            else { chart_loaded.Show_Chat(chart1, 2018); }
         }
-         void Total_gage()
+
+        //void Loard_chart()
+        //{
+        //    chart1.Series["Series1"].Points.AddXY("Janvier", 12);
+        //    chart1.Series["Series1"].Points.AddXY("Février", 20);
+        //    chart1.Series["Series1"].Points.AddXY("Mars", 50);
+        //    chart1.Series["Series1"].Points.AddXY("Avril", 42);
+        //    chart1.Series["Series1"].Points.AddXY("Mai", 10);
+        //    chart1.Series["Series1"].Points.AddXY("Juin", 30);
+        //    chart1.Series["Series1"].Points.AddXY("Juillet", 90);
+        //    chart1.Series["Series1"].Points.AddXY("Août", 50);
+        //    chart1.Series["Series1"].Points.AddXY("Septembre", 35);
+        //    chart1.Series["Series1"].Points.AddXY("Octobre", 50);
+        //    chart1.Series["Series1"].Points.AddXY("Novembre", 55);
+        //    chart1.Series["Series1"].Points.AddXY("Decembre", 85);
+        //}
+
+        void Total_gage()
         {
             int i = listView1.Items.Count;
             label6.Text = i.ToString()+" "+" gage(s)";
@@ -101,7 +111,7 @@ namespace JosaleApp.User_Controls
         private void Credit_user_Load(object sender, EventArgs e)
         {
             Get_Credit(new Prets());
-            Loard_chart();
+            Load_Chart(pret);
         }
 
         
@@ -148,7 +158,7 @@ namespace JosaleApp.User_Controls
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet ws = (Worksheet)excel.ActiveSheet;
-            excel.Visible = true;
+            excel.Visible = false;
             int index = 1;
             int progress = liste.Count;
             //Add column
@@ -207,8 +217,7 @@ namespace JosaleApp.User_Controls
                 System.Data.DataTable dt = Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
                 Dynamic_Classe.Instance().GeneratePDF(dtable, @"E:\Liste_client.pdf", "Friend List");
                 System.Diagnostics.Process.Start(@"E:\Liste_client.pdf");
-                //this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-
+               
             }catch(Exception ex)
             {
                 MessageBox.Show("Error " + ex.Message);
@@ -256,7 +265,7 @@ namespace JosaleApp.User_Controls
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Get_Credit(new Prets());
+            Get_Credit(pret);
         }
     }
 }

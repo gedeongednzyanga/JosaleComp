@@ -61,3 +61,6 @@ C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\D
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.Update_credit.resources
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.Update_loan.resources
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.Update_rembou_credit.resources
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\MetroFramework.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.SplachScreen.resources
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.Login_Form.resources

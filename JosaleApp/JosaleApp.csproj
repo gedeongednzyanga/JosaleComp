@@ -49,6 +49,9 @@
     <Reference Include="itextsharp">
       <HintPath>F:\Programmes\DLL FILES\DLL\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>F:\Programmes\DLL FILES\DLL\MetroFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -85,6 +88,7 @@
     <Compile Include="Classes\Cls_Message.cs" />
     <Compile Include="Classes\Dynamic_Classe.cs" />
     <Compile Include="Classes\My_DataTable_Extensions.cs" />
+    <Compile Include="Classes\ProgressReport.cs" />
     <Compile Include="Classes\Test_Configuration.cs" />
     <Compile Include="DataSet\DataSet_Gage.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -122,6 +126,12 @@
     </Compile>
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login_Form.Designer.cs">
+      <DependentUpon>Login_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\New_Client.cs">
       <SubType>Form</SubType>
@@ -179,6 +189,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplachScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplachScreen.Designer.cs">
+      <DependentUpon>SplachScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\Client_user.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -221,6 +237,9 @@
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login_Form.resx">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\New_Client.resx">
       <DependentUpon>New_Client.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +281,9 @@
     <EmbeddedResource Include="Report\Loan_historic.rdlc" />
     <EmbeddedResource Include="Report\Recu.rdlc" />
     <EmbeddedResource Include="Report\Recu_rembou.rdlc" />
+    <EmbeddedResource Include="SplachScreen.resx">
+      <DependentUpon>SplachScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\Client_user.resx">
       <DependentUpon>Client_user.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,7 +463,9 @@
     <Content Include="Icons\icons8_US_Dollar_25px_2.png" />
     <Content Include="Icons\icons8_US_Dollar_25px_3.png" />
     <Content Include="Icons\icons8__Message_Filled_25px_1.png" />
+    <Content Include="Images\login.png" />
     <Content Include="Images\logoJosale.png" />
+    <Content Include="Images\splash.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

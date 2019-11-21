@@ -14,6 +14,7 @@ using JosaleApp.Classes;
 using Prets_Lib;
 using Client_Lib;
 using Trier_Lib;
+using System.Threading;
 
 namespace JosaleApp
 {
@@ -42,13 +43,29 @@ namespace JosaleApp
         New_Tiers tier_new = new New_Tiers();
         Preview_form prewiewF = new Preview_form();
 
+
         public FormPrincipal()
         {
+            Thread t = new Thread(new ThreadStart(Loading));
+            t.Start(); 
+
             InitializeComponent();
+
+            for (int i = 0; i <= 1000; i++)
+                Thread.Sleep(5);
+            t.Abort();
+        }
+
+
+        //Splash Screen
+        void Loading()
+        {
+            SplachScreen splash = new SplachScreen();
+            Application.Run(splash);
         }
 
         //Méthodes pour afficher les objects
-  
+
         void ShowTier(object tier)
         {
             Tiers_user tiers = tier as Tiers_user;
