@@ -7,3 +7,5 @@ C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Prets_Lib\bin\D
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Prets_Lib\obj\Debug\Prets_Lib.csprojResolveAssemblyReference.cache
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Prets_Lib\obj\Debug\Prets_Lib.dll
 C:\Users\GEDEON\documents\visual studio 2015\Projects\JosaleComp\Prets_Lib\obj\Debug\Prets_Lib.pdb
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\Prets_Lib\bin\Debug\User_lib.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\Prets_Lib\bin\Debug\User_lib.pdb

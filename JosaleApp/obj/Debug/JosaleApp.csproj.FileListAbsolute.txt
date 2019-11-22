@@ -64,3 +64,6 @@ C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\D
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\MetroFramework.dll
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.SplachScreen.resources
 C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.Login_Form.resources
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\User_lib.dll
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\bin\Debug\User_lib.pdb
+C:\Users\GEDEON\Documents\Visual Studio 2015\Projects\JosaleComp\JosaleApp\obj\Debug\JosaleApp.Forms.Create_User.resources

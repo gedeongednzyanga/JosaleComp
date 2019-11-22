@@ -42,6 +42,7 @@ namespace JosaleApp
         New_Payement payement_new = new New_Payement();
         New_Tiers tier_new = new New_Tiers();
         Preview_form prewiewF = new Preview_form();
+        Login_Form login = new Login_Form();
 
 
         public FormPrincipal()
@@ -203,7 +204,9 @@ namespace JosaleApp
         {
             Test_Configuration.Test_Flies();
             ShowCredit(credits);
+            login.ShowDialog();
             Load_Somme();
+           
         }
 
         private void label9_Click(object sender, EventArgs e)

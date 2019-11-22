@@ -57,6 +57,10 @@
       <Project>{5b1d7237-3901-452c-9eeb-68a38020976f}</Project>
       <Name>Parametre</Name>
     </ProjectReference>
+    <ProjectReference Include="..\User_lib\User_lib.csproj">
+      <Project>{a986080a-5e9d-4698-9189-ee3faf1dff25}</Project>
+      <Name>User_lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

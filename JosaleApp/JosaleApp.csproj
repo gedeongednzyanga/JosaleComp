@@ -127,6 +127,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Create_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Create_User.Designer.cs">
+      <DependentUpon>Create_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Create_User.resx">
+      <DependentUpon>Create_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
@@ -398,6 +407,10 @@
     <ProjectReference Include="..\Trier_Lib\Trier_Lib.csproj">
       <Project>{2fc1e272-3bf3-42b4-b170-471877a388b3}</Project>
       <Name>Trier_Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\User_lib\User_lib.csproj">
+      <Project>{a986080a-5e9d-4698-9189-ee3faf1dff25}</Project>
+      <Name>User_lib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
