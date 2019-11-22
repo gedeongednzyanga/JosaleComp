@@ -31,6 +31,7 @@ namespace User_lib
                 cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@usename", 255, DbType.String, User_name));
                 cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@pass", 255, DbType.String, Pass_user));
                 cmd.Parameters.Add(Parametres.Instance.AjouterParametre(cmd, "@niveau", 10, DbType.Int32, Niveau));
+                MessageBox.Show("Saved Successfully...", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmd.ExecuteNonQuery();
             }
         }

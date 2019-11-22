@@ -53,14 +53,14 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -317,7 +317,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 70);
+            this.tabPage2.Size = new System.Drawing.Size(974, 61);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "View";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -369,6 +369,7 @@
             this.label29.TabIndex = 1;
             this.label29.Text = "User";
             this.label29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -403,6 +404,23 @@
             this.panel7.Size = new System.Drawing.Size(185, 143);
             this.panel7.TabIndex = 6;
             // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.SystemColors.Control;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.Location = new System.Drawing.Point(21, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(160, 28);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "New customer";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.MouseEnter += new System.EventHandler(this.label17_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.label17_MouseLeave);
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -435,23 +453,6 @@
             this.label4.MouseEnter += new System.EventHandler(this.label17_MouseEnter);
             this.label4.MouseLeave += new System.EventHandler(this.label17_MouseLeave);
             // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(21, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 28);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "New customer";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            this.label5.MouseEnter += new System.EventHandler(this.label17_MouseEnter);
-            this.label5.MouseLeave += new System.EventHandler(this.label17_MouseLeave);
-            // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.Control;
@@ -479,6 +480,23 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(185, 144);
             this.panel6.TabIndex = 5;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.SystemColors.Control;
+            this.label17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label17.Location = new System.Drawing.Point(21, 74);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(160, 28);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "New payement";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label17.Click += new System.EventHandler(this.label17_Click);
+            this.label17.MouseEnter += new System.EventHandler(this.label17_MouseEnter);
+            this.label17.MouseLeave += new System.EventHandler(this.label17_MouseLeave);
             // 
             // label7
             // 
@@ -512,23 +530,6 @@
             this.label16.Click += new System.EventHandler(this.label16_Click);
             this.label16.MouseEnter += new System.EventHandler(this.label17_MouseEnter);
             this.label16.MouseLeave += new System.EventHandler(this.label17_MouseLeave);
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.SystemColors.Control;
-            this.label17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label17.Location = new System.Drawing.Point(21, 74);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(160, 28);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "New payement";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label17.Click += new System.EventHandler(this.label17_Click);
-            this.label17.MouseEnter += new System.EventHandler(this.label17_MouseEnter);
-            this.label17.MouseLeave += new System.EventHandler(this.label17_MouseLeave);
             // 
             // label18
             // 

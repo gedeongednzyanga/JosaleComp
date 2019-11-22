@@ -476,7 +476,9 @@
     <Content Include="Icons\icons8_US_Dollar_25px_2.png" />
     <Content Include="Icons\icons8_US_Dollar_25px_3.png" />
     <Content Include="Icons\icons8__Message_Filled_25px_1.png" />
-    <Content Include="Images\login.png" />
+    <Content Include="Images\create_user.png" />
+    <Content Include="Images\create_user1.png" />
+    <Content Include="Images\login1.png" />
     <Content Include="Images\logoJosale.png" />
     <Content Include="Images\splash.png" />
   </ItemGroup>

@@ -33,7 +33,12 @@ namespace JosaleApp.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            test_user(new User());
+            if(string.IsNullOrEmpty(text_user.Text.Trim())|| string.IsNullOrEmpty(text_pass.Text.Trim()))
+            {
+                MessageBox.Show("Complete user name and password please !!!", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else { test_user(new User()); }
+           
         }
     }
 }

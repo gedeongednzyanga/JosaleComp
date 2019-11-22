@@ -459,7 +459,10 @@ namespace JosaleApp
            
         }
 
-       
+        private void label29_Click(object sender, EventArgs e)
+        {
+            new Create_User().ShowDialog();
+        }
     }
 }
 
