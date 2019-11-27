@@ -90,6 +90,14 @@
     <Compile Include="Classes\My_DataTable_Extensions.cs" />
     <Compile Include="Classes\ProgressReport.cs" />
     <Compile Include="Classes\Test_Configuration.cs" />
+    <Compile Include="DataSet\DataSet_Credit.cs">
+      <DependentUpon>DataSet_Credit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DataSet_Credit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Credit.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DataSet_Gage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -285,6 +293,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\Credit.rdlc" />
     <EmbeddedResource Include="Report\Gage.rdlc" />
     <EmbeddedResource Include="Report\Historic_Credit.rdlc" />
     <EmbeddedResource Include="Report\Loan_historic.rdlc" />
@@ -311,6 +320,17 @@
     <EmbeddedResource Include="User_Controls\Tiers_user.resx">
       <DependentUpon>Tiers_user.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet\DataSet_Credit.xsc">
+      <DependentUpon>DataSet_Credit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet_Credit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Credit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSet_Credit.xss">
+      <DependentUpon>DataSet_Credit.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\DataSet_Gage.xsc">
       <DependentUpon>DataSet_Gage.xsd</DependentUpon>
     </None>

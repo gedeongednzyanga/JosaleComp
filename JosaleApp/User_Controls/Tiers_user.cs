@@ -139,8 +139,9 @@ namespace JosaleApp.User_Controls
             {
                 s.Speak("Specify the number or write a message to send");
                 MessageBox.Show("Specify the number or write a message to send.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else { Cls_Message.Insatnce().Send(text_message.Text, text_phone.Text.Trim(), "");
+            }else if (string.IsNullOrEmpty(comboBox1.Text)) {
+                MessageBox.Show("Ckeck modem port.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }else { Cls_Message.Insatnce().Send(text_message.Text, text_phone.Text.Trim(), "");
                 SaveMessage(true);
             }
         }

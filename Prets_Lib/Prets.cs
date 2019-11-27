@@ -32,11 +32,11 @@ namespace Prets_Lib
             prets.Nom = dr["Nom"].ToString();
             prets.Postnom = dr["Postnom"].ToString();
             prets.Prenom = dr["Prénom"].ToString();
-            prets.Montant = float.Parse(dr["Montant prêté"].ToString());
+            prets.Montant = float.Parse(dr["Montantpret"].ToString());
             prets.Interet = float.Parse(dr["Intéret"].ToString());
-            prets.Montantpaye = float.Parse(dr["Montant à payé"].ToString());
-            prets.DatePret = Convert.ToDateTime(dr["Date Prêt"].ToString());
-            prets.DateRembour = Convert.ToDateTime(dr["Date Remb."].ToString()).Date;
+            prets.Montantpaye = float.Parse(dr["Montantpaye"].ToString());
+            prets.DatePret = Convert.ToDateTime(dr["Datepret"].ToString());
+            prets.DateRembour = Convert.ToDateTime(dr["DateRembu"].ToString()).Date;
             return prets;
 
         }
@@ -64,6 +64,26 @@ namespace Prets_Lib
             using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
             {
                 cmd.CommandText = "SELECT_PRET";
+                cmd.CommandType = CommandType.StoredProcedure;
+                IDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(GetAll(dr));
+                }
+                cmd.Dispose();
+                dr.Close();
+            }
+            return list;
+        }
+
+        public List<IPrets> All_credit_tri_AZ()
+        {
+            List<IPrets> list = new List<IPrets>();
+            if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                ImplementeConnexion.Instance.Conn.Open();
+            using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * from Affichage_Client_Prets ORDER BY nom ASC";
                 cmd.CommandType = CommandType.StoredProcedure;
                 IDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

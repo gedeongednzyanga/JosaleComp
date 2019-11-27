@@ -9,6 +9,7 @@ using Pharmacie.Classes;
 using Microsoft.Office.Interop.Excel;
 using System.Threading;
 using JosaleApp.Forms;
+using System.Drawing;
 
 namespace JosaleApp.User_Controls
 {
@@ -214,11 +215,27 @@ namespace JosaleApp.User_Controls
         {
             try
             {
-                System.Data.DataTable dt = Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
-                Dynamic_Classe.Instance().GeneratePDF(dtable, @"E:\Liste_client.pdf", "Friend List");
-                System.Diagnostics.Process.Start(@"E:\Liste_client.pdf");
+                //System.Data.DataTable dt = Dynamic_Classe.Instance().ExportDatagrod_toDatatable(dataGridView1, dtable);
+                //Dynamic_Classe.Instance().GeneratePDF(dtable, @"E:\Liste_client.pdf", "Friend List");
+                //System.Diagnostics.Process.Start(@"E:\Liste_client.pdf");
+                Preview_form report = new Preview_form();
+                report.Size = new Size(825, 601);
+                if(comboBox2.Text.Equals(""))
+                {
+                    Dynamic_Classe.Instance().Call_Report_Historic_credit(report.reportViewp, "JosaleApp.Report.Credit.rdlc", Convert.ToInt32(comboBox1.Text.Trim()));
+                }
+                else {
+                    string mois = comboBox2.Text.Trim();
+                    Dynamic_Classe.Instance().Call_Report_Historic_credit_ym(report.reportViewp, "JosaleApp.Report.Credit.rdlc", Convert.ToInt32(comboBox1.Text.Trim()), mois);
+                   
+                }
                
-            }catch(Exception ex)
+             
+                   
+                
+                report.ShowDialog();
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show("Error " + ex.Message);
             }
@@ -266,6 +283,17 @@ namespace JosaleApp.User_Controls
         private void button4_Click(object sender, EventArgs e)
         {
             Get_Credit(pret);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
