@@ -40,7 +40,7 @@ namespace User_lib
         {
             int count = 0;
             string user_name = "";
-            string niveau = "";
+            int niveau = 0;
             try
             {
                 if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
@@ -54,15 +54,16 @@ namespace User_lib
                     IDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        niveau = dr["niveau"].ToString();
                         user_name = dr["name_user"].ToString();
+                        niveau = Convert.ToInt32(dr["niveau"].ToString());
                         count += 1;
                     }
                     if (count == 1)
                     {
                         MessageBox.Show("Connected successfully !!!", "Server Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //UserSession.GetInstance().AccessLevel = niveau;
-                        //UserSession.GetInstance().UserName = username;
+                        UserSession.getInstance().UserNom = user_name;
+                        UserSession.getInstance().UserNiveau = niveau;
+     
                     }
                     else
                     {

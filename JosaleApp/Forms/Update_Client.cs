@@ -57,5 +57,50 @@ namespace JosaleApp.Forms
                     break;
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length == 1)
+            {
+                textBox1.Text = textBox1.Text[0].ToString().ToUpper();
+                textBox1.Select(2, 1);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox2.Text.Length == 1)
+            {
+                textBox2.Text = textBox2.Text[0].ToString().ToUpper();
+                textBox2.Select(2, 1);
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox3.Text.Length == 1)
+            {
+                textBox3.Text = textBox3.Text[0].ToString().ToUpper();
+                textBox3.Select(2, 1);
+            }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!Char.IsDigit(ch) && ch !=8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox6.Text.Length == 1)
+            {
+                textBox6.Text = textBox6.Text[0].ToString().ToUpper();
+                textBox6.Select(2, 1);
+            }
+        }
     }
 }

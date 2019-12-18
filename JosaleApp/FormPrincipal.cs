@@ -42,8 +42,14 @@ namespace JosaleApp
         New_Payement payement_new = new New_Payement();
         New_Tiers tier_new = new New_Tiers();
         Preview_form prewiewF = new Preview_form();
-        Login_Form login = new Login_Form();
+        //Login_Form login = new Login_Form();
 
+        /// <summary>
+        /// Others function or method
+        /// </summary>
+
+       public  Login_Form frmlog;
+       public delegate void sendId(FormPrincipal frmp);
 
         public FormPrincipal()
         {
@@ -57,6 +63,12 @@ namespace JosaleApp
             t.Abort();
         }
 
+        
+        public void FundDataLogin(string data, string data1)
+        {
+            lab_user.Text = data;
+            lab_niveau.Text = "Access level : " + data1;
+        }
 
         //Splash Screen
         void Loading()
@@ -204,7 +216,10 @@ namespace JosaleApp
         {
             Test_Configuration.Test_Flies();
             ShowCredit(credits);
-            login.ShowDialog();
+            var form = new Login_Form();
+            sendId send = new sendId(form.FoundFp);
+            send(this);
+            form.ShowDialog();
             Load_Somme();
            
         }
@@ -452,9 +467,6 @@ namespace JosaleApp
                     loan.GetRembouUpdate();
                     break;
 
-                    
-
-
             }
            
         }
@@ -462,6 +474,11 @@ namespace JosaleApp
         private void label29_Click(object sender, EventArgs e)
         {
             new Create_User().ShowDialog();
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Functionality not define", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

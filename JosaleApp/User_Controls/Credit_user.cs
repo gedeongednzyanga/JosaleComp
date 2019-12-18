@@ -219,7 +219,7 @@ namespace JosaleApp.User_Controls
                 //Dynamic_Classe.Instance().GeneratePDF(dtable, @"E:\Liste_client.pdf", "Friend List");
                 //System.Diagnostics.Process.Start(@"E:\Liste_client.pdf");
                 Preview_form report = new Preview_form();
-                report.Size = new Size(825, 601);
+                report.Size = new Size(825, 620);
                 if(comboBox2.Text.Equals(""))
                 {
                     Dynamic_Classe.Instance().Call_Report_Historic_credit(report.reportViewp, "JosaleApp.Report.Credit.rdlc", Convert.ToInt32(comboBox1.Text.Trim()));

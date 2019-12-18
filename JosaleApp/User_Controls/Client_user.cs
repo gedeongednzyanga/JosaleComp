@@ -24,6 +24,7 @@ namespace JosaleApp.User_Controls
         public void Load_Clients(IClient client_list )
         {
             gridClient.DataSource = client_list.AllClient();
+            Dynamic_Classe.Instance().Load_Credit_2(dataGridView1);
         }
         void Search_client()
         {
@@ -104,11 +105,12 @@ namespace JosaleApp.User_Controls
         {
             Get_customer();
             Get_data();
+            Show_recu();
         }
 
         private void button1_Click(object sender, EventArgs e)   
         {
-            Show_recu();
+           // Show_recu();
         }
 
         private void button2_Click(object sender, EventArgs e)

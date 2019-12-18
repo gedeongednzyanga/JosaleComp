@@ -33,6 +33,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lab_niveau = new System.Windows.Forms.Label();
+            this.lab_user = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
             this.btnSortz = new System.Windows.Forms.Label();
             this.btnSorta = new System.Windows.Forms.Label();
@@ -80,6 +83,7 @@
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -127,6 +131,9 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.lab_niveau);
+            this.tabPage1.Controls.Add(this.lab_user);
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.btnSortz);
             this.tabPage1.Controls.Add(this.btnSorta);
@@ -145,6 +152,40 @@
             this.tabPage1.Size = new System.Drawing.Size(974, 61);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
+            // 
+            // lab_niveau
+            // 
+            this.lab_niveau.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lab_niveau.AutoSize = true;
+            this.lab_niveau.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_niveau.ForeColor = System.Drawing.Color.Red;
+            this.lab_niveau.Location = new System.Drawing.Point(879, 24);
+            this.lab_niveau.Name = "lab_niveau";
+            this.lab_niveau.Size = new System.Drawing.Size(47, 16);
+            this.lab_niveau.TabIndex = 35;
+            this.lab_niveau.Text = "Level : 1";
+            // 
+            // lab_user
+            // 
+            this.lab_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lab_user.AutoSize = true;
+            this.lab_user.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_user.Location = new System.Drawing.Point(877, 3);
+            this.lab_user.Name = "lab_user";
+            this.lab_user.Size = new System.Drawing.Size(53, 16);
+            this.lab_user.TabIndex = 34;
+            this.lab_user.Text = "Alexis B.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(844, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
             // 
             // label24
             // 
@@ -279,6 +320,7 @@
             this.btnSupprimer.TabIndex = 0;
             this.btnSupprimer.Text = "Delete";
             this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             this.btnSupprimer.MouseLeave += new System.EventHandler(this.btnNouveau_MouseLeave);
             this.btnSupprimer.MouseHover += new System.EventHandler(this.btnNouveau_MouseHover);
             // 
@@ -769,6 +811,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -830,6 +873,9 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lab_user;
+        private System.Windows.Forms.Label lab_niveau;
     }
 }
 

@@ -48,7 +48,7 @@ namespace JosaleApp.Forms
         {   if(string.IsNullOrEmpty(text_user.Text.Trim()) || string.IsNullOrEmpty(text_username.Text.Trim()) ||
                   string.IsNullOrEmpty(text_pass.Text.Trim()) || string.IsNullOrEmpty(comb_niveau.Text.Trim()))
             { MessageBox.Show("Complete all cases please !!!", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            else { Save_uer(true); }
+            else { Save_uer(true); this.Close(); }
             
         }
 

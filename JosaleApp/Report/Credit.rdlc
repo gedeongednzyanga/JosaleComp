@@ -551,7 +551,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Montantpaye.Value</Value>
-                              <Style />
+                              <Style>
+                                <Color>Maroon</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />

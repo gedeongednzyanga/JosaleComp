@@ -14,6 +14,9 @@ namespace JosaleApp.Forms
     public partial class Login_Form : MetroFramework.Forms.MetroForm
     {
         
+        public FormPrincipal frmp;
+        public delegate void sendData(string datasend1, string datasend2);
+
         public Login_Form()
         {
             InitializeComponent();
@@ -26,6 +29,18 @@ namespace JosaleApp.Forms
                 this.Close();
             }
         }
+        
+        public void FoundFp(FormPrincipal frmp)
+        {
+            this.frmp = frmp;
+        }
+        void Send()
+        {
+            sendData sent = new sendData(frmp.FundDataLogin);
+            sent(UserSession.getInstance().UserNom,(UserSession.getInstance().UserNiveau).ToString());
+        }
+
+
         private void label1_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -37,7 +52,10 @@ namespace JosaleApp.Forms
             {
                 MessageBox.Show("Complete user name and password please !!!", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
-            else { test_user(new User()); }
+            else {
+                test_user(new User());
+                Send();
+            }
            
         }
     }

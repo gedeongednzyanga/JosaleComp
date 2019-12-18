@@ -158,15 +158,26 @@ namespace JosaleApp.Forms
         private void New_Client_Load(object sender, EventArgs e)
         {
             Load_Interet();
+            Nouveau_Client_Pret();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (textBox1.Text.Length == 1)
+            {
+                textBox1.Text = textBox1.Text[0].ToString().ToUpper();
+                textBox1.Select(2, 1);
+            }
             lab_customer.Text = textBox1.Text;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            if (textBox2.Text.Length == 1)
+            {
+                textBox2.Text = textBox2.Text[0].ToString().ToUpper();
+                textBox2.Select(2, 1);
+            }
             lab_customer.Text = textBox1.Text+" "+textBox2.Text;
         }
 
@@ -197,6 +208,33 @@ namespace JosaleApp.Forms
             Get_interet();
         }
 
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch !=8 && ch !=46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox6.Text.Length == 1)
+            {
+                textBox6.Text = textBox6.Text[0].ToString().ToUpper();
+                textBox6.Select(2, 1);
+            }
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox13.Text.Length == 1)
+            {
+                textBox13.Text = textBox13.Text[0].ToString().ToUpper();
+                textBox13.Select(2, 1);
+            }
+        }
+
         private void btnNew_Click(object sender, EventArgs e)
         {
             switch (((Control)sender).Name)
@@ -214,6 +252,11 @@ namespace JosaleApp.Forms
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
+            if (textBox3.Text.Length == 1)
+            {
+                textBox3.Text = textBox3.Text[0].ToString().ToUpper();
+                textBox3.Select(2, 1);
+            }
             lab_customer.Text = textBox1.Text + " " + textBox2.Text+" "+ textBox3.Text;
         }
     }

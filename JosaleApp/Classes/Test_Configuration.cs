@@ -1,4 +1,5 @@
 ﻿using Connexion_manager;
+using JosaleApp.Forms;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,8 +21,10 @@ namespace JosaleApp.Classes
             { Cls_Connexion.Instance().Connect(); }
             else{
                 FormConfigurationServer frmconf = new FormConfigurationServer();
+                Create_User user = new Create_User();
                 frmconf.ShowDialog();
                 Cls_Connexion.Instance().Connect();
+                user.ShowDialog();
             }
         }
     }

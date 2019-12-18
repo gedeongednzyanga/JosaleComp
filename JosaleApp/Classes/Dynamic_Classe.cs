@@ -189,6 +189,36 @@ namespace JosaleApp.Classes
             }
         }
 
+        public void Load_Credit_2(DataGridView liste)
+        {
+            try
+            {
+                if (ImplementeConnexion.Instance.Conn.State == ConnectionState.Closed)
+                    ImplementeConnexion.Instance.Conn.Open();
+                using (IDbCommand cmd = ImplementeConnexion.Instance.Conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT_CLIENTPRET";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    IDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        liste.Rows.Add(dr["Numéro"].ToString(), dr["client"].ToString(), dr["Montantpaye"].ToString());
+                      
+                    }
+                    dr.Close();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur " + ex.Message, "Error");
+            }
+            finally
+            {
+                ImplementeConnexion.Instance.Conn.Close();
+            }
+        }
+
         public void Load_Emprunt(DataGridView liste)
         {
             int compteur = 1;
